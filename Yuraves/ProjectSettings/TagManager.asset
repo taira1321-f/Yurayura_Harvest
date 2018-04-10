@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer
+    uniqueID: 3808325615
+    locked: 0
+  - name: New Layer
+    uniqueID: 3810921941
+    locked: 0
+  - name: blackScreen
+    uniqueID: 72087785
+    locked: 0
