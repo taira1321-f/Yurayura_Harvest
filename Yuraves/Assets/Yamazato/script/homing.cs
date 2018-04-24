@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class homing : MonoBehaviour {
 
 	Vector2 A, C, AB, AC; // ベクトル
