@@ -41,6 +41,7 @@ public class Director : MonoBehaviour {
         Debug.Log("押されたよ");
         if (gameMode == MODE.PLAY) gameMode = MODE.STAY;
         else if (gameMode == MODE.STAY) gameMode = MODE.PLAY;
+        PauseDirector.PauseFlg = true;
     }
 
     void DebugScore() {
