@@ -34,6 +34,7 @@ public class Mandragora : MonoBehaviour
     
     void Update()
     {
+
         switch (ctype)
         {
             case CalotteType.FLEE:
@@ -51,7 +52,8 @@ public class Mandragora : MonoBehaviour
                 }
                 break;
 
-            case CalotteType.KEEP:
+            case CalotteType.KEEP:  //揺れる
+
                 if (Input.GetMouseButtonUp(0))
                 {
                     NoneParent();
