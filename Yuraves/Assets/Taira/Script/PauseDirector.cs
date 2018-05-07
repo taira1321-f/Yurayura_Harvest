@@ -4,46 +4,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseDirector : MonoBehaviour {
-
-    public GameObject SelectB;
-    public static bool PauseFlg;
-    bool RETRY_flg;
-    private Vector3 InitVec = new Vector3(0, 50, 0);
-    private Vector3 StayVec = new Vector3(0, -200, 0);
-    private Vector3 VecMove = new Vector3(0, -1.0f, 0);
-
+    
+    static public bool RETRY_flg;
+    public GameObject Canvas;
+    
 	// Use this for initialization
 	void Start () {
-        PauseFlg = false;
         RETRY_flg = false;
-        SelectB.transform.position = InitVec;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (PauseFlg) {
-            GameObject go = SelectB.transform.Find("Stop").gameObject;
-            go.SetActive(true);
-            Debug.Log("ウェーイ");
-            if (SelectB.transform.position.y <= StayVec.y){
-                SelectB.transform.position += VecMove;
-            }
-            else if (RETRY_flg && SelectB.transform.position.y >= InitVec.y) {
-                SelectB.transform.position -= InitVec;
-                PauseFlg = false;
-                RETRY_flg = false;
-            }
+        if (RETRY_flg){
+            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+            P_pos.SetActive(true);
+        }else{
+            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+            P_pos.SetActive(false);
         }
-
-	}
+    }
 
     public void RETRY() {
-        RETRY_flg = true;
-        SelectB.transform.position = InitVec;
+        RETRY_flg = false;
     }
 
     public void TITLE_B() {
-        PauseFlg = false;
+        RETRY_flg = false;
         SceneManager.LoadScene("dummy_TITLE");
     }
 }

@@ -494,7 +494,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 301923753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331577557}
+        m_MethodName: RETRY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &301923753
@@ -540,6 +551,7 @@ GameObject:
   - component: {fileID: 331577554}
   - component: {fileID: 331577555}
   - component: {fileID: 331577556}
+  - component: {fileID: 331577557}
   m_Layer: 0
   m_Name: Director
   m_TagString: Untagged
@@ -584,6 +596,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeGage: {fileID: 236693203}
   ScoreText: {fileID: 109329237}
+--- !u!114 &331577557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331577553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5531a4e86b72a4d43a74df5baa711e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canvas: {fileID: 1188943489}
 --- !u!1 &508749021
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +902,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1132643284}
-  - component: {fileID: 1132643285}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -893,7 +916,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132643283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: 50, z: 0}
+  m_LocalPosition: {x: -100, y: -170, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 301923751}
@@ -901,18 +924,6 @@ Transform:
   m_Father: {fileID: 1188943493}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1132643285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1132643283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5531a4e86b72a4d43a74df5baa711e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SelectB: {fileID: 1132643283}
 --- !u!1 &1188943489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1360,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2092056553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331577557}
+        m_MethodName: TITLE_B
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2092056553
