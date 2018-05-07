@@ -1,32 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class homing : MonoBehaviour {
+public class homing : MonoBehaviour
+{
 
 	Vector2 A, C, AB, AC; // ベクトル
 
-Transform target; // 追いかける対象
+    public Transform target; // 追いかける対象
+    public static bool MoveFlg;
 
-public float speed; // 移動スピード
-public float maxRot; // 曲がる最大角度
+    private float speed  = 0; // 移動スピード
+    private float maxRot = 0; // 曲がる最大角度
 
-// Use this for initialization
-void Start ()
-{
-target= GameObject.Find("p").transform; 
-transform.eulerAngles += new Vector3(0, 0, Sita()); // ターゲットの方向を向く
-}
+    // Use this for initialization
+    void Start ()
+    {
+    //target= GameObject.Find("p").transform; 
+    //transform.eulerAngles += new Vector3(0, 0, Sita()); // ターゲットの方向を向く
+    }
 
-// Update is called once per frame
-void Update ()
-{
-Move(Sita()); // 移動処理
-}
+    // Update is called once per frame
+    void Update ()
+    {
+        Move(Sita()); // 移動処理
+    }
 
-//-----------------------------------------------------------------------------------------------
-// なす角θを求める
-//-----------------------------------------------------------------------------------------------
-float Sita()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("in");
+            speed = Random.Range(1.0f, 1.5f);
+            maxRot = Random.Range(1.0f, 1.5f);
+            target = collision.gameObject.transform;
+            
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+            Debug.Log("out");
+            speed  = 0f;
+            maxRot = 0f; 
+    }
+
+    //-----------------------------------------------------------------------------------------------
+    // なす角θを求める
+    //-----------------------------------------------------------------------------------------------
+    float Sita()
 {
 
 A = transform.position; // 自身の座標
@@ -48,25 +69,25 @@ rot = -rot;
 return rot * 180f / Mathf.PI; // ラジアンからデグリーに変換して角度を返す
 }
 
-//-----------------------------------------------------------------------------------------------
-// 移動処理
-//-----------------------------------------------------------------------------------------------
-void Move(float rot)
-{
-// 求めた角度が曲がる最大角度より大きかった場合に戻す処理
-if (rot > maxRot)
+    //-----------------------------------------------------------------------------------------------
+    // 移動処理
+    //-----------------------------------------------------------------------------------------------
+    void Move(float rot)
+    {
+        // 求めた角度が曲がる最大角度より大きかった場合に戻す処理
+        if (rot > maxRot)
 
-{
-rot = maxRot;
-}
-else if (rot < -maxRot)
-{
-rot = -maxRot;
-}
+        {
+            rot = maxRot;
+        }
+        else if (rot < -maxRot)
+        {
+            rot = -maxRot;
+        }
 
-transform.eulerAngles += new Vector3(0, 0, rot); // 回転
+        transform.eulerAngles += new Vector3(0, 0, rot); // 回転
         GetComponent<Rigidbody2D>().velocity = AB * speed; // 上に移動
-}
+    }
 
 /// <summary>
 /// ベクトルの長さを求める
