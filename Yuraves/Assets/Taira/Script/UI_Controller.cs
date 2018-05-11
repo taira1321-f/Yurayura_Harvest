@@ -15,14 +15,12 @@ public class UI_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         slider = TimeGage.GetComponent<Slider>();
-        
-        
         ScoreText.GetComponent<Text>().text = "Score:0";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Director.CountTime >= LimitTime) Director.CountTime = 0;
+        //if (Director.CountTime >= LimitTime) Director.CountTime = 0;
         slider.value = TimeSlider();
         ScoreText.GetComponent<Text>().text = "Score:" + DebugScore();
 	}
