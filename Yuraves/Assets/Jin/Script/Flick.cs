@@ -25,7 +25,7 @@ public class Flick : MonoBehaviour {
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
     }
     void OnMouseDrag() {
-        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y-30f, screenPoint.z);
+        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;
         transform.position = currentPosition;
     }
