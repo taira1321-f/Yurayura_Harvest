@@ -6,21 +6,30 @@ public class ManCon : MonoBehaviour
 {
     
     [SerializeField]
-    private GameObject HotSpring;
+    private GameObject HotSpring1;
+    private GameObject HotSpring2;
+    private GameObject HotSpring3;
+    private GameObject HotSpring4;
+
+    private GameObject Mandoragora;
 
     //enum型を使うにはまずenumクラスを用意する	
 	public enum SpringType{
-		HotSpring1,
-		HotSpring2,
-		HotSpring3,
-		HotSpring4
+		Hot1,
+		Hot2,
+		Hot3,
+		Hot4
 	}
 
     public SpringType springType;
 
     void Start()
     {
-        HotSpring = GameObject.FindGameObjectWithTag("Spring");
+        HotSpring1 = GameObject.Find("HotSpring1");
+        HotSpring2 = GameObject.Find("HotSpring2");
+        HotSpring3 = GameObject.Find("HotSpring3");
+        HotSpring4 = GameObject.Find("HotSpring4");
+        Mandoragora = GameObject.FindGameObjectWithTag("Calotte");
     }
     
     void Update()
@@ -28,15 +37,40 @@ public class ManCon : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision) 
     {
-        switch(springType)
+        if(collision.gameObject.name == "HotSpring1")
+        {
+            springType = SpringType.Hot1;
 
-           // case Spring
+        }else if(collision.gameObject.name == "HotSpring2")
+        {
+            springType = SpringType.Hot2;
 
-        //衝突判定
-        //if (HotSpring.name == "Spring") 
-        //{
-            //相手のタグがSpringならば、自分を消す
-            //Destroy(HotSpring);
-        //}
+        }else if(collision.gameObject.name == "HotSpring3")
+        {
+            springType = SpringType.Hot3;
+
+        }
+        else if(collision.gameObject.name == "HotSpring4")
+        {
+            springType = SpringType.Hot4;
+        }
+
+        switch(springType){
+
+            case SpringType.Hot1:
+                Destroy(this.Mandoragora);
+                break;
+            case SpringType.Hot2:
+                Destroy(this.Mandoragora);
+                break;
+            case SpringType.Hot3:
+                Destroy(this.Mandoragora);
+                break;
+            case SpringType.Hot4:
+                Destroy(this.Mandoragora);
+                break;
+
+        }
+
     }
 }
