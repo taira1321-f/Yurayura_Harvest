@@ -59,6 +59,12 @@ public class Calotte : MonoBehaviour
                 }
                 break;
         }
+
+        if(transform.position.y < -6.0f)
+        {
+            Destroy(gameObject);
+            //GameObject man = Instantiate(Mandoragora)as GameObject;
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)

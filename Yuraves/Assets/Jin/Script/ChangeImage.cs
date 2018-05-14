@@ -18,24 +18,23 @@ public class ChangeImage : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeStateToHold();
-        }
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Mandoragora")
+        if(collision.gameObject.tag == "Calotte")
         {
-            Debug.Log("画像切り替え");
             ChangeStateToHold();
         }
     }
 
-    void ChangeStateToHold()
+    public void ChangeStateToHold()
     {
         //SpriteRenderのspriteを設定済みの他のspriteに変更
         //例）HoldSpriteに変更
         MainSpriteRenderer.sprite = HoldSprite;
+    }
+    public void ChangeStateToStandby()
+    {
+        MainSpriteRenderer.sprite = StandbySprite;
     }
 }
