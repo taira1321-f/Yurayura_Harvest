@@ -5,23 +5,22 @@ using UnityEngine;
 public class Mandragora : MonoBehaviour
 {
     //定数
-    private const float ClickMaxTime = 2.0f;
-    private const float MouseDistanceY = -1.5f;
-    private enum CalotteType { FLEE, KEEP };
+    const float ClickMaxTime = 2.0f;
+    const float MouseDistanceY = 1.5f;
+    public enum CalotteType { FLEE, KEEP, RESET };
     //変数
     [SerializeField]
-    private GameObject Player;
-    private bool KeepFlg;
-    private CalotteType ctype;
+    GameObject Player;
+    bool KeepFlg;
+    public CalotteType ctype;
     [SerializeField]
-    private float ClickTime;
-   
+    float ClickTime;
 
     //以下の関数はすべてprivateなので省略します。
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("RotationManager");
         ClickTime = 0.0f;
         KeepFlg = false;
     }
@@ -31,7 +30,7 @@ public class Mandragora : MonoBehaviour
         ClickTime = 0.0f;
         KeepFlg = false;
     }
-    
+
     void Update()
     {
 
@@ -56,9 +55,13 @@ public class Mandragora : MonoBehaviour
 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    NoneParent();
-                    ctype = CalotteType.FLEE;
+                    ctype = CalotteType.RESET;
                 }
+                break;
+
+            case CalotteType.RESET:  //揺れる
+                NoneParent();
+                ctype = CalotteType.FLEE;
                 break;
         }
     }

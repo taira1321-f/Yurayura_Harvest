@@ -11,9 +11,11 @@ public class MousePosition : MonoBehaviour
     public float TimeCounter;
     public const float TimeSpan = 0.1f;
     [SerializeField]
-    public float TolVector = 0.0f;
-    public static bool Status = false;//false 停止, true 動いてる
+    public static float TolVector = 0.0f;
+    public enum XDStatus{ initial = -1, right = 0, left};
+    public static XDStatus XDMode;
 
+    private bool Status = false;//false 停止, true 動いてる
     private float OldX;
     private float OldY;
 
@@ -40,7 +42,6 @@ public class MousePosition : MonoBehaviour
 
         TimeCounter += Time.deltaTime;
         
-        Debug.Log("TolVector " + TolVector);
         if (TimeCounter >= TimeSpan)
         {
             if (OldX == Mouse.transform.position.x && OldY == Mouse.transform.position.y)
@@ -53,6 +54,10 @@ public class MousePosition : MonoBehaviour
             }
             VectorCalculation();
         }
+        if(Status == false)
+        {
+            XDMode = XDStatus.initial;
+        }
     }
 
     void VectorCalculation()
@@ -64,6 +69,11 @@ public class MousePosition : MonoBehaviour
         if (x < 0.0f)
         {
             x = x * -1;
+            XDMode = XDStatus.right;
+        }
+        else if(x > 0.0f)
+        {
+            XDMode = XDStatus.left;
         }
         if (y < 0.0f)
         {
