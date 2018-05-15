@@ -236,7 +236,11 @@ Prefab:
     - target: {fileID: 50298539533894614, guid: e84c0e307ad78674587d7c9878415890,
         type: 2}
       propertyPath: m_Constraints
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419229533405794, guid: e84c0e307ad78674587d7c9878415890, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e84c0e307ad78674587d7c9878415890, type: 2}
