@@ -56,7 +56,7 @@ public class ChangeObjectMode : MonoBehaviour {
 	void Update () {
         //if (Calotte.ctype != Calotte.CalotteType.KEEP)
         //{
-        if (Parent != Relation&&OneceFlg==0)
+        if (Parent != Relation)
         {
 
             if (this.transform.position.y < -6.0f)
@@ -69,7 +69,7 @@ public class ChangeObjectMode : MonoBehaviour {
                 //transform.position = new Vector3(DamyChangeObject.transform.position.x, DamyChangeObject.transform.position.y, DamyChangeObject.transform.position.z);
                 //this.transform.position = DamyChangeObject.DamyPos;
 
-               
+
                 //CalotteScript.KeepFlg = false;
                 //go = Instantiate(MandragoraPrefub) as GameObject;
                 //go.transform.position = Damy.transform.position;
@@ -79,7 +79,7 @@ public class ChangeObjectMode : MonoBehaviour {
                 //DamyChangeObject.ObjectLifeSpan = 0;
                 //DamyChangeObject.ObjectReBornSpan = 0;
                 //DamyChangeObject.ChangeAlpha = 0.0f;
-                
+
                 //DamyStartScript.Start();
                 DamyFlg = 0;
                 Destroy(this.gameObject);
@@ -87,65 +87,67 @@ public class ChangeObjectMode : MonoBehaviour {
 
 
             }
-
-            switch (ObjectMode)
+            if (OneceFlg == 0)
             {
-                case 0:
-                    ObjectReBornSpan++;
-                    if (ObjectReBornSpan == 60)
-                    {
-                        ObjectReBornSpan = 0;
-                        if (Random.Range(0, 2) == 1)
+                switch (ObjectMode)
+                {
+                    case 0:
+                        ObjectReBornSpan++;
+                        if (ObjectReBornSpan == 60)
                         {
-                            MandoragoraMainSprite.sprite = MandoragoraSprite01;
-                            GetComponent<PolygonCollider2D>().enabled = true;
-                            GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
-                            ObjectMode = 1;
-                            Debug.Log("でたー");
+                            ObjectReBornSpan = 0;
+                            if (Random.Range(0, 2) == 1)
+                            {
+                                MandoragoraMainSprite.sprite = MandoragoraSprite01;
+                                GetComponent<PolygonCollider2D>().enabled = true;
+                                GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
+                                ObjectMode = 1;
+                                Debug.Log("でたー");
+                            }
+                        };
+                        break;
+                    case 1:
+                        ObjectStepUpSpan++;
+                        if (ObjectStepUpSpan == 300)
+                        {
+                            //GetComponent<PolygonCollider2D>().enabled = false;
+                            //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
+                            ObjectMode = 2;
+                            ObjectStepUpSpan = 0;
+                            MandoragoraMainSprite.sprite = MandoragoraSprite02;
+                            Debug.Log("かわったー");
                         }
-                    };
-                    break;
-                case 1:
-                    ObjectStepUpSpan++;
-                    if (ObjectStepUpSpan == 300)
-                    {
-                        //GetComponent<PolygonCollider2D>().enabled = false;
-                        //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
-                        ObjectMode = 2;
-                        ObjectStepUpSpan = 0;
-                        MandoragoraMainSprite.sprite = MandoragoraSprite02;
-                        Debug.Log("かわったー");
-                    }
-                    break;
+                        break;
 
-                case 2:
-                    ObjectStepUpSpan++;
-                    if (ObjectStepUpSpan == 300)
-                    {
-                        //GetComponent<PolygonCollider2D>().enabled = false;
-                        //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
-                        ObjectMode = 3;
-                        MandoragoraMainSprite.sprite = MandoragoraSprite03;
-                        ObjectStepUpSpan = 0;
-                        Debug.Log("かわったー");
-                    }
-                    break;
+                    case 2:
+                        ObjectStepUpSpan++;
+                        if (ObjectStepUpSpan == 300)
+                        {
+                            //GetComponent<PolygonCollider2D>().enabled = false;
+                            //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
+                            ObjectMode = 3;
+                            MandoragoraMainSprite.sprite = MandoragoraSprite03;
+                            ObjectStepUpSpan = 0;
+                            Debug.Log("かわったー");
+                        }
+                        break;
 
-                case 3:
-                    ObjectLifeSpan++;
-                    if (ObjectLifeSpan == 300)
-                    {
-                        GetComponent<PolygonCollider2D>().enabled = false;
-                        GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
-                        ObjectLifeSpan = 0;
-                        ObjectMode = 0;
-                        Debug.Log("きえたー");
-                    }
-                    break;
+                    case 3:
+                        ObjectLifeSpan++;
+                        if (ObjectLifeSpan == 300)
+                        {
+                            GetComponent<PolygonCollider2D>().enabled = false;
+                            GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
+                            ObjectLifeSpan = 0;
+                            ObjectMode = 0;
+                            Debug.Log("きえたー");
+                        }
+                        break;
+                }
             }
 
         }
-        else if(Parent == Relation&&OneceFlg==0)
+        else if (Parent == Relation && OneceFlg == 0)
         {
             //DamyFlg = 1;
             OneceFlg = 1;
