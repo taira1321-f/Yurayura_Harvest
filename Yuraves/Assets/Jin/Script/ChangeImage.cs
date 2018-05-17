@@ -9,23 +9,13 @@ public class ChangeImage : MonoBehaviour {
     public Sprite HoldSprite;
     public Sprite SlashSprite;
 
-    private GameObject Mandoragora;
-
 	void Start () {
 		//このobjectのSpriteRendererを取得
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        Mandoragora = GameObject.FindGameObjectWithTag("Calotte");
 	}
 	
 	void Update () {
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Calotte")
-        {
-            ChangeStateToHold();
-        }
-    }
 
     public void ChangeStateToHold()
     {
