@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Calotte : MonoBehaviour
+public class CalotteYogi : MonoBehaviour
 {
     //定数
     private const float ClickMaxTime = 1.0f;
