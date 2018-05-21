@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Taira/TairaScene.unity
+    guid: 78f11508bd7989e4d8d0662d8c67135f
+  - enabled: 1
+    path: Assets/Taira/Scene/dummy_TITLE.unity
+    guid: ddb99a95d3f7848428889ee95396bcfc
