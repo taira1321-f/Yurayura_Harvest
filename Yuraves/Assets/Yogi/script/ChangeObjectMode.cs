@@ -15,12 +15,14 @@ public class ChangeObjectMode : MonoBehaviour {
     int ObjectStepUpSpan = 0;
     PolygonCollider2D ColiderObject;
     SpriteRenderer MandoragoraMainSprite;
+    Animator MandoragoraMainAnimation;
     DamyChangeObject DamyStartScript;
     Calotte CalotteScript;
     Object MousePointor;
     public Sprite MandoragoraSprite01;
     public Sprite MandoragoraSprite02;
     public Sprite MandoragoraSprite03;
+
     public GameObject Parent;
     public GameObject Relation;
     GameObject Damy;
@@ -42,6 +44,7 @@ public class ChangeObjectMode : MonoBehaviour {
         Green= GetComponent<SpriteRenderer>().color.g;
         Alpha = GetComponent<SpriteRenderer>().color.a;
         MandoragoraMainSprite= gameObject.GetComponent<SpriteRenderer>();
+        MandoragoraMainAnimation = gameObject.GetComponent<Animator>();
         //マンドラゴラを消す
         GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
         GetComponent<PolygonCollider2D>().enabled = false;
@@ -96,9 +99,10 @@ public class ChangeObjectMode : MonoBehaviour {
                         if (ObjectReBornSpan == 60)
                         {
                             ObjectReBornSpan = 0;
-                            if (Random.Range(0, 2) == 1)
+                            if (Random.Range(0, 5) == 1)
                             {
                                 MandoragoraMainSprite.sprite = MandoragoraSprite01;
+                                //MandoragoraMainAnimation.=Animation01;
                                 GetComponent<PolygonCollider2D>().enabled = true;
                                 GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
                                 ObjectMode = 1;
@@ -115,6 +119,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 2;
                             ObjectStepUpSpan = 0;
                             MandoragoraMainSprite.sprite = MandoragoraSprite02;
+                            MandoragoraMainAnimation.SetTrigger("growth");
                             Debug.Log("かわったー");
                         }
                         break;
@@ -128,6 +133,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 3;
                             MandoragoraMainSprite.sprite = MandoragoraSprite03;
                             ObjectStepUpSpan = 0;
+                            MandoragoraMainAnimation.SetTrigger("growth2");
                             Debug.Log("かわったー");
                         }
                         break;
@@ -140,6 +146,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
                             ObjectLifeSpan = 0;
                             ObjectMode = 0;
+                            MandoragoraMainAnimation.SetTrigger("dead");
                             Debug.Log("きえたー");
                         }
                         break;
