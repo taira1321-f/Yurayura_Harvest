@@ -6,6 +6,7 @@ public class ChangeObjectMode : MonoBehaviour {
 
     int ObjectMode=0;
     int ObjectLifeSpan=0;
+    private float InitPosX,InitPosY,InitPosZ;
     GameObject go;
     int ObjectReBornSpan=0;
     Rigidbody2D ObjectRigit;
@@ -37,6 +38,11 @@ public class ChangeObjectMode : MonoBehaviour {
         ObjectLifeSpan = 0;
         ObjectReBornSpan = 0;
         ObjectStepUpSpan = 0;
+        InitPosX = transform.position.x;
+        InitPosY = transform.position.y;
+        InitPosZ = transform.position.z;
+
+
         ChangeAlpha = 0.0f;
         ObjectRigit = GetComponent<Rigidbody2D>();
         Red = GetComponent<SpriteRenderer>().color.r;
@@ -159,7 +165,7 @@ public class ChangeObjectMode : MonoBehaviour {
             //DamyFlg = 1;
             OneceFlg = 1;
             go = Instantiate(MandragoraPrefub) as GameObject;
-            go.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            go.transform.position = new Vector3(InitPosX,InitPosY,InitPosZ);
             //Damy.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
         }
         

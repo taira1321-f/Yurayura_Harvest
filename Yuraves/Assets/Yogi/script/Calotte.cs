@@ -13,7 +13,7 @@ public class Calotte : MonoBehaviour
     private bool rigidbodyflg;
     [SerializeField]
     private GameObject Player;
-    public bool KeepFlg;
+    private bool KeepFlg;
     CalotteType ctype;
     [SerializeField]
     private float ClickTime;
