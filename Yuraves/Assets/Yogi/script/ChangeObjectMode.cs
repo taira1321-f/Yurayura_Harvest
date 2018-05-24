@@ -125,7 +125,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 2;
                             ObjectStepUpSpan = 0;
                             MandoragoraMainSprite.sprite = MandoragoraSprite02;
-                            MandoragoraMainAnimation.SetTrigger("growth");
+                            MandoragoraMainAnimation.SetTrigger("Growth1");
                             Debug.Log("かわったー");
                         }
                         break;
@@ -139,7 +139,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 3;
                             MandoragoraMainSprite.sprite = MandoragoraSprite03;
                             ObjectStepUpSpan = 0;
-                            MandoragoraMainAnimation.SetTrigger("growth2");
+                            MandoragoraMainAnimation.SetTrigger("Growth2");
                             Debug.Log("かわったー");
                         }
                         break;
@@ -152,7 +152,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
                             ObjectLifeSpan = 0;
                             ObjectMode = 0;
-                            MandoragoraMainAnimation.SetTrigger("dead");
+                            MandoragoraMainAnimation.SetTrigger("Reset");
                             Debug.Log("きえたー");
                         }
                         break;

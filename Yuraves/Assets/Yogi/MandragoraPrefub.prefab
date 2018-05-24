@@ -9,36 +9,36 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1286801594597724}
+  m_RootGameObject: {fileID: 1708476530404044}
   m_IsPrefabParent: 1
---- !u!1 &1286801594597724
+--- !u!1 &1708476530404044
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4070271012597180}
-  - component: {fileID: 212723668901727172}
-  - component: {fileID: 60497805428229960}
-  - component: {fileID: 114620889461096930}
-  - component: {fileID: 114352057790614184}
-  - component: {fileID: 114597014065510102}
-  - component: {fileID: 50357379296464194}
-  - component: {fileID: 95970301431078096}
+  - component: {fileID: 4216419249102028}
+  - component: {fileID: 212703954019374620}
+  - component: {fileID: 60093345090729400}
+  - component: {fileID: 114204534349879688}
+  - component: {fileID: 114906542905069968}
+  - component: {fileID: 114749420709079264}
+  - component: {fileID: 50268029400816422}
+  - component: {fileID: 95520300478641990}
   m_Layer: 0
-  m_Name: Mandragora01
+  m_Name: MandragoraPrefub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4070271012597180
+--- !u!4 &4216419249102028
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.77, y: -4.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -46,13 +46,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50357379296464194
+--- !u!50 &50268029400816422
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -66,12 +66,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60497805428229960
+--- !u!60 &60093345090729400
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -93,13 +93,13 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5}
       - {x: -0.4330127, y: -0.25000003}
       - {x: 0.43301272, y: -0.24999996}
---- !u!95 &95970301431078096
+--- !u!95 &95520300478641990
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: db820263633cdce42ad03dbccd93d011, type: 2}
@@ -110,18 +110,43 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114352057790614184
+--- !u!114 &114204534349879688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3161d3d04c6f7d479227355243c16f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114749420709079264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708476530404044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbfd80841ac8424ab875823e402b644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbodyflg: 1
+  Player: {fileID: 0}
+  ClickTime: 0
+--- !u!114 &114906542905069968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708476530404044}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0efcc2ae835180544b223166c816173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MandragoraPrefub: {fileID: 1601084506323538, guid: 8eb27eb16d6123148b99d38da0fc1599,
+  MandragoraPrefub: {fileID: 1286801594597724, guid: f817918a5d9fe134291a1288f45e943f,
     type: 2}
   MandoragoraSprite01: {fileID: 21300000, guid: c1c57f7aef41bad42b008c342555a158,
     type: 3}
@@ -131,38 +156,12 @@ MonoBehaviour:
     type: 3}
   Parent: {fileID: 0}
   Relation: {fileID: 0}
---- !u!114 &114597014065510102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dbfd80841ac8424ab875823e402b644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbodyflg: 1
-  Player: {fileID: 0}
-  KeepFlg: 0
-  ClickTime: 0
---- !u!114 &114620889461096930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3161d3d04c6f7d479227355243c16f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &212723668901727172
+--- !u!212 &212703954019374620
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286801594597724}
+  m_GameObject: {fileID: 1708476530404044}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
