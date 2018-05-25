@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212700914144082252}
   - component: {fileID: 61946935535948030}
   - component: {fileID: 50349250109259844}
+  - component: {fileID: 114995354230097260}
   m_Layer: 0
   m_Name: HotSpring Prefab
   m_TagString: Spring
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942861811781770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 3.5, z: 0.048506454}
+  m_LocalPosition: {x: 1.9, y: 3.5, z: 0.048506454}
   m_LocalScale: {x: 0.10974237, y: 0.10992442, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,6 +88,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 6.84}
   m_EdgeRadius: 0
+--- !u!114 &114995354230097260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942861811781770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c36497bb407d8542bdf0d888d95f0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandbySprite: {fileID: 21300000, guid: a661a5f31ce348f4ba3cf7754a338b0f, type: 3}
+  HoldSprite: {fileID: 21300000, guid: 4fe9aff91694bf148b6f027fe62dd788, type: 3}
+  SlashSprite: {fileID: 21300000, guid: a661a5f31ce348f4ba3cf7754a338b0f, type: 3}
 --- !u!212 &212700914144082252
 SpriteRenderer:
   m_ObjectHideFlags: 1

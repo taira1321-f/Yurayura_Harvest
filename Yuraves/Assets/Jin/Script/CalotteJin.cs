@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Calotte : MonoBehaviour
+public class CalotteJin : MonoBehaviour
 {
     //定数
-    private const float ClickMaxTime = 2.0f;
+    private const float ClickMaxTime = 1.0f;
     private const float MouseDistanceY = 1.5f;
     private enum CalotteType { FLEE, KEEP };
     //変数

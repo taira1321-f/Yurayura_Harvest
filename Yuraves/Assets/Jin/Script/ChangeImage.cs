@@ -14,13 +14,9 @@ public class ChangeImage : MonoBehaviour {
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
-	void Update () {
-	}
-
     public void ChangeStateToHold()
     {
         //SpriteRenderのspriteを設定済みの他のspriteに変更
-        //例）HoldSpriteに変更
         MainSpriteRenderer.sprite = HoldSprite;
     }
     public void ChangeStateToStandby()

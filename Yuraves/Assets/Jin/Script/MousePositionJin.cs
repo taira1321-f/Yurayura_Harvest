@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MousePosition : MonoBehaviour {
+public class MousePositionJin : MonoBehaviour {
     private GameObject Mouse = null;
     private Vector3 Screenmousepos;
     private Vector3 Worldmousepos;
