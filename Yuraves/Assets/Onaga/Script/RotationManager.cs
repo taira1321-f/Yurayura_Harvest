@@ -12,7 +12,7 @@ public class RotationManager : MonoBehaviour
     private const float StopperRotation = 180.0f;//傾きの判定用の数値
 
     private const float ZeroSet = 10.0f;//動いていないときの戻る間隔
-    private const float InitSpeed = 5.0f;//動かしていないときの戻る速さ
+    private const float InitSpeed = 10.0f;//動かしていないときの戻る速さ
 
     public enum ChildCount { none, child };//子供がいるかいないか
     private enum PositionInit { right, left, zero };//移動方向が右か左か動いていないか
@@ -122,15 +122,10 @@ public class RotationManager : MonoBehaviour
                                         positionInit = PositionInit.left;
                                     }
                                     break;
-                            }
 
-                            if (VectorCounter - roopcount * ZeroSet < ZeroSet)
-                            {
-
-                                Debug.Log("通った");
-                                roopcount = 0;
-                                InitVactor = 0.0f;
-                                transform.eulerAngles -= new Vector3(0, 0, 0);
+                                case PositionInit.zero:
+                                    transform.eulerAngles = new Vector3(0, 0, 0);
+                                    break;
                             }
                         }
                         break;
@@ -152,7 +147,7 @@ public class RotationManager : MonoBehaviour
 
     void SlopeVector(float Vector)
     {
-        Debug.Log("通ってる");
+
         if (Vector >= MinRotation)
         {
             positionInit = PositionInit.left;
