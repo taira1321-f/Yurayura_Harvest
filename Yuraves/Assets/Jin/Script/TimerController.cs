@@ -9,18 +9,18 @@ public class TimerController : MonoBehaviour {
 	int seconds;
 
     //リセット
-    private GameObject Reset;
+    public GameObject Reset;
 
 	void Start () {
 		//温泉をリセット
-        Reset = GameObject.Find("ResetAllHotSpring");
+        //Reset = GameObject.Find("ResetAllHotSpring");
 	}
 	
 	void Update () {
 		totalTime -= Time.deltaTime;
 		seconds = (int)totalTime;
 		timerText.text= seconds.ToString();
-        if (FlagManager.Flag1 == true && FlagManager.Flag2 == true && FlagManager.Flag3 == true && FlagManager.Flag4 == true)
+        if (MandGeneretor.Flag1 == true && MandGeneretor.Flag2 == true && MandGeneretor.Flag3 == true && MandGeneretor.Flag4 == true)
         {
             totalTime = 20;
         }

@@ -7,11 +7,10 @@ public class ChangeImage : MonoBehaviour {
     // publicで宣言し、inspectorで設定可能にする
     public Sprite StandbySprite;
     public Sprite HoldSprite;
-    public Sprite SlashSprite;
 
 	void Start () {
 		//このobjectのSpriteRendererを取得
-        MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        MainSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	void Update () {

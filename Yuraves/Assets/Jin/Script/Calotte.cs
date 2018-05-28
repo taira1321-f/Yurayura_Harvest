@@ -5,22 +5,18 @@ using UnityEngine;
 public class Calotte : MonoBehaviour
 {
     //定数
-    private const float ClickMaxTime = 2.0f;
+    private const float ClickMaxTime = 1.0f;
     private const float MouseDistanceY = 1.5f;
     private enum CalotteType { FLEE, KEEP };
     //変数
-    [SerializeField]
-    private GameObject Player;
+    public GameObject Player;
     private bool KeepFlg;
     private CalotteType ctype;
-    [SerializeField]
     private float ClickTime;
-   
-
-    //以下の関数はすべてprivateなので省略します。
 
     void Start()
     {
+        //MG = GetComponent<MandGeneretor>();
         Player = GameObject.FindGameObjectWithTag("Player");
         ClickTime = 0.0f;
         KeepFlg = false;
@@ -44,6 +40,7 @@ public class Calotte : MonoBehaviour
                         ClickTime += Time.deltaTime;
                         if (ClickTime >= ClickMaxTime)
                         {
+                            //MG.MandGene();
                             SetParent();
                             ctype = CalotteType.KEEP;
                         }
@@ -54,6 +51,7 @@ public class Calotte : MonoBehaviour
             case CalotteType.KEEP:
                 if (Input.GetMouseButtonUp(0))
                 {
+                    
                     NoneParent();
                     ctype = CalotteType.FLEE;
                 }
@@ -63,7 +61,6 @@ public class Calotte : MonoBehaviour
         if(transform.position.y < -6.0f)
         {
             Destroy(gameObject);
-            //GameObject man = Instantiate(Mandoragora)as GameObject;
         }
     }
 

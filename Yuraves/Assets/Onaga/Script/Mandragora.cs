@@ -6,17 +6,13 @@ public class Mandragora : MonoBehaviour
 {
     //定数
     const float ClickMaxTime = 2.0f;
-    const float MouseDistanceY = 1.5f;
+    const float MouseDistanceY = 1.0f;
     public enum CalotteType { FLEE, KEEP, RESET };
     //変数
-    [SerializeField]
-    GameObject Player;
+    public GameObject Player;
     bool KeepFlg;
     public CalotteType ctype;
-    [SerializeField]
     float ClickTime;
-
-    //以下の関数はすべてprivateなので省略します。
 
     void Start()
     {
@@ -50,7 +46,6 @@ public class Mandragora : MonoBehaviour
                     }
                 }
                 break;
-
             case CalotteType.KEEP:  //揺れる
 
                 if (Input.GetMouseButtonUp(0))
@@ -58,7 +53,6 @@ public class Mandragora : MonoBehaviour
                     ctype = CalotteType.RESET;
                 }
                 break;
-
             case CalotteType.RESET:  //揺れる
                 NoneParent();
                 ctype = CalotteType.FLEE;
