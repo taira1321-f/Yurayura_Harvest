@@ -131,6 +131,23 @@ MonoBehaviour:
   StandbySprite: {fileID: 21300000, guid: a661a5f31ce348f4ba3cf7754a338b0f, type: 3}
   HoldSprite: {fileID: 21300000, guid: 4fe9aff91694bf148b6f027fe62dd788, type: 3}
   SlashSprite: {fileID: 21300000, guid: a661a5f31ce348f4ba3cf7754a338b0f, type: 3}
+--- !u!95 &199281605
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199281603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 008bc3f00bf889f4da4042477054fdf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &270577144 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1942861811781770, guid: 98e8f58973d61b6499e0dc3aa892d81b,
@@ -1752,7 +1769,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1913890465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.130167, y: -0.31568152, z: -0.068580925}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
