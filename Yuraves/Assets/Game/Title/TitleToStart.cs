@@ -2,20 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class TitleToStart : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-        
-	}
+public class TitleToStart : FadeScript
+{
+ 
+    int ToStartFlg=0;
+    
+    // Use this for initialization
+    void Start () {
+        FadeInFlg = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+        FadeOutSet(FadeOutFlg);
+        FadeInSet(FadeInFlg);
+
+        if (ToStartFlg == 1&&A >=1.0f)
+        {
+            SceneManager.LoadScene("DummyScene");//シーン移動
+            
+        }
+      
+        if (A <= 0.0f)
+        {
+           
+            FadeInFlg = false;
+        }
+        
+
+    }
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("DummyScene");
+        FadeOutFlg = true;
+        ToStartFlg=1;
+    
+        //SceneManager.LoadScene("DummyScene");
     }
+    //かわいいよー
 }

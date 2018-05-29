@@ -186,6 +186,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729959969}
+--- !u!1001 &870209519
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.30000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.30000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.014705896
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1030970939
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4366eee38bf0784c84a764d90b51df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadePanelSpriteRenderer: {fileID: 1798108678}
+  A: 1
+  R: 0
+  G: 0
+  B: 0
+  FadeOutFlg: 0
+  FadeInFlg: 0
 --- !u!1 &1367292880
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.12, y: -50.23}
+  m_AnchoredPosition: {x: 0.120000005, y: -50.229996}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367292882
@@ -473,8 +547,8 @@ Canvas:
   m_GameObject: {fileID: 1475018563}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 2126622936}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -492,8 +566,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475018563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 117, y: 187, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.024691358, y: 0.024691358, z: 0.024691358}
   m_Children:
   - {fileID: 1509185321}
   - {fileID: 1367292881}
@@ -539,7 +613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: 22.8}
+  m_AnchoredPosition: {x: 0.39999998, y: 22.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509185322
@@ -627,6 +701,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1509185320}
+--- !u!212 &1798108678 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+    type: 2}
+  m_PrefabInternal: {fileID: 870209519}
 --- !u!1 &1968645823
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +733,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab893e5c6b56ae44aa6034f681e48ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadePanelSpriteRenderer: {fileID: 1798108678}
+  A: 1
+  R: 0
+  G: 0
+  B: 0
+  FadeOutFlg: 0
+  FadeInFlg: 0
 --- !u!224 &1968645825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -875,7 +961,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -50
   m_Sprite: {fileID: 21300000, guid: 098a18c00cc58ec4991a233f94fca53a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
