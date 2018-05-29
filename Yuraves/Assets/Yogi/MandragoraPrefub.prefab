@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efcc2ae835180544b223166c816173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MandragoraPrefub: {fileID: 1286801594597724, guid: f817918a5d9fe134291a1288f45e943f,
-    type: 2}
+  MandragoraPrefub: {fileID: 1708476530404044}
   MandoragoraSprite01: {fileID: 21300000, guid: c1c57f7aef41bad42b008c342555a158,
     type: 3}
   MandoragoraSprite02: {fileID: 21300000, guid: b365cc61ed822584bb7e29eb9131bf2b,
