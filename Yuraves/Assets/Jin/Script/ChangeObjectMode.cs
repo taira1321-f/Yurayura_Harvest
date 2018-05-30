@@ -61,7 +61,6 @@ public class ChangeObjectMode : MonoBehaviour {
                                 GetComponent<PolygonCollider2D>().enabled = true;
                                 GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
                                 ObjectMode = 1;
-                                Debug.Log("でたー");
                             }
                         };
                         break;
@@ -74,7 +73,7 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 2;
                             ObjectStepUpSpan = 0;
                             MandoragoraMainSprite.sprite = MandoragoraSprite02;
-                            Debug.Log("かわったー");
+                            
                         }
                         break;
 
@@ -87,7 +86,6 @@ public class ChangeObjectMode : MonoBehaviour {
                             ObjectMode = 3;
                             MandoragoraMainSprite.sprite = MandoragoraSprite03;
                             ObjectStepUpSpan = 0;
-                            Debug.Log("かわったー");
                         }
                         break;
 
@@ -99,7 +97,6 @@ public class ChangeObjectMode : MonoBehaviour {
                             GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
                             ObjectLifeSpan = 0;
                             ObjectMode = 0;
-                            Debug.Log("きえたー");
                         }
                         break;
                 }

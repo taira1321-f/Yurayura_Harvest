@@ -6,31 +6,44 @@ public class ResetHotSpring : MonoBehaviour {
     //温泉
     public GameObject[] Spring;
     private TimerController timercontroller;
-
+    public GameObject MandMane;
+    bool[] checkFlg = new bool[4];
      void Start () {
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (MandGeneretor.Flag1 == true && MandGeneretor.Flag2 == true && MandGeneretor.Flag3 == true && MandGeneretor.Flag4 == true)
+        int i = checkFlg.Length - 1;
+        for (; i >= 0; i--){
+            checkFlg[i] = MandMane.GetComponent<MandGeneretor>().HotSpringFlag[i];
+        }
+        if (AllTrue())
         {
-            Debug.Log("４つ埋まった");
             Invoke("HotSpringReset", 2);
         }
 	}
+
+    bool AllTrue() {
+        int cnt = 0;//trueカウンター
+        for (int i = 0; i <= 3; i++) {
+            if (checkFlg[i]) cnt++;
+        }
+        if (cnt == 4) return true;
+        else return false;
+    }
     public void HotSpringReset()
     {
         //すべてのフラグをfalseへ
-        MandGeneretor.Flag1 = false;
-        MandGeneretor.Flag2 = false;
-        MandGeneretor.Flag3 = false;
-        MandGeneretor.Flag4 = false;
-
-        for(int i=0;i>=3;i++){
-            //すべての温泉の画像切り替え
+        int a = MandMane.GetComponent<MandGeneretor>().HotSpringFlag.Length - 1;
+        for (; a >= 0; a--) {
+            MandMane.GetComponent<MandGeneretor>().HotSpringFlag[a] = false;
+        }
+        //すべての温泉の画像切り替えと当たり判定の復活
+        int i = Spring.Length - 1;
+        for (; i >= 0; i--)
+        {
             this.Spring[i].GetComponent<ChangeImage>().ChangeStateToStandby();
-            //当たり判定の復活
             this.Spring[i].GetComponent<BoxCollider2D>().enabled = true;
         }
     }

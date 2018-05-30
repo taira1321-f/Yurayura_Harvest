@@ -94,7 +94,6 @@ public class RotationManager : MonoBehaviour
                             switch (positionInit)
                             {
                                 case PositionInit.left:
-                                    //Debug.Log(roopcount * ZeroSet);
                                     if (VectorCounter > roopcount * (int)ZeroSet)
                                     {
                                         transform.eulerAngles += new Vector3(0, 0, InitSpeed);

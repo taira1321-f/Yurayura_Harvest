@@ -10,8 +10,6 @@ public class CalotteYogi : MonoBehaviour
     enum CalotteType { FLEE, KEEP };
     //変数
     [SerializeField]
-    private bool rigidbodyflg;
-    [SerializeField]
     private GameObject Player;
     public bool KeepFlg;
     CalotteType ctype;
@@ -87,9 +85,5 @@ public class CalotteYogi : MonoBehaviour
     void NoneParent()
     {
         gameObject.transform.parent = null;
-        if (rigidbodyflg)
-        {
-            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        }
     }
 }

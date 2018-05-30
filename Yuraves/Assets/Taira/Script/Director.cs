@@ -29,7 +29,7 @@ public class Director : MonoBehaviour {
                 DebugScore();
                 break;
             case MODE.STAY:
-                Debug.Log("!?");
+                
                 break;
         }
         if (CountTime <= 0) SceneManager.LoadScene("Dummy_TITLE");
@@ -41,7 +41,7 @@ public class Director : MonoBehaviour {
     }
 
     public void MenuButton() {
-        Debug.Log("押されたよ");
+        
         if (gameMode == MODE.PLAY)
         {
             gameMode = MODE.STAY;

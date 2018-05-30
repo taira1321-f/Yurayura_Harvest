@@ -13,7 +13,7 @@ public class Calotte : MonoBehaviour
     private bool KeepFlg;
     private CalotteType ctype;
     private float ClickTime;
-
+    public GameObject MandMane;
     void Start()
     {
         //MG = GetComponent<MandGeneretor>();
@@ -60,7 +60,9 @@ public class Calotte : MonoBehaviour
 
         if(transform.position.y < -6.0f)
         {
+            MandMane.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
             Destroy(gameObject);
+            
         }
     }
 

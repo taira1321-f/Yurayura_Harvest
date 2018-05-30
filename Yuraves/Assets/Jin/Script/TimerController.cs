@@ -10,6 +10,8 @@ public class TimerController : MonoBehaviour {
 
     //リセット
     public GameObject Reset;
+    public GameObject MandMane;
+    bool[] checkFlg = new bool[4];
 
 	void Start () {
 		//温泉をリセット
@@ -20,18 +22,24 @@ public class TimerController : MonoBehaviour {
 		totalTime -= Time.deltaTime;
 		seconds = (int)totalTime;
 		timerText.text= seconds.ToString();
-        if (MandGeneretor.Flag1 == true && MandGeneretor.Flag2 == true && MandGeneretor.Flag3 == true && MandGeneretor.Flag4 == true)
+        if (AllTrue())
         {
             totalTime = 20;
         }
         if(seconds == 0)
         {
-            Debug.Log("時間が0になった");
             totalTime = 20;
-
-           Reset.GetComponent<ResetHotSpring>().HotSpringReset();
-            
+           Reset.GetComponent<ResetHotSpring>().HotSpringReset();   
         }
-
 	}
+    bool AllTrue()
+    {
+        int cnt = 0;//trueカウンター
+        int i = (checkFlg.Length - 1);//checkFlg配列のサイズを取得
+        for (; i >= 0; i--){
+            if (checkFlg[i]) cnt++;
+        }
+        if (cnt == 4) return true;
+        else return false;
+    }
 }

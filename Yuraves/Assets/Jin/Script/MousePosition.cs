@@ -20,6 +20,6 @@ public class MousePosition : MonoBehaviour {
         //カメラより前に変更し自身オブジェクトへ
         Worldmousepos.z = 0.0f;
         Mouse.transform.position = Worldmousepos;
-        //Debug.Log(Worldmousepos);
+        
     }
 }
