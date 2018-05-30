@@ -6,24 +6,15 @@ public class Mandragora : MonoBehaviour
 {
     //定数
     const float ClickMaxTime = 2.0f;
-<<<<<<< HEAD
-    const float MouseDistanceY = 1.0f;
-    public enum CalotteType { FLEE, KEEP, RESET };
-    //変数
-    public GameObject Player;
-=======
     const float MouseDistanceY = 1.5f;
     //変数
     public enum CalotteType { FLEE, KEEP, RESET, FALL };
     [SerializeField]
     GameObject Player;
->>>>>>> onaga
     bool KeepFlg;
     public CalotteType ctype;
     float ClickTime;
 
-<<<<<<< HEAD
-=======
     //落下用変数
     public enum FallStatus { FALL, OROORO, FLIGHT };
     public FallStatus fallStatus;
@@ -35,7 +26,6 @@ public class Mandragora : MonoBehaviour
     private float PositionX, PositionY, PositionZ;
     //以下の関数はすべてprivateなので省略します。
 
->>>>>>> onaga
     void Start()
     {
         Player = GameObject.Find("RotationManager");
