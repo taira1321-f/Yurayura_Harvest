@@ -35,6 +35,11 @@ public class RotationManager : MonoBehaviour
     void Initialize()
     {
         InitVactor = 0.0f;
+        VectorCounter = 0.0f;
+        saveVector = 0.0f;
+        InitSpeed = 0.0f;
+        SpeedAddition = 0.0f;
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
     void Update()
     {
@@ -170,6 +175,7 @@ public class RotationManager : MonoBehaviour
             foreach (Transform child in transform)
             {
                 child.GetComponent<Mandragora>().ctype = Mandragora.CalotteType.RESET;
+                Initialize();
             }
         }
     }
