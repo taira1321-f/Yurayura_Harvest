@@ -67,7 +67,7 @@ public class RotationManager : MonoBehaviour
                 switch (Onaga.MousePosition.XDMode)
                 {
                     //右に移動中
-                    case MousePosition.XDStatus.right:
+                    case Onaga.MousePosition.XDStatus.right:
                         if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
                         {
                             transform.eulerAngles -= new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
@@ -80,7 +80,7 @@ public class RotationManager : MonoBehaviour
                         ReleaseChild();
                         break;
                     //左に移動中
-                    case MousePosition.XDStatus.left:
+                    case Onaga.MousePosition.XDStatus.left:
                         if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
                         {
                             transform.eulerAngles += new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
@@ -94,7 +94,7 @@ public class RotationManager : MonoBehaviour
                         break;
 
                     //移動していない
-                    case MousePosition.XDStatus.initial:
+                    case Onaga.MousePosition.XDStatus.initial:
                         int roopcount = 1;
 
                         if (VectorCounter > 0.0f)
