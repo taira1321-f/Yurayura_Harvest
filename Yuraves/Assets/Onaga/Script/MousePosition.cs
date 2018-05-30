@@ -16,8 +16,7 @@ public class MousePosition : MonoBehaviour
     public static XDStatus XDMode;
 
     private bool Status = false;//false 停止, true 動いてる
-    private float OldX;
-    private float OldY;
+    private float OldX, OldY;
 
     void Start()
     {
@@ -54,9 +53,12 @@ public class MousePosition : MonoBehaviour
             }
             VectorCalculation();
         }
-        if(Status == false)
+        if (XDMode != XDStatus.initial)
         {
-            XDMode = XDStatus.initial;
+            if (Status == false)
+            {
+                XDMode = XDStatus.initial;
+            }
         }
     }
 
