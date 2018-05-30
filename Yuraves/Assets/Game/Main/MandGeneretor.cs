@@ -7,10 +7,10 @@ public class MandGeneretor : MonoBehaviour {
     public bool[] HotSpringFlag = new bool[4];
     public GameObject MandPrefab;//生成するやつー
     Vector3[] GPos = {
-                         new Vector3( -2.0f, -3.5f, 0f),
-                         new Vector3(-0.75f, -3.5f, 0f),
-                         new Vector3( 0.75f, -3.5f, 0f),
-                         new Vector3(  2.0f, -3.5f, 0f),
+                         new Vector3( -2.0f, -3.0f, 0f),
+                         new Vector3(-0.75f, -3.0f, 0f),
+                         new Vector3( 0.75f, -3.0f, 0f),
+                         new Vector3(  2.0f, -3.0f, 0f),
                      };
 	// Use this for initialization
 	void Start () {

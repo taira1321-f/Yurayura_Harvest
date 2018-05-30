@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114127422762922666}
   - component: {fileID: 114324356379207204}
   - component: {fileID: 114040589499898054}
+  - component: {fileID: 114233478143678684}
   m_Layer: 0
   m_Name: Mandoragora
   m_TagString: Mandragora
@@ -40,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1774581563574946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: -3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.65, y: 0.65}
   m_EdgeRadius: 0
 --- !u!114 &114040589499898054
 MonoBehaviour:
@@ -120,7 +121,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8273fd11c5d48b449b8c38bd72b2fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MandMane: {fileID: 0}
+--- !u!114 &114233478143678684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774581563574946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239b7f2e5cd5768458f4ff38d5a2d41e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SizePoint: 0
 --- !u!114 &114324356379207204
 MonoBehaviour:
   m_ObjectHideFlags: 1

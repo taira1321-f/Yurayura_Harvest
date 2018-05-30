@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yogi;
 
 public class ManCon : MonoBehaviour 
 {
     GameObject GM;
     void Start() {
         GM = GameObject.FindGameObjectWithTag("Spawn");
-        Debug.Log("当たり前\n" + GM);
     }
 
     void OnCollisionEnter2D(Collision2D col) 
     {
         GM = GameObject.FindGameObjectWithTag("Spawn");
-        Debug.Log("ふざけるな\n" + GM);
         //どの温泉に浸かっているかチェック
         GameObject Spring = col.gameObject;
         //MGeneretor = MandMane.GetComponent<MandGeneretor>();
@@ -31,7 +30,14 @@ public class ManCon : MonoBehaviour
         GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
+        AddScore();
         sp.GetComponent<BoxCollider2D>().enabled = false;   //当たり判定消す        
+    }
+    void AddScore() {
+        int om = gameObject.GetComponent<Yogi.ChangeObjectMode>().ObjectMode;
+        if (om == 1) Director.Score += 30;
+        else if (om == 2) Director.Score += 20;
+        else if (om == 3) Director.Score += 10;
     }
     void OnCollisionExit2D(Collision2D col) {
         if (col.gameObject.CompareTag("Spring")){
