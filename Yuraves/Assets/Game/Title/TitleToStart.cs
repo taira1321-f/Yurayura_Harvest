@@ -20,7 +20,7 @@ public class TitleToStart : FadeScript
 
         if (ToStartFlg == 1&&A >=1.0f)
         {
-            SceneManager.LoadScene("DummyScene");//シーン移動
+            SceneManager.LoadScene("MainScene");//シーン移動
             
         }
       
