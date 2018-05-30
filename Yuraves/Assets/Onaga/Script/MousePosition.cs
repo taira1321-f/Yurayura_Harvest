@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 namespace Onaga
+=======
+namespace MPO
+>>>>>>> Yogi_SceneM
 {
     public class MousePosition : MonoBehaviour
     {
@@ -12,6 +16,10 @@ namespace Onaga
 
         public float TimeCounter;
         public const float TimeSpan = 0.1f;
+<<<<<<< HEAD
+=======
+        [SerializeField]
+>>>>>>> Yogi_SceneM
         public static float TolVector = 0.0f;
         public enum XDStatus { initial = -1, right = 0, left };
         public static XDStatus XDMode;
@@ -39,8 +47,15 @@ namespace Onaga
             //カメラより前に変更し自身オブジェクトへ
             Worldmousepos.z = 0.0f;
             Mouse.transform.position = Worldmousepos;
+<<<<<<< HEAD
             TimeCounter += Time.deltaTime;
 
+=======
+            //Debug.Log(Worldmousepos);
+
+            TimeCounter += Time.deltaTime;
+
+>>>>>>> Yogi_SceneM
             if (TimeCounter >= TimeSpan)
             {
                 if (OldX == Mouse.transform.position.x && OldY == Mouse.transform.position.y)

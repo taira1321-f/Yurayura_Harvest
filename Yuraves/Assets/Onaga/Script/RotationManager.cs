@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using Onaga;
+=======
+using MPO;
+>>>>>>> Yogi_SceneM
 
 public class RotationManager : MonoBehaviour
 {
@@ -57,6 +61,7 @@ public class RotationManager : MonoBehaviour
             case ChildCount.child:
                 //float SwayCount = MousePosition.TolVector / VectorOne;
                 //float SwayLimit = SwayCount * MoveSpeed;
+<<<<<<< HEAD
                 switch (Onaga.MousePosition.XDMode)
                 {
                     //右に移動中
@@ -64,6 +69,15 @@ public class RotationManager : MonoBehaviour
                         if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
                         {
                             transform.eulerAngles -= new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
+=======
+                switch (MPO.MousePosition.XDMode)
+                {
+                    //右に移動中
+                    case MPO.MousePosition.XDStatus.right:
+                        if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
+                        {
+                            transform.eulerAngles -= new Vector3(0, 0, MPO.MousePosition.TolVector * MoveSpeed);
+>>>>>>> Yogi_SceneM
                             if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
                             {
                                 transform.eulerAngles = new Vector3(0, 0, MinRotation);
@@ -73,10 +87,17 @@ public class RotationManager : MonoBehaviour
                         ReleaseChild();
                         break;
                     //左に移動中
+<<<<<<< HEAD
                     case Onaga.MousePosition.XDStatus.left:
                         if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
                         {
                             transform.eulerAngles += new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
+=======
+                    case MPO.MousePosition.XDStatus.left:
+                        if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
+                        {
+                            transform.eulerAngles += new Vector3(0, 0, MPO.MousePosition.TolVector * MoveSpeed);
+>>>>>>> Yogi_SceneM
                             if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)
                             {
                                 transform.eulerAngles = new Vector3(0, 0, MaxRotation);
@@ -87,7 +108,11 @@ public class RotationManager : MonoBehaviour
                         break;
 
                     //移動していない
+<<<<<<< HEAD
                     case Onaga.MousePosition.XDStatus.initial:
+=======
+                    case MPO.MousePosition.XDStatus.initial:
+>>>>>>> Yogi_SceneM
                         int roopcount = 1;
                         if (VectorCounter > 0.0f)
                         {
@@ -136,7 +161,11 @@ public class RotationManager : MonoBehaviour
     //子供を解除
     void ReleaseChild()
     {
+<<<<<<< HEAD
         if (MaxVector < Onaga.MousePosition.TolVector)
+=======
+        if (MaxVector < MPO.MousePosition.TolVector)
+>>>>>>> Yogi_SceneM
         {
             foreach (Transform child in transform)
             {

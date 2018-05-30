@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 1114207996}
   - component: {fileID: 1114207995}
   - component: {fileID: 1114207994}
-  - component: {fileID: 1114207993}
   - component: {fileID: 1114207992}
   - component: {fileID: 1114207991}
   - component: {fileID: 1114207990}
@@ -189,17 +188,6 @@ MonoBehaviour:
     type: 3}
   Parent: {fileID: 0}
   Relation: {fileID: 0}
---- !u!114 &1114207993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114207989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3161d3d04c6f7d479227355243c16f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &1114207994
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -509,7 +497,6 @@ GameObject:
   - component: {fileID: 1579703403}
   - component: {fileID: 1579703402}
   - component: {fileID: 1579703401}
-  - component: {fileID: 1579703400}
   - component: {fileID: 1579703399}
   - component: {fileID: 1579703398}
   - component: {fileID: 1579703397}
@@ -576,17 +563,6 @@ MonoBehaviour:
     type: 3}
   Parent: {fileID: 0}
   Relation: {fileID: 0}
---- !u!114 &1579703400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1579703396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3161d3d04c6f7d479227355243c16f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &1579703401
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -671,6 +647,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &1617324131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617324123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc356e1246ef834e891b05fe9e0813d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Yogi_SceneM
 --- !u!1 &1682935521
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +741,6 @@ GameObject:
   - component: {fileID: 2052443020}
   - component: {fileID: 2052443019}
   - component: {fileID: 2052443018}
-  - component: {fileID: 2052443017}
   - component: {fileID: 2052443021}
   - component: {fileID: 2052443023}
   - component: {fileID: 2052443022}
@@ -762,17 +751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2052443017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2052443016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3161d3d04c6f7d479227355243c16f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2052443018
 PolygonCollider2D:
   m_ObjectHideFlags: 0
