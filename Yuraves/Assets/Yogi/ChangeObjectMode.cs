@@ -7,7 +7,7 @@ namespace Yogi
     public class ChangeObjectMode : MonoBehaviour
     {
         
-        int ObjectMode = 0;
+        public int ObjectMode = 0;
         int ObjectLifeSpan = 0;
         int ObjectReBornSpan = 0;
         static public int DamyFlg = 0;
@@ -55,7 +55,6 @@ namespace Yogi
             if (Parent != Relation){
                 if (this.transform.position.y < -6.0f) {
                     DamyFlg = 0;
-
                     MandMane = GameObject.FindGameObjectWithTag("Spawn");
                     MandMane.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                     Destroy(gameObject);
@@ -63,7 +62,7 @@ namespace Yogi
                 if (OneceFlg == 0){
                     switch (ObjectMode){
                         case 0:
-                            ObjectReBornSpan++;
+                            if(!PauseDirector.RETRY_flg)ObjectReBornSpan++;
                             if (ObjectReBornSpan == 60){
                                 ObjectReBornSpan = 0;
                                 if (Random.Range(0, 2) == 1){
@@ -76,7 +75,7 @@ namespace Yogi
                             };
                             break;
                         case 1:
-                            if (!Holdflg) ObjectStepUpSpan++;
+                            if (!Holdflg && !PauseDirector.RETRY_flg) ObjectStepUpSpan++;
                             if (ObjectStepUpSpan >= 300){
                                 ObjectMode = 2;
                                 ObjectStepUpSpan = 0;
@@ -85,7 +84,7 @@ namespace Yogi
                             }
                             break;
                         case 2:
-                            if (!Holdflg) ObjectStepUpSpan++;
+                            if (!Holdflg && !PauseDirector.RETRY_flg) ObjectStepUpSpan++;
                             if (ObjectStepUpSpan >= 300) {
                                 ObjectMode = 3;
                                 MandoragoraMainSprite.sprite = MandoragoraSprite03;
@@ -94,7 +93,7 @@ namespace Yogi
                             }
                             break;
                         case 3:
-                            if (!Holdflg) ObjectLifeSpan++;
+                            if (!Holdflg && !PauseDirector.RETRY_flg) ObjectLifeSpan++;
                             if (ObjectLifeSpan == 300) {
                                 GetComponent<BoxCollider2D>().enabled = false;
                                 GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);

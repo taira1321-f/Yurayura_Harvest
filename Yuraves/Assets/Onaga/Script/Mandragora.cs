@@ -6,7 +6,7 @@ public class Mandragora : MonoBehaviour
 {
     //定数
     const float ClickMaxTime = 2.0f;
-    const float MouseDistanceY = 1.0f;
+    const float MouseDistanceY = 0.05f;
     public enum CalotteType { FLEE, KEEP, RESET };
     //変数
     public GameObject Player;

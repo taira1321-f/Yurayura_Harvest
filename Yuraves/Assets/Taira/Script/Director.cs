@@ -14,6 +14,7 @@ public class Director : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Score = 0;
         QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
         Application.targetFrameRate = 60;   //ターゲットフレームレート
         CountTime = 60;
@@ -22,11 +23,9 @@ public class Director : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!PauseDirector.RETRY_flg) CountTime -= Time.deltaTime;
-        DebugChg();
         switch (gameMode){
             case MODE.PLAY:
-                DebugScore();
+                CountTime -= Time.deltaTime;
                 break;
             case MODE.STAY:
                 
@@ -34,11 +33,6 @@ public class Director : MonoBehaviour {
         }
         if (CountTime <= 0) SceneManager.LoadScene("Dummy_TITLE");
 	}
-    void DebugChg() {
-        if (Input.GetKeyDown(KeyCode.Z)) gameMode = MODE.PLAY;
-        if (Input.GetKeyDown(KeyCode.X)) gameMode = MODE.STAY;
-       
-    }
 
     public void MenuButton() {
         
