@@ -5,7 +5,7 @@ using UnityEngine;
 public class MandState : MonoBehaviour {
 
     //定数
-    const float ClickMaxTime = 2.0f;
+    const float ClickMaxTime = 1.0f;
     const float MouseDistanceY = 1.5f;
     //変数
     public enum CalotteType { FLEE, KEEP, RESET, FALL };
@@ -105,16 +105,12 @@ public class MandState : MonoBehaviour {
         if (ctype == CalotteType.FALL){
             if (other.gameObject.name == "HotSpring_1"){
                 Changer(Spring, 0);
-                Debug.Log("入っている");
             }else if (other.gameObject.name == "HotSpring_2"){
                 Changer(Spring, 1);
-                Debug.Log("入っている");
             }else if (other.gameObject.name == "HotSpring_3"){
                 Changer(Spring, 2);
-                Debug.Log("入っている");
             }else if (other.gameObject.name == "HotSpring_4"){
                 Changer(Spring, 3);
-                Debug.Log("入っている");
             }
         }
     }
@@ -134,7 +130,6 @@ public class MandState : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
-            Debug.Log("消えた?");
         }
         if (other.tag == "Player") Initialize();
     }
