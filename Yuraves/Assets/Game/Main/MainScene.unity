@@ -1060,8 +1060,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1150098499}
-  - component: {fileID: 1150098500}
   - component: {fileID: 1150098501}
+  - component: {fileID: 1150098500}
   m_Layer: 0
   m_Name: RotationManager
   m_TagString: Player
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1150098498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e1ee58a82c5dd44959f72f17a224a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 64691b045cdbc7c4cb83504abc9fc816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1150098501

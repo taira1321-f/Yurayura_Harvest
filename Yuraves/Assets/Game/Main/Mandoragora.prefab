@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212102994577638604}
   - component: {fileID: 61087180131592720}
   - component: {fileID: 50993888136681188}
-  - component: {fileID: 114127422762922666}
-  - component: {fileID: 114324356379207204}
+  - component: {fileID: 114671221746254824}
+  - component: {fileID: 114265996373687414}
   - component: {fileID: 114040589499898054}
   - component: {fileID: 114233478143678684}
   m_Layer: 0
@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efcc2ae835180544b223166c816173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectMode: 0
   MandoragoraSprite01: {fileID: 21300000, guid: c1c57f7aef41bad42b008c342555a158,
     type: 3}
   MandoragoraSprite02: {fileID: 21300000, guid: b365cc61ed822584bb7e29eb9131bf2b,
@@ -110,17 +111,6 @@ MonoBehaviour:
     type: 3}
   Parent: {fileID: 0}
   Relation: {fileID: 0}
---- !u!114 &114127422762922666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1774581563574946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8273fd11c5d48b449b8c38bd72b2fac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114233478143678684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SizePoint: 0
---- !u!114 &114324356379207204
+--- !u!114 &114265996373687414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -141,11 +131,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1774581563574946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc67bf090f7e5d4aa371a6b932df530, type: 3}
+  m_Script: {fileID: 11500000, guid: e6dba4401b204274ba6af3bd512cd1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ctype: 0
+  fallStatus: 0
+  MoveSpeed: 0.04
+  FlightSpeed: 0.08
+  LatencyMaxTime: 0.5
+  OroOroTime: 1
+--- !u!114 &114671221746254824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774581563574946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8273fd11c5d48b449b8c38bd72b2fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212102994577638604
 SpriteRenderer:
   m_ObjectHideFlags: 1

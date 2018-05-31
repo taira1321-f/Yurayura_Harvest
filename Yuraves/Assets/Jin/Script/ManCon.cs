@@ -10,21 +10,32 @@ public class ManCon : MonoBehaviour
         GM = GameObject.FindGameObjectWithTag("Spawn");
     }
 
-    void OnCollisionEnter2D(Collision2D col) 
+    void OnTriggerStay2D(Collider2D col) 
     {
         GM = GameObject.FindGameObjectWithTag("Spawn");
         //どの温泉に浸かっているかチェック
         GameObject Spring = col.gameObject;
-        //MGeneretor = MandMane.GetComponent<MandGeneretor>();
-        if (col.gameObject.name == "HotSpring_1"){
+        if (col.gameObject.name == "HotSpring_1")
+        {
             Changer(Spring, 0);
-        }else if (col.gameObject.name == "HotSpring_2"){
-            Changer(Spring, 1);
-        }else if (col.gameObject.name == "HotSpring_3"){
-            Changer(Spring, 2);
-        }else if (col.gameObject.name == "HotSpring_4"){
-            Changer(Spring, 3);
+            Debug.Log("入っている");
         }
+        else if (col.gameObject.name == "HotSpring_2")
+        {
+            Changer(Spring, 1);
+            Debug.Log("入っている");
+        }
+        else if (col.gameObject.name == "HotSpring_3")
+        {
+            Changer(Spring, 2);
+            Debug.Log("入っている");
+        }
+        else if (col.gameObject.name == "HotSpring_4")
+        {
+            Changer(Spring, 3);
+            Debug.Log("入っている");
+        }
+        
     }
     void Changer(GameObject sp,int i) {
         GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
@@ -39,9 +50,12 @@ public class ManCon : MonoBehaviour
         else if (om == 2) Director.Score += 20;
         else if (om == 3) Director.Score += 10;
     }
-    void OnCollisionExit2D(Collision2D col) {
-        if (col.gameObject.CompareTag("Spring")){
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Spring"))
+        {
             Destroy(gameObject);
+            Debug.Log("消えた?");
         }
     }
 }
