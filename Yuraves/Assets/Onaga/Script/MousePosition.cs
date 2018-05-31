@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Onaga{
 public class MousePosition : MonoBehaviour
 {
     private GameObject Mouse = null;
@@ -84,4 +85,5 @@ public class MousePosition : MonoBehaviour
         OldY = Mouse.transform.position.y;
         Initialize();
     }
+}
 }
