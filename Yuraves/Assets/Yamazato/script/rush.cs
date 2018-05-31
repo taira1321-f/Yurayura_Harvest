@@ -11,6 +11,8 @@ public class rush : MonoBehaviour {
     private Vector2 startPosition;  //開始位置
     public Vector2 endPosition;     //終わり位置
     private Vector2 nextendPosition;//次の終わり位置
+    private int rotetime=0;
+    private int R;
 
     private void Awake()
     {
@@ -23,11 +25,12 @@ public class rush : MonoBehaviour {
         if (time <= 0)
         {
             transform.position = endPosition;
-            
+            transform.Rotate(new Vector3(0, 0, 180));
             enabled = false;
             return;
         }
         //nextendPosition = endPosition;
+        R = 1;
         startTime = Time.timeSinceLevelLoad;
         startPosition = transform.position;
         nextendPosition = startPosition;
@@ -35,26 +38,45 @@ public class rush : MonoBehaviour {
 
     void Update()
     {
-        var diff = Time.timeSinceLevelLoad - startTime;
-        if (diff > time)
+        switch (R)
         {
-            transform.position = endPosition;
-            enabled = false;
+            case 1:
+                var diff = Time.timeSinceLevelLoad - startTime;
+                if (diff > time)
+                {
+                    transform.position = endPosition;
+                    R = 2;
+                }
+                var rate = diff / time;
+                //var pos = curve.Evaluate(rate);
+
+                transform.position = Vector2.Lerp(startPosition, endPosition, rate);
+                //transform.position = Vector3.Lerp (startPosition, endPosition, pos);
+                break;
+            case 2:
+                rotetime += 1;
+                transform.Rotate(new Vector3(0, 0, 1));
+                if(rotetime >= 180)
+                {
+                    rotetime = 0;
+                    R = 3;
+                }
+                break;
+            case 3:
+                enabled = false;
+                break;
+            default:
+                break;
         }
-
-        var rate = diff / time;
-        //var pos = curve.Evaluate(rate);
-
-        transform.position = Vector2.Lerp(startPosition, endPosition, rate);
-        //transform.position = Vector3.Lerp (startPosition, endPosition, pos);
+        
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
 #if UNITY_EDITOR
-
         if (enabled == false)
         {
+            
             startPosition = transform.position;
             endPosition = nextendPosition;
         }

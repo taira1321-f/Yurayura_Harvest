@@ -22,26 +22,27 @@ public class homing : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Move(Sita()); // 移動処理
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("in");
+            //Debug.Log("in");
             speed = Random.Range(1.0f, 1.5f);
             maxRot = Random.Range(1.0f, 1.5f);
             target = collision.gameObject.transform;
-            
+            Move(Sita()); // 移動処理
 
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-            Debug.Log("out");
+            //Debug.Log("out");
             speed  = 0f;
-            maxRot = 0f; 
+            maxRot = 0f;
+        Move(Sita()); // 移動処理
     }
 
     //-----------------------------------------------------------------------------------------------
