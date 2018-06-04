@@ -6,7 +6,6 @@ namespace Yogi
 {
     public class ChangeObjectMode : MonoBehaviour
     {
-        
         public int ObjectMode = 0;
         int ObjectLifeSpan = 0;
         int ObjectReBornSpan = 0;
