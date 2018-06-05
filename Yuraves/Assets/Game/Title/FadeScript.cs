@@ -13,7 +13,7 @@ abstract public class FadeScript : MonoBehaviour {
     public float B;
     public bool FadeOutFlg = false;
     public bool FadeInFlg;
-    float Add=0.05f;
+    float Add=0.03f;
     float delta = 0.0f;
     // Use this for initialization
     void Start () {
