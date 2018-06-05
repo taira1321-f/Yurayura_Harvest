@@ -26,8 +26,6 @@ abstract public class ManragoraBase : MonoBehaviour{
                 {
                     PositionX = x;
                     PositionY = y;
-                    Debug.Log(this.gameObject.name + PositionX);
-                    Debug.Log(this.gameObject.name + PositionY);
                 }
             }
         }

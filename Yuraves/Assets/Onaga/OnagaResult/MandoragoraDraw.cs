@@ -10,10 +10,10 @@ public class MandoragoraDraw : MonoBehaviour
     private int[,] DrawCounter;
     private int CounterX, CounterY;
     private bool CreateFlg = true;
-
+    private int CreateCouter;
     void Start()
     {
-        CatchMandoragoraCreate = 15;
+        CatchMandoragoraCreate = 11;
         MaxMandoragoraCreate = 30;
         CounterY = MaxMandoragoraCreate / 10;
         CounterX = MaxMandoragoraCreate / CounterY;
@@ -35,12 +35,15 @@ public class MandoragoraDraw : MonoBehaviour
             {
                 for (int x = 0; CounterX > x; x++)
                 {
-                    GameObject TargetObject;
-                    TargetObject = Instantiate(Mandragora, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
-                    TargetObject.name = "ReleaseMandragora" + count;
-                    //TargetObject.GetComponent<MandragoraCreate>().Position = new int[x, y];
-                    TargetObject.GetComponent<MandragoraCreate>().SetPosition(x, y,CounterX, CounterY);
-                    count++;
+                    if (count < CatchMandoragoraCreate)
+                    {
+                        GameObject TargetObject;
+                        TargetObject = Instantiate(Mandragora, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+                        TargetObject.name = "ReleaseMandragora" + count;
+                        //TargetObject.GetComponent<MandragoraCreate>().Position = new int[x, y];
+                        TargetObject.GetComponent<MandragoraCreate>().SetPosition(x, y, CounterX, CounterY);
+                        count++;
+                    }
                 }
             }
             CreateFlg = false;
