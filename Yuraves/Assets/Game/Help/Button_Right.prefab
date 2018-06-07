@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114337870349256638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,8 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54b91a7947d6964ba2e7811473979d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchStartPosition: {x: 0, y: 0}
+  touchEndPosition: {x: 0, y: 0}
+  touchStayPosition: {x: 0, y: 0}
   LeftButton: {fileID: 0}
   RightButton: {fileID: 0}
+  positionType: 0
 --- !u!222 &222546504996447340
 CanvasRenderer:
   m_ObjectHideFlags: 1

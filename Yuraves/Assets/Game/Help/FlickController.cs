@@ -5,135 +5,109 @@ using UnityEngine.UI;
 
 public class FlickController : MonoBehaviour {
 
-    private Vector3 touchStartPosition;
-    private Vector3 touchEndPosition;
-    private string Direction;
-    //画像の移動量
-    //private float SlideSpeed = 0f;
+    private Vector2 touchStartPosition;
+    private Vector2 touchEndPosition;
+    private Vector2 touchStayPosition;
     //スライドさせる画像
     private GameObject HelpSlide;
     //左ボタン
-    public GameObject LeftButton;
+    public Button LeftButton;
     //右ボタン
-    public GameObject RightButton;
-    float directionX;
-    float directionY;
+    public Button RightButton;
+    //フリック判定用の時間
+    private float FlickTimer = 0.30f;
+    private float Timer;
+
+    Vector2 LeftLimit = new Vector2(4.8f,0);
+    Vector2 RightLimit = new Vector2(-4.8f,0);
 
     void Start () {
-        this.HelpSlide = GameObject.Find("Swimsuit_Mirei_SR");
-        Animation anim = gameObject.GetComponent<Animation>();
-        
+        this.HelpSlide = GameObject.Find("Swimsuit_Mirei_SR");        
 	}
-    //右へスライドする処理
+    //右へスライドするアニメーション処理
     public void RightSlide(Animation anim)
     {
         //真ん中から右へ
         if(this.HelpSlide.transform.position.x == 0)
         {
             anim.Play("RightSlide2");
-            RightButton.SetActive(false);
-            Debug.Log("真ん中から右へ");
+            RightButton.gameObject.SetActive(false);
         //左から真ん中へ
         }else if(this.HelpSlide.transform.position.x >= 4.8)
         {
             anim.Play("RightSlide1");
-            LeftButton.SetActive(true);
-            Debug.Log("左から右へ");
+            LeftButton.gameObject.SetActive(true);
         }          
     }
-    //左へスライドする処理
+    //左へスライドするアニメーション処理
     public void LeftSlide(Animation anim)
     {
         //真ん中から左へ
         if(this.HelpSlide.transform.position.x == 0)
         {
             anim.Play("LeftSlide2");
-            LeftButton.SetActive(false);
-            Debug.Log("真ん中から左へ");
+            LeftButton.gameObject.SetActive(false);
         //右から真ん中へ
         }else if(this.HelpSlide.transform.position.x <= -4.8)
         {
             anim.Play("LeftSlide1");
-            RightButton.SetActive(true);
-            Debug.Log("右から左へ");
+            RightButton.gameObject.SetActive(true);
         }
     }
 
     void GetDirection()
     {
-        directionX = touchEndPosition.x - touchStartPosition.x;
-        directionY = touchEndPosition.y - touchStartPosition.y;
+        //タップしてる間の位置　‐　タップ開始時の位置
+        float directionX = touchStayPosition.x - touchStartPosition.x;
 
-        if(Mathf.Abs(directionY) < Mathf.Abs(directionX))
+        //左にフリックかつタップしてた時間が0.30f以下の場合
+        if(30 < directionX　&& Timer < FlickTimer)
         {
-            if(30 < directionX)
-            {
-                //右向きにフリック
-                Direction = "right";
-            }else if(-30 > directionX)
-            {
-                //左向きにフリック
-                Direction = "left";
-            }
-        }else if(Mathf.Abs(directionX) < Mathf.Abs(directionY))
+            //右にスライド
+            Animation anim = gameObject.GetComponent<Animation>();
+            LeftSlide(anim);
+        //右にフリックかつタップしてた時間が0.30f以下の場合
+        }else if(-30 > directionX && Timer < FlickTimer)
         {
-            if(30 < directionY)
-            {
-                //上向きにフリック
-                Direction = "up";
-            }else if(-30 > directionY)
-            {
-                //下向きフリック
-                Direction = "down";
-            }
+            //左にスライド
+            Animation anim = gameObject.GetComponent<Animation>();
+            RightSlide(anim);
         }else
         {
             //タッチを検出
-            Direction = "touch";
         }
     }
 
     void Update () {
-
+        //タップ開始
         if (Input.GetMouseButtonDown(0))
         {
-            touchStartPosition = new Vector3(Input.mousePosition.x,
-                                             Input.mousePosition.y,
-                                             Input.mousePosition.z);
+            touchStartPosition = new Vector2(Input.mousePosition.x,
+                                             Input.mousePosition.y);           
         }
-
+        //タップしている間
+        if(Input.GetMouseButton(0))
+        {
+            touchStayPosition = new Vector2(Input.mousePosition.x,
+                                            Input.mousePosition.y);
+            GetDirection();
+            Timer += Time.deltaTime;
+        }
+        //タップ終了
         if (Input.GetMouseButtonUp(0))
         {
-            touchEndPosition = new Vector3(Input.mousePosition.x,
-                                           Input.mousePosition.y,
-                                           Input.mousePosition.z);
+            //touchEndPosition = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
 
             GetDirection();
+            Timer = 0;
         }
 
-        switch (Direction)
-        {
-            case "up":
-                
-                break;
+        //左壁に当たる
+        if (this.HelpSlide.transform.position.x > 4.8f)
+            this.HelpSlide.transform.position = LeftLimit;
+        //右壁に当たる
+        if(this.HelpSlide.transform.position.x < -4.8)
+            this.HelpSlide.transform.position = RightLimit;
 
-            case "down":
-
-                break;
-
-            case "right":
-                Vector2 position = transform.position;
-                position.x += -4.8f;
-                this.HelpSlide.transform.position = position;
-                break;
-
-            case "left":
-
-                break;
-
-            case "touch":
-
-                break;
-        }
-	}
+  	}
 }
