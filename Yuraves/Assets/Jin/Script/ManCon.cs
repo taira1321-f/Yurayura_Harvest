@@ -18,22 +18,18 @@ public class ManCon : MonoBehaviour
         if (col.gameObject.name == "HotSpring_1")
         {
             Changer(Spring, 0);
-            Debug.Log("入っている");
         }
         else if (col.gameObject.name == "HotSpring_2")
         {
             Changer(Spring, 1);
-            Debug.Log("入っている");
         }
         else if (col.gameObject.name == "HotSpring_3")
         {
             Changer(Spring, 2);
-            Debug.Log("入っている");
         }
         else if (col.gameObject.name == "HotSpring_4")
         {
             Changer(Spring, 3);
-            Debug.Log("入っている");
         }
         
     }
@@ -55,7 +51,6 @@ public class ManCon : MonoBehaviour
         if (col.gameObject.CompareTag("Spring"))
         {
             Destroy(gameObject);
-            Debug.Log("消えた?");
         }
     }
 }

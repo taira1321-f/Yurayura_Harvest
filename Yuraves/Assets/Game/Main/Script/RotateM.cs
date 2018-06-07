@@ -47,6 +47,7 @@ public class RotateM : MonoBehaviour {
         else
         {
             childmode = ChildCount.child;
+            this.gameObject.transform.GetChild(0).tag = "target";
         }
         SwayMove();
     }

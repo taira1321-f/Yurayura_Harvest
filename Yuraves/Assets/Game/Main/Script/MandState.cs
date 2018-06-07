@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MandState : MonoBehaviour {
-
     //定数
     const float ClickMaxTime = 1.0f;
     const float MouseDistanceY = 1.5f;
@@ -52,7 +51,9 @@ public class MandState : MonoBehaviour {
                 }
                 break;
             case CalotteType.KEEP:  //揺れる
-                if (Input.GetMouseButtonUp(0)) ctype = CalotteType.RESET;
+                if (Input.GetMouseButtonUp(0)){
+                    ctype = CalotteType.RESET;
+                } 
                 break;
             case CalotteType.RESET:  //揺れる
                 NoneParent();
@@ -70,7 +71,6 @@ public class MandState : MonoBehaviour {
                             LatencyTime = 0.0f;
                         }
                         break;
-
                     case FallStatus.OROORO:
                         if (LatencyTime <= OroOroTime){
                             LatencyTime += Time.deltaTime;
@@ -79,8 +79,8 @@ public class MandState : MonoBehaviour {
                             LatencyTime = 0.0f;
                         }
                         break;
-
                     case FallStatus.FLIGHT:
+                        
                         if (this.gameObject.transform.position.x >= 0){
                             this.gameObject.transform.position += new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }else{
@@ -93,16 +93,18 @@ public class MandState : MonoBehaviour {
                         }
                         break;
                 }
+                
                 break;
         }
     }
 
     void OnTriggerStay2D(Collider2D other){ 
         if (other.tag == "Player") KeepFlg = true;
-        GM = GameObject.FindGameObjectWithTag("Spawn");
         //どの温泉に浸かっているかチェック
         GameObject Spring = other.gameObject;
         if (ctype == CalotteType.FALL){
+            GM = GameObject.FindGameObjectWithTag("Spawn");
+            //GameObject HE = GameObject.Find("HomingEnemy");
             if (other.gameObject.name == "HotSpring_1"){
                 Changer(Spring, 0);
             }else if (other.gameObject.name == "HotSpring_2"){
@@ -122,6 +124,7 @@ public class MandState : MonoBehaviour {
         AddScore();        
     }
     void AddScore(){
+        Director.MandCont++;
         int om = gameObject.GetComponent<Yogi.ChangeObjectMode>().ObjectMode;
         if (om == 1) Director.Score += 30;
         else if (om == 2) Director.Score += 20;
@@ -130,6 +133,7 @@ public class MandState : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
+
         }
         if (other.tag == "Player") Initialize();
     }

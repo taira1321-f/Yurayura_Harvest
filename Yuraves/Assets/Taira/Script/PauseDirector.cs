@@ -33,4 +33,9 @@ public class PauseDirector : MonoBehaviour {
         RETRY_flg = false;
         SceneManager.LoadScene("dummy_TITLE");
     }
+    public void REPLAY_B() {
+        RETRY_flg = false;
+        GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+        P_pos.SetActive(false);
+    }
 }

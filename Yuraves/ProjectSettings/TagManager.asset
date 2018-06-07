@@ -7,6 +7,9 @@ TagManager:
   - Mandragora
   - Spring
   - Spawn
+  - Monkey
+  - Player_sub
+  - target
   layers:
   - Default
   - TransparentFX

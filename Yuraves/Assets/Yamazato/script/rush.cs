@@ -41,13 +41,13 @@ public class rush : MonoBehaviour {
         switch (R)
         {
             case 1:
-                var diff = Time.timeSinceLevelLoad - startTime;
+                float diff = Time.timeSinceLevelLoad - startTime;
                 if (diff > time)
                 {
                     transform.position = endPosition;
                     R = 2;
                 }
-                var rate = diff / time;
+                float rate = diff / time;
                 //var pos = curve.Evaluate(rate);
 
                 transform.position = Vector2.Lerp(startPosition, endPosition, rate);
@@ -67,8 +67,7 @@ public class rush : MonoBehaviour {
                 break;
             default:
                 break;
-        }
-        
+        } 
     }
 
     void OnDrawGizmos()
@@ -86,7 +85,6 @@ public class rush : MonoBehaviour {
 #endif
         Gizmos.DrawSphere(endPosition, 0.1f);
         Gizmos.DrawSphere(startPosition, 0.1f);
-
         Gizmos.DrawLine(startPosition, endPosition);
     }
 
