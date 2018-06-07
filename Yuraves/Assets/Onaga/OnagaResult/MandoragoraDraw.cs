@@ -13,7 +13,7 @@ public class MandoragoraDraw : MonoBehaviour
     private int CreateCouter;
     void Start()
     {
-        CatchMandoragoraCreate = 11;
+        CatchMandoragoraCreate = 19;
         MaxMandoragoraCreate = 30;
         CounterY = MaxMandoragoraCreate / 10;
         CounterX = MaxMandoragoraCreate / CounterY;
