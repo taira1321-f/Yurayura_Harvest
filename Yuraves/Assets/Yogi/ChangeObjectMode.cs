@@ -12,9 +12,8 @@ namespace Yogi
         static public int DamyFlg = 0;
         int OneceFlg = 0;
         bool Holdflg;
-        Mandragora _Mand;
+        MandState _Mand;
         int ObjectStepUpSpan = 0;
-        PolygonCollider2D ColiderObject;
         SpriteRenderer MandoragoraMainSprite;
         Object MousePointor;
         public Sprite MandoragoraSprite01;
@@ -43,7 +42,7 @@ namespace Yogi
             MandoragoraMainSprite = gameObject.GetComponent<SpriteRenderer>();
             GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
             GetComponent<BoxCollider2D>().enabled = false;
-            _Mand = GetComponent<Mandragora>();
+            _Mand = GetComponent<MandState>();
             Relation = transform.root.gameObject;
             MandMane = GameObject.FindGameObjectWithTag("Spawn");
         }
@@ -110,7 +109,7 @@ namespace Yogi
 
         //Holdflgの切り替え
         void KeyGet(){
-            if (Input.GetMouseButton(0) && (_Mand.ctype != Mandragora.CalotteType.FLEE)) Holdflg = true;
+            if (Input.GetMouseButton(0) && (_Mand.ctype != MandState.CalotteType.FLEE)) Holdflg = true;
             else Holdflg = false;
         }
     }
