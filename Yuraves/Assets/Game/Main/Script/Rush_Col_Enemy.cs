@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rush_Col_Enemy : MonoBehaviour {
+    public bool RockOn;
     // Use this for initialization
-    void Start()
-    {
-
+    void Start(){
+        RockOn = false;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     // Update is called once per frame
@@ -14,8 +15,10 @@ public class Rush_Col_Enemy : MonoBehaviour {
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
+    void OnTriggerStay2D(Collider2D col){
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "target") {
+            if(!RockOn)RockOn = true;
+        }
     }
 }
