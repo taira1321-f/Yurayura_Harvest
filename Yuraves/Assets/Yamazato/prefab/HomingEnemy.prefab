@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4704131264380512}
   - component: {fileID: 50575528462040484}
-  - component: {fileID: 114466786587168114}
+  - component: {fileID: 114835538169669808}
   m_Layer: 0
   m_Name: HomingEnemy
   m_TagString: Untagged
@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4197901985365158}
   - component: {fileID: 212127606700284762}
   - component: {fileID: 61058013664393038}
+  - component: {fileID: 114455459537510532}
   m_Layer: 8
   m_Name: body
   m_TagString: Untagged
@@ -153,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,7 +163,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &114466786587168114
+--- !u!114 &114455459537510532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942916292360018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3176acb56da474a96a0d83b10b675d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114835538169669808
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -170,10 +182,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871108117253274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811b5cfde539e2c4cb4162ed6aba4e95, type: 3}
+  m_Script: {fileID: 11500000, guid: eeb4f20b3baf4fa40a9100bf84b51a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  MouseChild: {fileID: 0}
+  Center: {fileID: 0}
 --- !u!212 &212127606700284762
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -207,8 +220,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a0302f70f8f60d4caf7ca2a65e013aa, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: e946873503217da478064955aab063f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

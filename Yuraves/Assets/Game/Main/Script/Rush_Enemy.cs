@@ -30,7 +30,6 @@ public class Rush_Enemy : MonoBehaviour {
     }
 
     void Update(){
-        Debug.Log(s_mode);
         switch (s_mode) {
             case State.RUSH:
                 Rush();

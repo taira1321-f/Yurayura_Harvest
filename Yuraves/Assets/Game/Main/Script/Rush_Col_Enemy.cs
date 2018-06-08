@@ -16,8 +16,7 @@ public class Rush_Col_Enemy : MonoBehaviour {
     }
 
     void OnTriggerStay2D(Collider2D col){
-        Debug.Log(col.gameObject.tag);
-        if (col.gameObject.tag == "target") {
+        if (col.gameObject.transform.tag == "target") {
             if(!RockOn)RockOn = true;
         }
     }
