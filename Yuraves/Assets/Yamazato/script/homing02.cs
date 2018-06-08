@@ -6,17 +6,18 @@ public class homing02 : MonoBehaviour {
 
     Vector2 A, C, AB, AC; // ベクトル
 
-    public Transform target; // 追いかける対象
+    public GameObject target; // 追いかける対象
     private int MoveFlg=0;
 
     private float speed = 0; // 移動スピード
     private float maxRot = 0; // 曲がる最大角度
-    private Transform Destination;
+
+    private Transform Destination;  //到着地
+
+
     // Use this for initialization
     void Start()
     {
-        //target= GameObject.Find("p").transform; 
-        //transform.eulerAngles += new Vector3(0, 0, Sita()); // ターゲットの方向を向く
     }
 
     // Update is called once per frame
@@ -25,27 +26,50 @@ public class homing02 : MonoBehaviour {
         switch(MoveFlg)
         {
             case 0:
-                Debug.Log("out");
                 speed = 0f;
                 maxRot = 0f;
                 break;
             case 1:
                 Move(Sita()); // 移動処理
+               
                 break;
         }
+        
     }
 
-    private void OnTriggerEntor2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (collision.gameObject.tag == "point")
+        {
+            if (this.gameObject.GetComponent<CircleCollider2D>().enabled == false)
+            {
+                Debug.Log("in2");
+                this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            }
+        }
+
+        //プレイヤーを発見した場合
         if (collision.gameObject.tag == "Player")
         {
-            //Debug.Log("in");
+            Debug.Log("in");
+
+            //移動スピードと曲がる最大角度を設定
             speed = Random.Range(1.0f, 1.5f);
-            maxRot = Random.Range(1.0f, 1.5f);
-            target = collision.gameObject.transform;
-           
-                      
+            maxRot = Random.Range(2.0f, 2.5f);
+
+            Destination = collision.gameObject.transform;       //到着地をプレイヤーをサーチした位置に設定
+            target.transform.position = Destination.position;   //ターゲットを到着地に設定
+            MoveFlg = 1;
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false; //プレイヤサーチ用のCircleColliderをfalse
         }
+
+       
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     //-----------------------------------------------------------------------------------------------
@@ -55,7 +79,7 @@ public class homing02 : MonoBehaviour {
     {
 
         A = transform.position; // 自身の座標
-        C = target.position; // ターゲットの座標
+        C = target.transform.position; // ターゲットの座標
 
         AB = transform.up; // 自身の上方向ベクトル
         AC = C - A; // ターゲットの方向ベクトル
