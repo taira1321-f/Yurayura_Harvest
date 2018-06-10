@@ -5,9 +5,10 @@ using UnityEngine;
 public class StalkManager : MonoBehaviour
 {
 
-    public SpriteRenderer spriteRenderer;//自身のスプライトレンダーを入れるスプライト変数
-    public GameObject RotationManager;//ローテーションマネージャーをいれるやつ
-    public GameObject TargetObject;//ローテーションマネージャーの子供を検索していれるやつ
+    private SpriteRenderer spriteRenderer;//自身のスプライトレンダーを入れるスプライト変数
+    [SerializeField]
+    private GameObject RotationManager;//ローテーションマネージャーをいれるやつ
+    private GameObject TargetObject;//ローテーションマネージャーの子供を検索していれるやつ
 
     //スプライト入れる変数-----------
     public Sprite YoungMandragora;
