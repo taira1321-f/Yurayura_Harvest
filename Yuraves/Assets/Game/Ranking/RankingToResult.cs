@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class RankingToTitle : FadeScript
+public class RankingToResult : FadeScript
 {
 
     int ToStartFlg = 0;
@@ -22,7 +22,7 @@ public class RankingToTitle : FadeScript
 
         if (ToStartFlg == 1 && A >= 1.0f)
         {
-            SceneManager.LoadScene("TitleScene");//シーン移動
+            SceneManager.LoadScene("ResultScene");//シーン移動
 
         }
 
