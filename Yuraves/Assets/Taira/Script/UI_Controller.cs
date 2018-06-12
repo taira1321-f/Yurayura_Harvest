@@ -20,9 +20,8 @@ public class UI_Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Director.CountTime >= LimitTime) Director.CountTime = 0;
         slider.value = TimeSlider();
-        ScoreText.GetComponent<Text>().text = "Score:" + DebugScore();
+        ScoreText.GetComponent<Text>().text = "" + DebugScore();
 	}
 
     float TimeSlider() {

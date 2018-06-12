@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rush_Enemy : MonoBehaviour {
+    public GameObject director;
     enum State { STAY, RUSH, TURN };
     State s_mode;
     //Rush関数用変数
@@ -30,6 +31,7 @@ public class Rush_Enemy : MonoBehaviour {
     }
 
     void Update(){
+        if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         switch (s_mode) {
             case State.RUSH:
                 Rush();

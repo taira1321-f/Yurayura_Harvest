@@ -58,7 +58,6 @@ public class MandGeneretor : MonoBehaviour {
         }
         if (GameObject.Find(str))
         {
-            //Debug.Log("ウェーイ？");
             GameObject mand = GameObject.Find(str);
             Destroy(mand);
             return;

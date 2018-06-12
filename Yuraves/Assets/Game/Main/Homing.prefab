@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb4f20b3baf4fa40a9100bf84b51a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  director: {fileID: 1363132984632150, guid: 9ba0062c2d3c7fa4a8d4afc107739735, type: 2}
   MouseChild: {fileID: 0}
-  prev: {x: 0, y: 0}
+  Center: {fileID: 0}
 --- !u!212 &212626436842140994
 SpriteRenderer:
   m_ObjectHideFlags: 1

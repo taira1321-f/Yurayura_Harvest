@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeImage : MonoBehaviour {
-
     SpriteRenderer MainSpriteRenderer;
     // publicで宣言し、inspectorで設定可能にする
     public Sprite StandbySprite;

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Director : MonoBehaviour {
 
-    enum MODE { PLAY, STAY };
-    MODE gameMode;
+    public enum MODE { PLAY, STAY };
+    public MODE gameMode;
     public GameObject Canvas;
     public static float CountTime;
     public static int Score;
@@ -26,7 +26,7 @@ public class Director : MonoBehaviour {
 	void Update () {
         switch (gameMode){
             case MODE.PLAY:
-                //CountTime -= Time.deltaTime;
+                CountTime -= Time.deltaTime;
                 break;
             case MODE.STAY:
                 break;

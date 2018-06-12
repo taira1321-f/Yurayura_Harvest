@@ -7,7 +7,7 @@ public class PauseDirector : MonoBehaviour {
     
     static public bool RETRY_flg;
     public GameObject Canvas;
-    
+    GameObject P_pos;
 	// Use this for initialization
 	void Start () {
         RETRY_flg = false;
@@ -16,11 +16,15 @@ public class PauseDirector : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (RETRY_flg){
-            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+            P_pos = Canvas.transform.Find("Pause").gameObject;
             P_pos.SetActive(true);
-        }else{
-            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+            P_pos = Canvas.transform.Find("MenuButton").gameObject;
             P_pos.SetActive(false);
+        }else{
+            P_pos = Canvas.transform.Find("Pause").gameObject;
+            P_pos.SetActive(false);
+            P_pos = Canvas.transform.Find("MenuButton").gameObject;
+            P_pos.SetActive(true);
         }
     }
 
@@ -35,7 +39,8 @@ public class PauseDirector : MonoBehaviour {
     }
     public void REPLAY_B() {
         RETRY_flg = false;
-        GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
+        P_pos = Canvas.transform.Find("Pause").gameObject;
         P_pos.SetActive(false);
+        GetComponent<Director>().gameMode = Director.MODE.PLAY;
     }
 }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Homing_Enemy : MonoBehaviour {
-
+    public GameObject director;
     Vector2 A, C, AB, AC; // ベクトル
     public GameObject MouseChild;
     public Transform Center;
     Transform target; // 追いかける対象
     private float speed = 0; // 移動スピード
-    private float maxRot = 0; // 曲がる最大角度
+    const float maxRot = 1.0f; // 曲がる最大角度
 
     // Use this for initialization
     void Start() { }
@@ -19,6 +19,10 @@ public class Homing_Enemy : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) {
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
+            return;
+        } 
         int childcnt = MouseChild.transform.childCount;
         if (childcnt == 0) target = Center;
         else{
@@ -26,8 +30,8 @@ public class Homing_Enemy : MonoBehaviour {
             target = tf;
         }
         speed = Random.Range(0.5f, 1.0f);
-        maxRot = Random.Range(1.0f, 1.5f);
-        Move(Sita()); // 移動処理
+        float rot = Sita();
+        Move(rot); // 移動処理
     }
     //-----------------------------------------------------------------------------------------------
     // なす角θを求める
@@ -58,17 +62,13 @@ public class Homing_Enemy : MonoBehaviour {
     //-----------------------------------------------------------------------------------------------
     void Move(float rot)
     {
+        Vector3 rtt = gameObject.transform.eulerAngles;
         // 求めた角度が曲がる最大角度より大きかった場合に戻す処理
-        if (rot > maxRot)
-        {
-            rot = maxRot;
-        }
-        else if (rot < -maxRot)
-        {
-            rot = -maxRot;
-        }
+        if (rot > maxRot) rot = maxRot;
+        else if (rot < -maxRot) rot = -maxRot;
 
-        transform.eulerAngles += new Vector3(0, 0, rot); // 回転
+        rtt.z += rot;
+        gameObject.transform.eulerAngles = rtt;
         GetComponent<Rigidbody2D>().velocity = AB * speed; // 上に移動
     }
 

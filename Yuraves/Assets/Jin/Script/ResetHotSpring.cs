@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResetHotSpring : MonoBehaviour {
+    public GameObject director;
     //温泉
     public GameObject[] Spring;
     private TimerController timercontroller;
@@ -14,6 +15,7 @@ public class ResetHotSpring : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         int i = checkFlg.Length - 1;
         for (; i >= 0; i--){
             checkFlg[i] = MandMane.GetComponent<MandGeneretor>().HotSpringFlag[i];

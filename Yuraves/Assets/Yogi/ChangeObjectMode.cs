@@ -6,6 +6,7 @@ namespace Yogi
 {
     public class ChangeObjectMode : MonoBehaviour
     {
+        GameObject director;
         public int ObjectMode = 0;
         int ObjectLifeSpan = 0;
         int ObjectReBornSpan = 0;
@@ -44,11 +45,13 @@ namespace Yogi
             GetComponent<BoxCollider2D>().enabled = false;
             _Mand = GetComponent<MandState>();
             Relation = transform.root.gameObject;
+            director = GameObject.Find("Director");
             MandMane = GameObject.FindGameObjectWithTag("Spawn");
         }
 
         // Update is called once per frame
         void Update(){
+            if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
             KeyGet();
             if (Parent != Relation){
                 if (this.transform.position.y < -6.0f) {
