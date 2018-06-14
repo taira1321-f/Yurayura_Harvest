@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494f69a69c43fa14aa5b6668e4fac8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Score: 0
   OneImage: {fileID: 196093917}
   TenImage: {fileID: 1587325210}
   HundredImage: {fileID: 177282684}
@@ -585,7 +586,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407915047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 320, y: 240, z: 0}
+  m_LocalPosition: {x: 400, y: 640, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 888984967}

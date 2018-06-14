@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreDraw : MonoBehaviour
 {
-    private int Score;
+    public int Score = 0000;
     private int Scorenum;
 
     public GameObject OneImage;
@@ -26,7 +26,6 @@ public class ScoreDraw : MonoBehaviour
 
     void Start()
     {
-        Score =6171;
     }
 
     void Update()
