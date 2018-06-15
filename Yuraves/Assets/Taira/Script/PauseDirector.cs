@@ -35,7 +35,7 @@ public class PauseDirector : MonoBehaviour {
 
     public void TITLE_B() {
         RETRY_flg = false;
-        SceneManager.LoadScene("dummy_TITLE");
+        SceneManager.LoadScene("TitleScene");
     }
     public void REPLAY_B() {
         RETRY_flg = false;

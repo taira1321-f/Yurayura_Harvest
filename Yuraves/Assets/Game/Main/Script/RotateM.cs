@@ -59,7 +59,7 @@ public class RotateM : MonoBehaviour {
         {
             //子供がいない
             case ChildCount.none:
-                transform.eulerAngles += new Vector3(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
                 break;
 
             //子供がいる

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class TitleToStart : FadeScript
-{
- 
-    int ToStartFlg=0;
+public class TitleToStart : FadeScript{
+
+    int ToStartFlg = 0;
     
     // Use this for initialization
     void Start () {
@@ -21,7 +20,6 @@ public class TitleToStart : FadeScript
         if (ToStartFlg == 1&&A >=1.0f)
         {
             SceneManager.LoadScene("MainScene");//シーン移動
-            
         }
       
         if (A <= 0.0f)
@@ -35,10 +33,9 @@ public class TitleToStart : FadeScript
 
     public void SceneChange()
     {
+        Sound(0);
         FadeOutFlg = true;
         ToStartFlg=1;
-    
-        //SceneManager.LoadScene("DummyScene");
     }
-    //かわいいよー
+
 }

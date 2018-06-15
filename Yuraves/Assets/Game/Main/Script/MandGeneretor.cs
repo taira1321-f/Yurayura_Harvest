@@ -31,36 +31,20 @@ public class MandGeneretor : MonoBehaviour {
     //Destroy時 or 温泉に浸かった時に生成
     public void MandGene(string str)
     {
-        //引数の名前は？
-        //その名前がなければ生成
-        switch (str)
-        {
-            case "Mand_1":
-                InstantiateInit(0, str);
-                break;
-            case "Mand_2":
-                InstantiateInit(1, str);
-                break;
-            case "Mand_3":
-                InstantiateInit(2, str);
-                break;
-            case "Mand_4":
-                InstantiateInit(3, str);
-                break;
-        }
-        if (GameObject.Find("Mand_1") == null) InstantiateFlg[0] = true;
-        if (GameObject.Find("Mand_2") == null) InstantiateFlg[1] = true;
-        if (GameObject.Find("Mand_3") == null) InstantiateFlg[2] = true;
-        if (GameObject.Find("Mand_4") == null) InstantiateFlg[3] = true;
-        int i = InstantiateFlg.Length - 1;
-        for (; i >= 0; i--) {
-            if (InstantiateFlg[i]) InstantiateInit(i, MandName[i]);
-        }
-        if (GameObject.Find(str))
-        {
+        if (GameObject.Find(str)){
             GameObject mand = GameObject.Find(str);
             Destroy(mand);
-            return;
+        }
+        int i = 0;
+        //引数の名前は？
+        //その名前がなければ生成
+        if (GameObject.Find("Mand_1") == null) InstantiateFlg[i++] = true;
+        if (GameObject.Find("Mand_2") == null) InstantiateFlg[i++] = true;
+        if (GameObject.Find("Mand_3") == null) InstantiateFlg[i++] = true;
+        if (GameObject.Find("Mand_4") == null) InstantiateFlg[i] = true;
+        for (; i >= 0; i--)
+        {
+            if (InstantiateFlg[i]) InstantiateInit(i, MandName[i]);
         }
     }
     //生成処理時の初期設定

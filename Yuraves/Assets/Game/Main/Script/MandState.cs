@@ -11,6 +11,7 @@ public class MandState : MonoBehaviour {
     [SerializeField]
     GameObject Player;
     GameObject GM;
+    public GameObject Sound;
     bool KeepFlg;
     public CalotteType ctype;
     float ClickTime;
@@ -22,14 +23,18 @@ public class MandState : MonoBehaviour {
     public float LatencyMaxTime = 0.5f;
     public float OroOroTime = 1.0f;
     private float LatencyTime;
+    int sndCnt;
+    bool enemyflg;
     //以下の関数はすべてprivateなので省略します。
 
     void Start(){
         GM = GameObject.FindGameObjectWithTag("Spawn");
         Player = GameObject.Find("RotationManager");
+        Sound = GameObject.Find("Sounds");
         ClickTime = 0.0f;
         KeepFlg = false;
         LatencyTime = 0.0f;
+        sndCnt = 0;
     }
 
     void Initialize(){
@@ -43,8 +48,19 @@ public class MandState : MonoBehaviour {
                 if (Input.GetMouseButton(0)){
                     if (KeepFlg){
                         ClickTime += Time.deltaTime;
+                        if (sndCnt == 0){
+                            Sound.GetComponent<SoundsManager>().Mandragora(0, 0);
+                            sndCnt = 1;
+                        }
                         if (ClickTime >= ClickMaxTime){
                             SetParent();
+                            if (sndCnt == 1){
+                                Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
+                                sndCnt = 2;
+                            }else if (sndCnt == 2) {
+                                Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
+                                sndCnt = 2;
+                            }
                             ctype = CalotteType.KEEP;
                         }
                     }
@@ -58,6 +74,7 @@ public class MandState : MonoBehaviour {
             case CalotteType.RESET:  //揺れる
                 NoneParent();
                 ctype = CalotteType.FALL;
+                gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
                 break;
 
             case CalotteType.FALL:
@@ -100,6 +117,7 @@ public class MandState : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other){ 
         if (other.tag == "Player") KeepFlg = true;
+        //if (other.tag == "Enemy") 
         //どの温泉に浸かっているかチェック
         GameObject Spring = other.gameObject;
         if (ctype == CalotteType.FALL){
@@ -133,7 +151,6 @@ public class MandState : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
-
         }
         if (other.tag == "Player") Initialize();
     }

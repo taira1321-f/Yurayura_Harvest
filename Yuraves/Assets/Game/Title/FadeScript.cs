@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class FadeScript : MonoBehaviour {
-    
-
-
     public SpriteRenderer FadePanelSpriteRenderer;
     public float A;
     public float R;
@@ -13,8 +10,8 @@ abstract public class FadeScript : MonoBehaviour {
     public float B;
     public bool FadeOutFlg = false;
     public bool FadeInFlg;
+    public GameObject sound;
     float Add=0.05f;
-    float delta = 0.0f;
     // Use this for initialization
     void Start () {
         FadePanelSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -70,6 +67,10 @@ abstract public class FadeScript : MonoBehaviour {
         {
             FadeIn();
         }
+    }
+    public void Sound(int i) {
+        if (i == 1) sound.GetComponent<SoundsManager>().Select();
+        else sound.GetComponent<TitleSound>().Select();
     }
 
 }
