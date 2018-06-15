@@ -6,7 +6,7 @@ public class Mandragora : MonoBehaviour
 {
     //定数
     const float ClickMaxTime = 2.0f;
-    const float MouseDistanceY = 1.5f;
+    const float MouseDistanceY = 0.5f;
     //変数
     public enum CalotteType { FLEE, KEEP, RESET, FALL };
     [SerializeField]
@@ -139,7 +139,14 @@ public class Mandragora : MonoBehaviour
     void SetParent()
     {
         gameObject.transform.parent = Player.transform;
-        gameObject.transform.position += new Vector3(0.0f, MouseDistanceY, 0.0f);
+        //18/06/10/追加部-------------------------------------------------------
+        gameObject.transform.position = new Vector3(Player.transform.position.x
+                                                    , Player.transform.position.y
+                                                    , Player.transform.position.z);
+        //定数MouseDistanceYの値はマンドラゴラのYの大きさによって異なるので
+        //他のScene上で使う際には注意が必要。
+        //----------------------------------------------------------------------
+        gameObject.transform.position -= new Vector3(0.0f, MouseDistanceY, 0.0f);
     }
     void NoneParent()
     {

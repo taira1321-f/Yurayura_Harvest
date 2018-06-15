@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreDraw : MonoBehaviour
+public class ScoreDrawYogi : MonoBehaviour
 {
-    public int Score;
+    private int Score;
     private int Scorenum;
+
+    GameObject RankingLoadObject;
+    RankingLoad RankingLoadScript;
 
     public GameObject OneImage;
     public GameObject TenImage;
     public GameObject HundredImage;
     public GameObject ThousandImage;
-
+    public int myNumber;
     public Sprite image0;
     public Sprite image1;
     public Sprite image2;
@@ -26,13 +29,15 @@ public class ScoreDraw : MonoBehaviour
 
     void Start()
     {
-        //ここ外すとこ
-        //Score = Director.Score;
-        Score = 0000;
+        RankingLoadObject = GameObject.Find("RankingLoadObject");
+        RankingLoadScript = RankingLoadObject.GetComponent<RankingLoad>();
+
+        
     }
 
     void Update()
     {
+        Score = RankingLoadScript.ReturnScore(myNumber);
         int S;
         Scorenum = Score;
         SetImage(ThousandImage, Scorenum / 1000);
@@ -41,6 +46,7 @@ public class ScoreDraw : MonoBehaviour
 
         SetImage(HundredImage, Scorenum / 100);
         S = Scorenum / 100;
+        //Debug.Log(S);
         Scorenum -= S * 100;
 
         SetImage(TenImage, Scorenum / 10);//7

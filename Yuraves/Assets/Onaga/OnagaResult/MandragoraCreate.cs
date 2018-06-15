@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MandragoraCreate : ManragoraBase
 {
-    private const float Side = 1.2f;
-    private const float Length = 3.0f;
+    private const float Side = 1.0f;//x の間隔
+    private const float Width = 1.8f;
+    private const float LengthY = 3.8f;
     private const float InitX = -7.0f;
-    private const float FirstX = -5.5f;
+    private const float FirstX = -2.0f;
     private const float MoveSpeed = 0.1f;
 
     private bool MoveFlg = true;
@@ -37,15 +38,22 @@ public class MandragoraCreate : ManragoraBase
         switch (x)
         {
             case 0:
-                PositionXVector = Length;
+                PositionXVector = LengthY - (float)x * Width;
                 break;
-
             case 1:
-                PositionXVector = 0.0f;
+                PositionXVector = LengthY - (float)x * Width;
                 break;
-
             case 2:
-                PositionXVector = -Length;
+                PositionXVector = LengthY - (float)x * Width;
+                break;
+            case 3:
+                PositionXVector = LengthY - (float)x * Width;
+                break;
+            case 4:
+                PositionXVector = LengthY - (float)x * Width;
+                break;
+            case 5:
+                PositionXVector = LengthY - (float)x * Width;
                 break;
         }
 
