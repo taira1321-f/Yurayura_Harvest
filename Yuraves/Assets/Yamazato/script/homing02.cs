@@ -23,18 +23,21 @@ public class homing02 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        switch(MoveFlg)
+        switch (MoveFlg)
         {
             case 0:
-                speed = 0f;
-                maxRot = 0f;
+                speed = 1.0f;
+                maxRot = 1.0f;
+                Move(Sita()); // 移動処理
                 break;
             case 1:
+                //移動スピードと曲がる最大角度を設定
+                speed = Random.Range(1.0f, 1.5f);
+                maxRot = Random.Range(2.5f, 3.0f);
                 Move(Sita()); // 移動処理
-               
                 break;
         }
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,11 +53,8 @@ public class homing02 : MonoBehaviour {
                 break;
             case "Player":
                 Debug.Log("in");
-
-                //移動スピードと曲がる最大角度を設定
-                speed = Random.Range(1.0f, 1.5f);
-                maxRot = Random.Range(2.5f, 3.0f);
-
+         
+                
                 Destination = collision.gameObject.transform;       //到着地をプレイヤーをサーチした位置に設定
                 target.transform.position = Destination.position;   //ターゲットを到着地に設定
                 MoveFlg = 1;
