@@ -23,48 +23,44 @@ public class homing02 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        switch(MoveFlg)
+        switch (MoveFlg)
         {
             case 0:
-                speed = 0f;
-                maxRot = 0f;
+                speed = 1.0f;
+                maxRot = 1.0f;
+                Move(Sita()); // 移動処理
                 break;
             case 1:
+                //移動スピードと曲がる最大角度を設定
+                speed = Random.Range(1.0f, 1.5f);
+                maxRot = Random.Range(2.5f, 3.0f);
                 Move(Sita()); // 移動処理
-               
                 break;
         }
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "point")
+        switch(collision.gameObject.tag)
         {
-            if (this.gameObject.GetComponent<CircleCollider2D>().enabled == false)
-            {
-                Debug.Log("in2");
-                this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
-            }
+            case "point":
+                if (this.gameObject.GetComponent<CircleCollider2D>().enabled == false)
+                {
+                    Debug.Log("in2");
+                    this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                }
+                break;
+            case "Player":
+                Debug.Log("in");
+         
+                
+                Destination = collision.gameObject.transform;       //到着地をプレイヤーをサーチした位置に設定
+                target.transform.position = Destination.position;   //ターゲットを到着地に設定
+                MoveFlg = 1;
+                this.gameObject.GetComponent<CircleCollider2D>().enabled = false; //プレイヤサーチ用のCircleColliderをfalse
+                break;
         }
-
-        //プレイヤーを発見した場合
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("in");
-
-            //移動スピードと曲がる最大角度を設定
-            speed = Random.Range(1.0f, 1.5f);
-            maxRot = Random.Range(2.0f, 2.5f);
-
-            Destination = collision.gameObject.transform;       //到着地をプレイヤーをサーチした位置に設定
-            target.transform.position = Destination.position;   //ターゲットを到着地に設定
-            MoveFlg = 1;
-            this.gameObject.GetComponent<CircleCollider2D>().enabled = false; //プレイヤサーチ用のCircleColliderをfalse
-        }
-
-       
     }
 
     private void OnCollisionEnter(Collision collision)
