@@ -56,9 +56,8 @@ namespace Yogi
             if (Parent != Relation){
                 if (this.transform.position.y < -6.0f) {
                     DamyFlg = 0;
-
-                    MandMane = GameObject.FindGameObjectWithTag("Spawn");
-                    MandMane.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+                    //MandMane = GameObject.FindGameObjectWithTag("Spawn");
+                    //MandMane.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                     Destroy(gameObject);
                 }
                 if (OneceFlg == 0){

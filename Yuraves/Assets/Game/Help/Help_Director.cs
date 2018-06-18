@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class TitleToRanking : FadeScript {
-    int ToRankingFlg = 0;
+public class Help_Director : FadeScript {
+    int H_Fadeflg = 0;
 	// Use this for initialization
 	void Start () {
         FadeInFlg = true;
@@ -14,12 +13,16 @@ public class TitleToRanking : FadeScript {
 	void Update () {
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
-        if (ToRankingFlg == 1 && A >= 1.0f) SceneManager.LoadScene("Ranking");//後々ランキングシーンに変更
-        if (A <= 0.0f) FadeInFlg = false;
+        if (H_Fadeflg == 1 && A >= 1.0f) {
+            
+        }
+        if (A <= 0.0f) {
+            FadeInFlg = false;
+        }
 	}
     public void SceneChange() {
-        Sound(0);
+        Sound(2);
         FadeOutFlg = true;
-        ToRankingFlg = 1;
+        H_Fadeflg = 1;
     }
 }

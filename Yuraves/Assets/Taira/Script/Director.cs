@@ -21,7 +21,7 @@ public class Director : MonoBehaviour {
         cnt = 0;
         Score = 0;
         MandCont = 0;
-        QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
+        //QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
         Application.targetFrameRate = 60;   //ターゲットフレームレート
         CountTime = 60;
         SandF.GetComponent<SpriteRenderer>().sprite = SandF_sp[0];

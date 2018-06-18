@@ -10,6 +10,7 @@ public class TitleSound : MonoBehaviour {
 	void Start () {
         audio = gameObject.GetComponent<AudioSource>();
         audio.PlayOneShot(bgm[0]);
+        Application.targetFrameRate = 60;   //ターゲットフレームレート
 	}
 	
 	// Update is called once per frame

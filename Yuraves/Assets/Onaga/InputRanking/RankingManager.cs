@@ -25,9 +25,8 @@ public class RankingManager : MonoBehaviour
     int Rankin;
     void Start()
     {
-        NewScore = 3;
-        //ここ外すとこ
-        //NewScore = Director.Score;
+        //NewScore = 3;
+        NewScore = Director.Score;
         Ranking = new int[5];
         RankingInput();
         RankingSort(NewScore);

@@ -26,9 +26,8 @@ public class ScoreDraw : MonoBehaviour
 
     void Start()
     {
-        //ここ外すとこ
-        //Score = Director.Score;
-        Score = 0000;
+        Score = Director.Score;
+        //Score = 0000;
     }
 
     void Update()

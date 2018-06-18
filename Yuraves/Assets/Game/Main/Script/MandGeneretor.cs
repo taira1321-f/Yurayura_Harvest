@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MandGeneretor : MonoBehaviour {
-
+    GameObject[] MandObjects;
+    int MO_cnt;
     public bool[] HotSpringFlag = { false, false, false, false };
     bool[] InstantiateFlg = { false, false, false, false };
     string[] MandName = { "Mand_1", "Mand_2", "Mand_3", "Mand_4" };
@@ -16,6 +17,9 @@ public class MandGeneretor : MonoBehaviour {
                      };
 	// Use this for initialization
 	void Start () {
+        MandObjects = GameObject.FindGameObjectsWithTag("Mandragora");
+        MO_cnt = MandObjects.Length;
+        Debug.Log(MO_cnt);
         //フラグの初期化
         int i = (HotSpringFlag.Length - 1);
         for (; i >= 0; i--) {
@@ -25,27 +29,30 @@ public class MandGeneretor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+       
 	}
 
     //Destroy時 or 温泉に浸かった時に生成
-    public void MandGene(string str)
-    {
+    public void MandGene(string str){
+        //引数の名前は？
+        //その名前がなければ生成
+        if (GameObject.Find("Mand_1") == null) InstantiateFlg[0] = true;
+        if (GameObject.Find("Mand_2") == null) InstantiateFlg[1] = true;
+        if (GameObject.Find("Mand_3") == null) InstantiateFlg[2] = true;
+        if (GameObject.Find("Mand_4") == null) InstantiateFlg[3] = true;
+        int i = InstantiateFlg.Length - 1;
+        for (; i >= 0; i--){
+            if (InstantiateFlg[i]) InstantiateInit(i, MandName[i]);
+        }
         if (GameObject.Find(str)){
             GameObject mand = GameObject.Find(str);
             Destroy(mand);
         }
-        int i = 0;
-        //引数の名前は？
-        //その名前がなければ生成
-        if (GameObject.Find("Mand_1") == null) InstantiateFlg[i++] = true;
-        if (GameObject.Find("Mand_2") == null) InstantiateFlg[i++] = true;
-        if (GameObject.Find("Mand_3") == null) InstantiateFlg[i++] = true;
-        if (GameObject.Find("Mand_4") == null) InstantiateFlg[i] = true;
-        for (; i >= 0; i--)
-        {
-            if (InstantiateFlg[i]) InstantiateInit(i, MandName[i]);
-        }
+        
+        
+    }
+    void CountCheck(string tagname) {
+        
     }
     //生成処理時の初期設定
     void InstantiateInit(int i, string str)
@@ -54,7 +61,7 @@ public class MandGeneretor : MonoBehaviour {
         MP = Instantiate(MandPrefab);
         MP.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         MP.transform.position = new Vector3(GPos[i].x, GPos[i].y, GPos[i].z);
-        MP.transform.Rotate(new Vector3(0, 0, 0));
+        MP.transform.eulerAngles = new Vector3(0, 0, 0);
         MP.name = MandName[i];
 
     }

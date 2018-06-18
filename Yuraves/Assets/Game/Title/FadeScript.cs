@@ -70,6 +70,7 @@ abstract public class FadeScript : MonoBehaviour {
     }
     public void Sound(int i) {
         if (i == 1) sound.GetComponent<SoundsManager>().Select();
+        else if (i == 2) sound.GetComponent<HelpSound>().Select();
         else sound.GetComponent<TitleSound>().Select();
     }
 

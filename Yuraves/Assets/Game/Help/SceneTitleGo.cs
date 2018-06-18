@@ -7,7 +7,7 @@ public class SceneTitleGo : MonoBehaviour {
 
     public void SceneLoadTitle()
     {
-        //SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("TitleScene");
         
     }
 }

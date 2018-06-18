@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MandState : MonoBehaviour {
     //定数
-    const float ClickMaxTime = 1.0f;
+    const float ClickMaxTime = 0.5f;
     const float MouseDistanceY = 1.5f;
     //変数
     public enum CalotteType { FLEE, KEEP, RESET, FALL };
@@ -104,8 +104,8 @@ public class MandState : MonoBehaviour {
                             this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }
                         if (!GetComponent<SpriteRenderer>().isVisible){
-                            GameObject go = GameObject.FindGameObjectWithTag("Spawn");
-                            go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+                            //GameObject go = GameObject.FindGameObjectWithTag("Spawn");
+                            //go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                             Destroy(this.gameObject);
                         }
                         break;
@@ -117,12 +117,10 @@ public class MandState : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other){ 
         if (other.tag == "Player") KeepFlg = true;
-        //if (other.tag == "Enemy") 
         //どの温泉に浸かっているかチェック
         GameObject Spring = other.gameObject;
         if (ctype == CalotteType.FALL){
             GM = GameObject.FindGameObjectWithTag("Spawn");
-            //GameObject HE = GameObject.Find("HomingEnemy");
             if (other.gameObject.name == "HotSpring_1"){
                 Changer(Spring, 0);
             }else if (other.gameObject.name == "HotSpring_2"){
@@ -149,6 +147,27 @@ public class MandState : MonoBehaviour {
         else if (om == 3) Director.Score += 10;
     }
     void OnTriggerExit2D(Collider2D other){
+        GameObject Spring = other.gameObject;
+        if (ctype == CalotteType.FALL)
+        {
+            GM = GameObject.FindGameObjectWithTag("Spawn");
+            if (other.gameObject.name == "HotSpring_1")
+            {
+                Changer(Spring, 0);
+            }
+            else if (other.gameObject.name == "HotSpring_2")
+            {
+                Changer(Spring, 1);
+            }
+            else if (other.gameObject.name == "HotSpring_3")
+            {
+                Changer(Spring, 2);
+            }
+            else if (other.gameObject.name == "HotSpring_4")
+            {
+                Changer(Spring, 3);
+            }
+        }
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
         }
