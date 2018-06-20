@@ -24,6 +24,7 @@ public class ScoreDraw : MonoBehaviour
     public Sprite image8;
     public Sprite image9;
 
+    private int LoopCount = 0;
     void Start()
     {
         Score = Director.Score;
@@ -32,23 +33,49 @@ public class ScoreDraw : MonoBehaviour
 
     void Update()
     {
-        int S;
-        Scorenum = Score;
-        SetImage(ThousandImage, Scorenum / 1000);
-        S = Scorenum / 1000;
-        Scorenum -= S * 1000;
+        if (LoopCount <= Score)
+        {
+            int S;
+            Scorenum = Score;
+            SetImage(ThousandImage, Scorenum / 1000);
+            S = Scorenum / 1000;
+            Scorenum -= S * 1000;
 
-        SetImage(HundredImage, Scorenum / 100);
-        S = Scorenum / 100;
-        Scorenum -= S * 100;
+            SetImage(HundredImage, Scorenum / 100);
+            S = Scorenum / 100;
+            Scorenum -= S * 100;
 
-        SetImage(TenImage, Scorenum / 10);//7
-        S = Scorenum / 10;
-        Scorenum -= S * 10;
+            SetImage(TenImage, Scorenum / 10);//7
+            S = Scorenum / 10;
+            Scorenum -= S * 10;
 
-        SetImage(OneImage, Scorenum / 1);
-        S = Scorenum / 1;
-        Scorenum -= S * 1;
+            SetImage(OneImage, Scorenum / 1);
+            S = Scorenum / 1;
+            Scorenum -= S * 1;
+
+            LoopCount += 2;
+        }
+        if (LoopCount > Score)
+        {
+            LoopCount--;
+            int S;
+            Scorenum = Score;
+            SetImage(ThousandImage, Scorenum / 1000);
+            S = Scorenum / 1000;
+            Scorenum -= S * 1000;
+
+            SetImage(HundredImage, Scorenum / 100);
+            S = Scorenum / 100;
+            Scorenum -= S * 100;
+
+            SetImage(TenImage, Scorenum / 10);//7
+            S = Scorenum / 10;
+            Scorenum -= S * 10;
+
+            SetImage(OneImage, Scorenum / 1);
+            S = Scorenum / 1;
+            Scorenum -= S * 1;
+        }
     }
     void SetImage(GameObject Image, int SubScore)
     {

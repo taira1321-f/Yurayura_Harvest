@@ -13,7 +13,7 @@ namespace Onaga
         public float TimeCounter;
         public const float TimeSpan = 0.1f;
         [SerializeField]
-        public static float TolVector = 0.0f;
+        public static float TolVector = 0.0f; //１秒当たりの移動量
         public enum XDStatus { initial = -1, right = 0, left };
         public static XDStatus XDMode;
 

@@ -5,8 +5,17 @@ using Onaga;
 
 public class RotationManager : MonoBehaviour
 {
+    //新規変数----------------------------------------------------------------------------------------------------------------------------
+    private const float GravityPower = 2.0f;//仮想重力の重さ
+    private const float RotationPower = 3.0f;
+    private const float GravityTimeLimit = 0.2f;//重力による揺れ戻りの間隔
+    private float GravityTimeCounter = 0.0f;//重力による揺れ戻りスパンをカウント
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //変更変数(名前は変えていない)--------------------------------------------------------------------------------------------------------
+    private float MoveSpeed = 0.0f;  //傾きのスピード   可変式に変更
+    //------------------------------------------------------------------------------------------------------------------------------------
+
     private const float MaxVector = 2.5f;   //移動スピード上限
-    private const float MoveSpeed = 2.88f;  //傾きのスピード
     private const float MaxRotation = 120.0f;   //傾きの上限
     private const float MinRotation = 240.0f;   //傾きの下限
     private const float StopperRotation = 180.0f;   //傾きの判定用の数値
@@ -37,6 +46,7 @@ public class RotationManager : MonoBehaviour
         InitSpeed = 0.0f;
         SpeedAddition = 0.0f;
         transform.eulerAngles = new Vector3(0, 0, 0);
+        positionInit = PositionInit.zero; //------------------------------------------------------------------------------------------------------------------------------------
     }
     void Update()
     {
@@ -60,43 +70,91 @@ public class RotationManager : MonoBehaviour
             //子供がいない
             case ChildCount.none:
                 transform.eulerAngles += new Vector3(0, 0, 0);
+                Initialize(); //------------------------------------------------------------------------------------------------------------------------------------
                 break;
 
             //子供がいる
             case ChildCount.child:
+                MoveSpeed = Onaga.MousePosition.TolVector * RotationPower;//一秒あたりの移動量×傾き変換量
                 switch (Onaga.MousePosition.XDMode)
                 {
                     //右に移動中
                     case Onaga.MousePosition.XDStatus.right:
-                        if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
+                        //*ここから----------------------------------------------------------------------------------------------------------------------------------
+                        if (GravityTimeCounter <= GravityTimeLimit)
                         {
-                            transform.eulerAngles -= new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
-                            if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
+                            if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
                             {
-                                transform.eulerAngles = new Vector3(0, 0, MinRotation);
+                                transform.eulerAngles -= new Vector3(0, 0, MoveSpeed);
+                                if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
+                                {
+                                    transform.eulerAngles = new Vector3(0, 0, MinRotation);
+                                }
+                            }
+                            GravityTimeCounter += Time.deltaTime;
+                        }
+                        else
+                        {
+                            Debug.Log("重力");
+                            if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
+                            {
+                                transform.eulerAngles += new Vector3(0, 0, GravityPower);
+                                if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
+                                {
+                                    transform.eulerAngles = new Vector3(0, 0, MinRotation);
+                                }
+                            }
+                            GravityTimeCounter += Time.deltaTime;
+                            if(GravityTimeCounter >= GravityTimeLimit * 2.0f)//傾き時間と同じ時間分重力による揺れ戻り
+                            {
+                                GravityTimeCounter = 0.0f;
                             }
                         }
+                        //*ここまで-----------------------------------------------------------------------------------------------------------------------------------
                         SlopeVector(transform.eulerAngles.z);
                         ReleaseChild();
                         break;
                     //左に移動中
                     case Onaga.MousePosition.XDStatus.left:
-                        if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
+                        //*ここから----------------------------------------------------------------------------------------------------------------------------------
+                        if (GravityTimeCounter <= GravityTimeLimit)
                         {
-                            transform.eulerAngles += new Vector3(0, 0, Onaga.MousePosition.TolVector * MoveSpeed);
-                            if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)
+                            if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
                             {
-                                transform.eulerAngles = new Vector3(0, 0, MaxRotation);
+                                transform.eulerAngles += new Vector3(0, 0, MoveSpeed);
+                                if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)
+                                {
+                                    transform.eulerAngles = new Vector3(0, 0, MaxRotation);
+                                }
+                            }
+                            GravityTimeCounter += Time.deltaTime;
+                        }
+                        else
+                        {
+                            Debug.Log("重力");
+                            if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
+                            {
+                                transform.eulerAngles -= new Vector3(0, 0, GravityPower);
+                                if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)
+                                {
+                                    transform.eulerAngles = new Vector3(0, 0, MaxRotation);
+                                }
+                            }
+                            GravityTimeCounter += Time.deltaTime;
+                            if (GravityTimeCounter >= GravityTimeLimit * 2.0f)//傾き時間と同じ時間分重力による揺れ戻り
+                            {
+                                GravityTimeCounter = 0.0f;
                             }
                         }
+                        //*ここまで-----------------------------------------------------------------------------------------------------------------------------------
                         SlopeVector(transform.eulerAngles.z);
                         ReleaseChild();
                         break;
 
                     //移動していない
                     case Onaga.MousePosition.XDStatus.initial:
+                        GravityTimeCounter = 0.0f;//------------------------------------------------------------------------------------------------------------------------------------
                         int roopcount = 1;
-
                         if (VectorCounter > 0.0f)
                         {
                             switch (positionInit)
