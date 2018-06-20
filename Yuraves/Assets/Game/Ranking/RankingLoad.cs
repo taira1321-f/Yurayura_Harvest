@@ -6,34 +6,33 @@ using UnityEngine.UI;
 public class RankingLoad : MonoBehaviour
 {
 
-    //　読み込んだテキストを出力するUIテキスト
-    int Score1;
-    int Score2;
-    int Score3;
-    int Score4;
-    int Score5;
-    
-    //　読む込むテキストが書き込まれている.txtファイル
-    [SerializeField]
-    private TextAsset textAsset;
-    //　テキストファイルから読み込んだデータ
-    private string loadText1;
-    //　改行で分割して配列に入れる
-    private string[] splitText1;
 
-    void Start(){
-        loadText1 = textAsset.text;
-        splitText1 = loadText1.Split(char.Parse("\n"));
-        Score1 = int.Parse(splitText1[0]);
-        Score2 = int.Parse(splitText1[1]);
-        Score3 = int.Parse(splitText1[2]);
-        Score4 = int.Parse(splitText1[3]);
-        Score5 = int.Parse(splitText1[4]);
+    [SerializeField]
+    public int Score1;
+    public int Score2;
+    public int Score3;
+    public int Score4;
+    public int Score5;
+    public int Score;
+
+    void Start()
+    {
+        Score1 = PlayerPrefs.GetInt("RankingNumber1", 1234);
+        Score2 = PlayerPrefs.GetInt("RankingNumber2", 1234);
+        Score3 = PlayerPrefs.GetInt("RankingNumber3", 1234);
+        Score4 = PlayerPrefs.GetInt("RankingNumber4", 1234);
+        Score5 = PlayerPrefs.GetInt("RankingNumber5", 1234);
+
+        Debug.Log("Score1="+Score1);
+       
+    }
+
+    void Update()
+    {
     }
 
     public int ReturnScore(int myNumber)
     {
-        int Score = 0;
         switch (myNumber)
         {
             case 1:
