@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Result/ResultScene.unity
     guid: b4de8f66ed75ff749b272245d3f51a5f
-  - enabled: 1
-    path: Assets/Dummy/DummyScene.unity
-    guid: c02ea43195d2cbe42a94623e1418d3a8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Game/Title/TitleScene.unity
     guid: e657543768ddae641b4d78ec682b49e7
+  - enabled: 1
+    path: Assets/Game/Ranking/InputRanking.unity
+    guid: 4e4450c516779fe45a137d0afffb2aff
