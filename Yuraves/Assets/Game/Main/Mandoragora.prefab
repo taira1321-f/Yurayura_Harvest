@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774581563574946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -3.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: -2, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,8 +81,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 7.54, y: 8}
+    oldSize: {x: 1.6666666, y: 1.6666666}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -102,12 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectMode: 0
-  MandoragoraSprite01: {fileID: 21300000, guid: c1c57f7aef41bad42b008c342555a158,
-    type: 3}
-  MandoragoraSprite02: {fileID: 21300000, guid: b365cc61ed822584bb7e29eb9131bf2b,
-    type: 3}
-  MandoragoraSprite03: {fileID: 21300000, guid: d692a823e7e4cb24a87361079fde4513,
-    type: 3}
+  Mand_Sp:
+  - {fileID: 21300000, guid: 09617d4b12d42a047963a7308c7fe641, type: 3}
+  - {fileID: 21300000, guid: 05d35c306a648be4a81130b1639fff62, type: 3}
+  - {fileID: 21300000, guid: bda1a08a43ca7764288b6b0b7aaa2f97, type: 3}
   Parent: {fileID: 0}
   Relation: {fileID: 0}
 --- !u!114 &114233478143678684
@@ -134,6 +132,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  Sound: {fileID: 0}
+  Mand:
+  - {fileID: 21300000, guid: e7439738499ed5445ace9007721c0826, type: 3}
+  - {fileID: 21300000, guid: 124b717bc2bc6fd4597ffc6458854e9f, type: 3}
+  - {fileID: 21300000, guid: dae639ea053956b4181041d4855ecc56, type: 3}
+  - {fileID: 21300000, guid: 4dc73220add3e834184f17c11f8590c8, type: 3}
+  - {fileID: 21300000, guid: 74d198df051f7d54695178185a96312a, type: 3}
+  - {fileID: 21300000, guid: a31139339d9e90c4e88a4eb49ae75434, type: 3}
+  - {fileID: 21300000, guid: ffed9825ce3033f49bf1afb9b83b238a, type: 3}
   ctype: 0
   fallStatus: 0
   MoveSpeed: 0.04
@@ -174,12 +181,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: b365cc61ed822584bb7e29eb9131bf2b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bda1a08a43ca7764288b6b0b7aaa2f97, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.54, y: 8}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

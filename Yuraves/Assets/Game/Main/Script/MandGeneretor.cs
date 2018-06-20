@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MandGeneretor : MonoBehaviour {
-    GameObject[] MandObjects;
-    int MO_cnt;
     public bool[] HotSpringFlag = { false, false, false, false };
     bool[] InstantiateFlg = { false, false, false, false };
     string[] MandName = { "Mand_1", "Mand_2", "Mand_3", "Mand_4" };
@@ -17,9 +15,6 @@ public class MandGeneretor : MonoBehaviour {
                      };
 	// Use this for initialization
 	void Start () {
-        MandObjects = GameObject.FindGameObjectsWithTag("Mandragora");
-        MO_cnt = MandObjects.Length;
-        Debug.Log(MO_cnt);
         //フラグの初期化
         int i = (HotSpringFlag.Length - 1);
         for (; i >= 0; i--) {
@@ -29,7 +24,6 @@ public class MandGeneretor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
 	}
 
     //Destroy時 or 温泉に浸かった時に生成
@@ -44,6 +38,14 @@ public class MandGeneretor : MonoBehaviour {
         for (; i >= 0; i--){
             if (InstantiateFlg[i]) InstantiateInit(i, MandName[i]);
         }
+        int a;
+        if (str == MandName[0]) a = 0;
+        else if (str == MandName[1]) a = 1;
+        else if (str == MandName[2]) a = 2;
+        else if (str == MandName[3]) a = 3;
+        else a = 99;
+
+        InstantiateInit(a,str);
         if (GameObject.Find(str)){
             GameObject mand = GameObject.Find(str);
             Destroy(mand);
@@ -51,12 +53,10 @@ public class MandGeneretor : MonoBehaviour {
         
         
     }
-    void CountCheck(string tagname) {
-        
-    }
     //生成処理時の初期設定
     void InstantiateInit(int i, string str)
     {
+        if (i == 99) Debug.Log("やばめ");
         GameObject MP;
         MP = Instantiate(MandPrefab);
         MP.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;

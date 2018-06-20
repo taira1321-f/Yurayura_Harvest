@@ -12,6 +12,7 @@ public class MandState : MonoBehaviour {
     GameObject Player;
     GameObject GM;
     public GameObject Sound;
+    public Sprite[] Mand;
     bool KeepFlg;
     public CalotteType ctype;
     float ClickTime;
@@ -25,6 +26,8 @@ public class MandState : MonoBehaviour {
     private float LatencyTime;
     int sndCnt;
     bool enemyflg;
+    int AnimeCnt;
+    bool AnimeFlg;
     //以下の関数はすべてprivateなので省略します。
 
     void Start(){
@@ -35,6 +38,7 @@ public class MandState : MonoBehaviour {
         KeepFlg = false;
         LatencyTime = 0.0f;
         sndCnt = 0;
+        AnimeCnt = 0;
     }
 
     void Initialize(){
@@ -54,6 +58,7 @@ public class MandState : MonoBehaviour {
                         }
                         if (ClickTime >= ClickMaxTime){
                             SetParent();
+                            GetComponent<SpriteRenderer>().sprite = Mand[0];
                             if (sndCnt == 1){
                                 Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
                                 sndCnt = 2;
@@ -80,6 +85,9 @@ public class MandState : MonoBehaviour {
             case CalotteType.FALL:
                 switch (fallStatus){
                     case FallStatus.FALL:
+                        GetComponent<SpriteRenderer>().sprite = Mand[0];
+                        if (this.gameObject.transform.position.x >= 0) AnimeFlg = true;
+                        else AnimeFlg = false;
                         if (LatencyTime <= LatencyMaxTime){
                             LatencyTime += Time.deltaTime;
                             this.gameObject.transform.position -= new Vector3(0, MoveSpeed, 0);
@@ -89,6 +97,7 @@ public class MandState : MonoBehaviour {
                         }
                         break;
                     case FallStatus.OROORO:
+                        Flight_Anime();
                         if (LatencyTime <= OroOroTime){
                             LatencyTime += Time.deltaTime;
                         }else{
@@ -97,24 +106,36 @@ public class MandState : MonoBehaviour {
                         }
                         break;
                     case FallStatus.FLIGHT:
-                        
+                        Flight_Anime();
                         if (this.gameObject.transform.position.x >= 0){
                             this.gameObject.transform.position += new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }else{
                             this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }
                         if (!GetComponent<SpriteRenderer>().isVisible){
-                            //GameObject go = GameObject.FindGameObjectWithTag("Spawn");
-                            //go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+                            GameObject go = GameObject.FindGameObjectWithTag("Spawn");
+                            go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                             Destroy(this.gameObject);
                         }
                         break;
                 }
-                
                 break;
         }
     }
-
+    void Flight_Anime() {
+        AnimeCnt++;
+        if (AnimeFlg){
+            if (AnimeCnt > 24) {
+                AnimeCnt = 0;
+                GetComponent<SpriteRenderer>().sprite = Mand[3]; 
+            }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[4];                
+        }else {
+            if (AnimeCnt > 24){
+                AnimeCnt = 0;
+                GetComponent<SpriteRenderer>().sprite = Mand[5];
+            }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[6];
+        }
+    }
     void OnTriggerStay2D(Collider2D other){ 
         if (other.tag == "Player") KeepFlg = true;
         //どの温泉に浸かっているかチェック
@@ -147,33 +168,11 @@ public class MandState : MonoBehaviour {
         else if (om == 3) Director.Score += 10;
     }
     void OnTriggerExit2D(Collider2D other){
-        GameObject Spring = other.gameObject;
-        if (ctype == CalotteType.FALL)
-        {
-            GM = GameObject.FindGameObjectWithTag("Spawn");
-            if (other.gameObject.name == "HotSpring_1")
-            {
-                Changer(Spring, 0);
-            }
-            else if (other.gameObject.name == "HotSpring_2")
-            {
-                Changer(Spring, 1);
-            }
-            else if (other.gameObject.name == "HotSpring_3")
-            {
-                Changer(Spring, 2);
-            }
-            else if (other.gameObject.name == "HotSpring_4")
-            {
-                Changer(Spring, 3);
-            }
-        }
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
         }
         if (other.tag == "Player") Initialize();
     }
-
     void SetParent(){
         gameObject.transform.parent = Player.transform;
         gameObject.transform.position += new Vector3(0.0f, MouseDistanceY, 0.0f);

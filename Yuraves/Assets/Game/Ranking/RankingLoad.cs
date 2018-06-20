@@ -39,12 +39,6 @@ public class RankingLoad : MonoBehaviour
         Score3 = int.Parse(splitText1[2]);
         Score4 = int.Parse(splitText1[3]);
         Score5 = int.Parse(splitText1[4]);
-        //Score1 = 1234;
-        //Score2 = 4568;
-        //Score3 = 1245;
-        //Score4 = 8764;
-        //Score5 = 9875;
-        //dataText.text = "マウスの左クリックで通常のテキストファイルの読み込み、右クリックでResourcesフォルダ内のテキストファイル読み込みしたテキストが表示されます。";
     }
 
     void Update()

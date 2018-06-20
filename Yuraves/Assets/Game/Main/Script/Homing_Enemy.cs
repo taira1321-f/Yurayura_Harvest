@@ -10,14 +10,7 @@ public class Homing_Enemy : MonoBehaviour {
     Transform target; // 追いかける対象
     private float speed = 0; // 移動スピード
     const float maxRot = 1.0f; // 曲がる最大角度
-
-    // Use this for initialization
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() {
-        
-    }
+    Vector3 rtt;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -64,11 +57,11 @@ public class Homing_Enemy : MonoBehaviour {
     //-----------------------------------------------------------------------------------------------
     void Move(float rot)
     {
-        Vector3 rtt = gameObject.transform.eulerAngles;
+        rtt = gameObject.transform.eulerAngles;
         // 求めた角度が曲がる最大角度より大きかった場合に戻す処理
         if (rot > maxRot) rot = maxRot;
         else if (rot < -maxRot) rot = -maxRot;
-
+        
         rtt.z += rot;
         gameObject.transform.eulerAngles = rtt;
         GetComponent<Rigidbody2D>().velocity = AB * speed; // 上に移動

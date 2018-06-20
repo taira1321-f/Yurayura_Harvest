@@ -6,30 +6,26 @@ public class Rush_Enemy : MonoBehaviour {
     public GameObject director;
     enum State { STAY, RUSH, TURN };
     State s_mode;
-    //Rush関数用変数
+    //RUSHMODE用変数
     public Vector3 StartPos;
     public Vector3 EndPos;
     public float time;
-    private Vector3 deltaPos;
-    private float elapsedTime;
-    private bool bStartToEnd = true;
-    //Turn関数用変数
-    float[] TurnAngle = { 75.0f, 255.0f, -105.0f, };
-    Vector3 goAngle;
+    Vector3 deltaPos;
+    float elapsedTime;
+    bool bStartToEnd = true;
+    //TURNMODE用変数
+    float[] EyesAngle = { 60.0f, 240.0f, -120.0f };
+    float[] BodyAngle = { 0.0f, 180.0f, -180.0f };
     const float angle = 0.5f;
-
-    void Start()
-    {
-        s_mode = State.STAY;
-        // StartPosをオブジェクトに初期位置に設定
+    //ANIME用変数
+    public GameObject BODY;
+    public Sprite[] Run;
+    void Start(){
+        s_mode = State.TURN;
         transform.position = StartPos;
-        // 1秒当たりの移動量を算出
         deltaPos = (EndPos - StartPos) / time;
         elapsedTime = 0;
-        GameObject go = transform.Find("e_p").gameObject;
-        go.SetActive(false);
     }
-
     void Update(){
         if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         switch (s_mode) {
@@ -37,7 +33,8 @@ public class Rush_Enemy : MonoBehaviour {
                 Rush();
                 break;
             case State.TURN:
-                Turn();
+                EyesTurn();
+                BodyTurn();
                 break;
             case State.STAY:
                 Stay();
@@ -45,9 +42,15 @@ public class Rush_Enemy : MonoBehaviour {
         }
     }
     void ModeChange() {
-        if (s_mode == State.RUSH) s_mode = State.TURN;
-        else if (s_mode == State.TURN) s_mode = State.STAY;
-        else if (s_mode == State.STAY) s_mode = State.RUSH;
+        if (s_mode == State.RUSH){
+            s_mode = State.TURN;
+            BODY.GetComponent<SpriteRenderer>().sprite = Run[0];
+        }else if (s_mode == State.TURN){
+            s_mode = State.STAY;
+        }else if (s_mode == State.STAY) {
+            s_mode = State.RUSH;
+            BODY.GetComponent<SpriteRenderer>().sprite = Run[1];
+        } 
     }
     void Rush() {
         transform.position += deltaPos * Time.deltaTime;
@@ -65,17 +68,31 @@ public class Rush_Enemy : MonoBehaviour {
             ModeChange();
         }
     }
-    void Turn() {
-        goAngle = gameObject.transform.eulerAngles;
+    void EyesTurn() {
+        GameObject ep = transform.Find("e_p").gameObject;
+        Vector3 epAngle = ep.transform.eulerAngles;
         if (bStartToEnd){
-            goAngle.z -= angle;
-            if (((int)goAngle.z) == ((int)TurnAngle[1]) || ((int)goAngle.z) == ((int)TurnAngle[2])) ModeChange();
+            epAngle.z -= angle;
+            if (((int)epAngle.z) == ((int)EyesAngle[1]) || ((int)epAngle.z) == ((int)EyesAngle[2])) ModeChange();
         }else{
-            goAngle.z += angle;
-            if (((int)goAngle.z) == ((int)TurnAngle[0])) ModeChange();
+            epAngle.z += angle;
+            if (((int)epAngle.z) == ((int)EyesAngle[0])) ModeChange();
         }
-        if (goAngle.z >= 360 || goAngle.z <= -360) goAngle.z = 0;  
-        gameObject.transform.eulerAngles = goAngle;
+        if (epAngle.z >= 360 || epAngle.z <= -360) epAngle.z = 0;  
+        ep.transform.eulerAngles = epAngle;
+    }
+    void BodyTurn() {
+        GameObject go = transform.Find("body").gameObject;
+        Vector3 body_R = go.transform.eulerAngles;
+        if (bStartToEnd){
+            body_R.y -= angle;
+            if (((int)body_R.y) == ((int)BodyAngle[1]) || ((int)body_R.y) == ((int)BodyAngle[2])) return;
+        }else {
+            body_R.y -= angle;
+            if (((int)body_R.y) == ((int)BodyAngle[0])) return;            
+        }
+        if (body_R.y >= 360 || body_R.y <= -360) body_R.y = 0;
+        go.transform.eulerAngles = body_R;
     }
     void Stay() {
         GameObject go = transform.Find("e_p").gameObject;

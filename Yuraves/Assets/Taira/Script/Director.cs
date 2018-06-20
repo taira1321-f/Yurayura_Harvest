@@ -21,7 +21,7 @@ public class Director : MonoBehaviour {
         cnt = 0;
         Score = 0;
         MandCont = 0;
-        //QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
+        QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
         Application.targetFrameRate = 60;   //ターゲットフレームレート
         CountTime = 60;
         SandF.GetComponent<SpriteRenderer>().sprite = SandF_sp[0];
@@ -56,9 +56,9 @@ public class Director : MonoBehaviour {
             if ((SFpos.x) <= 5.5f) SFpos.x += 0.2f;
             SandF.transform.position = SFpos;
         }
-        if (cnt == 0) sounds.GetComponent<SoundsManager>().StartSE(0);
-        else if (cnt == 95) sounds.GetComponent<SoundsManager>().StartSE(1);
-        if (cnt++ >= 120){
+        if (cnt == 10) sounds.GetComponent<SoundsManager>().StartSE(0);
+        else if (cnt == 105) sounds.GetComponent<SoundsManager>().StartSE(1);
+        if (cnt++ >= 130){
             cnt = 0;
             gameMode = MODE.PLAY;
             SandF.transform.position = new Vector3(-5.5f, 0, 0);
@@ -66,13 +66,13 @@ public class Director : MonoBehaviour {
         }
     }
     void Finish() {
-        if (cnt++ == 0) sounds.GetComponent<SoundsManager>().FinishSE();
+        if (cnt++ == 10) sounds.GetComponent<SoundsManager>().FinishSE();
         Vector2 SFpos = SandF.transform.position;
-        if (cnt < 65){
+        if (cnt < 75){
             if ((SFpos.x) <= 0) SFpos.x += 0.2f;
             SandF.transform.position = SFpos;
         }
-        if (cnt >= 65) {
+        if (cnt >= 75) {
             cnt = 0;
             gameMode = MODE.READY;
             SceneManager.LoadScene("ResultScene");
@@ -83,13 +83,9 @@ public class Director : MonoBehaviour {
         if (gameMode == MODE.PLAY){
             gameMode = MODE.STAY;
             PauseDirector.RETRY_flg = true;
-            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
-            P_pos.SetActive(false);
         }else if (gameMode == MODE.STAY){
             gameMode = MODE.PLAY;
             PauseDirector.RETRY_flg = false;
-            GameObject P_pos = Canvas.transform.Find("Pause").gameObject;
-            P_pos.SetActive(true);
         }
     }
 }

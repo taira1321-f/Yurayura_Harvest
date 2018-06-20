@@ -34,7 +34,7 @@ public class ManCon : MonoBehaviour
         
     }
     void Changer(GameObject sp,int i) {
-        GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+        //GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
         AddScore();

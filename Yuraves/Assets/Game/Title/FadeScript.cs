@@ -19,58 +19,35 @@ abstract public class FadeScript : MonoBehaviour {
         R = GetComponent<SpriteRenderer>().color.r;
         G = GetComponent<SpriteRenderer>().color.g;
         B = GetComponent<SpriteRenderer>().color.b;
-
-
     }
 	
 	// Update is called once per frame
-	void Update () {
-       
-    }
+    void Update() { }
 
-    public void FadeOut()
-    {
-        
-        //this.delta += Time.deltaTime;
-        //if (this.delta >= 0.5f)
-        //{
-            //Debug.Log("フェードアウト");
-            A += Add;
-            FadePanelSpriteRenderer.color = new Color(R, G, B, A);
-            //this.delta = 0.0f;
-        //}
+    public void FadeOut(){
+        A += Add;
+        FadePanelSpriteRenderer.color = new Color(R, G, B, A);
     }
-
-    public void FadeOutSet(bool a)//FadeInFlgを入れる関数
-    {
-        if (a)
-        {
-            FadeOut();
-        }
+    //FadeInFlgを入れる関数
+    public void FadeOutSet(bool a){
+        if (a) FadeOut();
     }
 
 
-    public void FadeIn()
-    {
-        //this.delta += Time.deltaTime;
-        //if (this.delta >= 0.5f)
-        //{
-            A -= Add;
-            FadePanelSpriteRenderer.color = new Color(R, G, B, A);
-            //delta = 0.0f;
-        //}
+    public void FadeIn(){
+        A -= Add;
+        FadePanelSpriteRenderer.color = new Color(R, G, B, A);
     }
 
     public void FadeInSet(bool b)
     {
-        if (b)
-        {
-            FadeIn();
-        }
+        if (b) FadeIn();
     }
     public void Sound(int i) {
         if (i == 1) sound.GetComponent<SoundsManager>().Select();
         else if (i == 2) sound.GetComponent<HelpSound>().Select();
+        else if (i == 3) sound.GetComponent<RankingSound>().Select();
+        else if (i == 4) sound.GetComponent<SoundResult>().Select();
         else sound.GetComponent<TitleSound>().Select();
     }
 

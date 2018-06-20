@@ -17,9 +17,7 @@ namespace Yogi
         int ObjectStepUpSpan = 0;
         SpriteRenderer MandoragoraMainSprite;
         Object MousePointor;
-        public Sprite MandoragoraSprite01;
-        public Sprite MandoragoraSprite02;
-        public Sprite MandoragoraSprite03;
+        public Sprite[] Mand_Sp;
         public GameObject Parent;
         public GameObject Relation;
         float ChangeAlpha = 0.0f;
@@ -27,7 +25,6 @@ namespace Yogi
         float Blue;
         float Green;
         float Alpha;
-        GameObject MandMane;
         // Use this for initialization
         void Start()
         {
@@ -46,7 +43,6 @@ namespace Yogi
             _Mand = GetComponent<MandState>();
             Relation = transform.root.gameObject;
             director = GameObject.Find("Director");
-            MandMane = GameObject.FindGameObjectWithTag("Spawn");
         }
 
         // Update is called once per frame
@@ -56,8 +52,6 @@ namespace Yogi
             if (Parent != Relation){
                 if (this.transform.position.y < -6.0f) {
                     DamyFlg = 0;
-                    //MandMane = GameObject.FindGameObjectWithTag("Spawn");
-                    //MandMane.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                     Destroy(gameObject);
                 }
                 if (OneceFlg == 0){
@@ -67,30 +61,27 @@ namespace Yogi
                             if (ObjectReBornSpan == 60){
                                 ObjectReBornSpan = 0;
                                 if (Random.Range(0, 2) == 1){
-                                    MandoragoraMainSprite.sprite = MandoragoraSprite01;
+                                    MandoragoraMainSprite.sprite = Mand_Sp[0];
                                     GetComponent<BoxCollider2D>().enabled = true;
                                     GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
                                     ObjectMode = 1;
-                                    
                                 }
-                            };
+                            }
                             break;
                         case 1:
                             if (!Holdflg) ObjectStepUpSpan++;
                             if (ObjectStepUpSpan >= 300){
                                 ObjectMode = 2;
                                 ObjectStepUpSpan = 0;
-                                MandoragoraMainSprite.sprite = MandoragoraSprite02;
-                                
+                                MandoragoraMainSprite.sprite = Mand_Sp[1];
                             }
                             break;
                         case 2:
                             if (!Holdflg) ObjectStepUpSpan++;
                             if (ObjectStepUpSpan >= 300) {
                                 ObjectMode = 3;
-                                MandoragoraMainSprite.sprite = MandoragoraSprite03;
+                                MandoragoraMainSprite.sprite = Mand_Sp[2];
                                 ObjectStepUpSpan = 0;
-                                
                             }
                             break;
                         case 3:

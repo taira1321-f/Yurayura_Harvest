@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TitleSound : MonoBehaviour {
-    public AudioSource audio;
+    AudioSource Audio_S;
     public AudioClip[] bgm;
     public AudioClip[] se;
 	// Use this for initialization
 	void Start () {
-        audio = gameObject.GetComponent<AudioSource>();
-        audio.PlayOneShot(bgm[0]);
+        Audio_S = gameObject.GetComponent<AudioSource>();
+        Audio_S.PlayOneShot(bgm[0]);
         Application.targetFrameRate = 60;   //ターゲットフレームレート
 	}
 	
@@ -18,6 +18,6 @@ public class TitleSound : MonoBehaviour {
 		
 	}
     public void Select() {
-        audio.PlayOneShot(se[0]);
+        Audio_S.PlayOneShot(se[0]);
     }
 }

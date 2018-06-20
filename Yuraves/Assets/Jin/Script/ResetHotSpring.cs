@@ -6,26 +6,44 @@ public class ResetHotSpring : MonoBehaviour {
     public GameObject director;
     //温泉
     public GameObject[] Spring;
-    private TimerController timercontroller;
     public GameObject MandMane;
     bool[] checkFlg = new bool[4];
-     void Start () {
-        
+    int AnimeCnt;
+    public Sprite[] Sprite_sp;
+    void Start(){
+        AnimeCnt = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         int i = checkFlg.Length - 1;
-        for (; i >= 0; i--){
-            checkFlg[i] = MandMane.GetComponent<MandGeneretor>().HotSpringFlag[i];
+        for (; i >= 0; i--) {
+            if (checkFlg[i]) SpringAnime(i);
         }
-        if (AllTrue())
-        {
-            Invoke("HotSpringReset", 2);
-        }
-	}
+        i = checkFlg.Length - 1;
+        for (; i >= 0; i--) checkFlg[i] = MandMane.GetComponent<MandGeneretor>().HotSpringFlag[i];
 
+        if (AllTrue()) Invoke("HotSpringReset", 2);
+
+	}
+    void SpringAnime(int i) {
+        Spring[i].GetComponent<SpriteRenderer>().sprite = Sprite_sp[AnimeMandSpring()];
+    }
+    int AnimeMandSpring()
+    {
+        AnimeCnt++;
+        if (AnimeCnt > 60)
+        {
+            AnimeCnt = 0;
+            return 0;
+        }
+        else if (AnimeCnt > 30)
+        {
+            return 1;
+        }
+        else return 0;
+    }
     bool AllTrue() {
         int cnt = 0;//trueカウンター
         for (int i = 0; i <= 3; i++) {
