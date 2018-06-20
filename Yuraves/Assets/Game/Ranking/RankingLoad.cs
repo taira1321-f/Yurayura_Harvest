@@ -7,33 +7,23 @@ public class RankingLoad : MonoBehaviour
 {
 
     //　読み込んだテキストを出力するUIテキスト
-    [SerializeField]
-    public int Score1;
-    public int Score2;
-    public int Score3;
-    public int Score4;
-    public int Score5;
-    public int Score;
-
+    int Score1;
+    int Score2;
+    int Score3;
+    int Score4;
+    int Score5;
     
     //　読む込むテキストが書き込まれている.txtファイル
     [SerializeField]
     private TextAsset textAsset;
     //　テキストファイルから読み込んだデータ
     private string loadText1;
-    //　Resourcesフォルダから直接テキストを読み込む
-    private string loadText2;
     //　改行で分割して配列に入れる
     private string[] splitText1;
-    //　改行で分割して配列に入れる
-    private string[] splitText2;
 
-
-    void Start()
-    {
+    void Start(){
         loadText1 = textAsset.text;
         splitText1 = loadText1.Split(char.Parse("\n"));
-
         Score1 = int.Parse(splitText1[0]);
         Score2 = int.Parse(splitText1[1]);
         Score3 = int.Parse(splitText1[2]);
@@ -41,12 +31,9 @@ public class RankingLoad : MonoBehaviour
         Score5 = int.Parse(splitText1[4]);
     }
 
-    void Update()
-    {
-    }
-
     public int ReturnScore(int myNumber)
     {
+        int Score = 0;
         switch (myNumber)
         {
             case 1:

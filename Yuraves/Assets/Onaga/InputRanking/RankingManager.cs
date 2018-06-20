@@ -25,15 +25,10 @@ public class RankingManager : MonoBehaviour
     int Rankin;
     void Start()
     {
-        //NewScore = 3;
         NewScore = Director.Score;
         Ranking = new int[5];
         RankingInput();
         RankingSort(NewScore);
-        for (int k = 0; k <= 4; k++)
-        {
-            //Debug.Log(Ranking[k]);
-        }
         RankingSet();
     }
 
@@ -118,9 +113,5 @@ public class RankingManager : MonoBehaviour
                     break;
             }
         }
-    }
-
-    void Update()
-    {
     }
 }

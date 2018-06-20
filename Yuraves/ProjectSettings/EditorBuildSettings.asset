@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/Main/MainScene.unity
-    guid: 7e6c1dda14853874996d9f711a9e258f
-  - enabled: 1
-    path: Assets/Taira/Scene/dummy_TITLE.unity
-    guid: ddb99a95d3f7848428889ee95396bcfc
+    path: Assets/Game/Title/TitleScene.unity
+    guid: e657543768ddae641b4d78ec682b49e7
   - enabled: 1
     path: Assets/Game/Main/MainScene.unity
     guid: 7e6c1dda14853874996d9f711a9e258f
@@ -20,12 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Result/ResultScene.unity
     guid: b4de8f66ed75ff749b272245d3f51a5f
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Game/Title/TitleScene.unity
-    guid: e657543768ddae641b4d78ec682b49e7
   - enabled: 1
     path: Assets/Game/Ranking/InputRanking.unity
     guid: 4e4450c516779fe45a137d0afffb2aff
+  - enabled: 1
+    path: Assets/Game/Ranking/Ranking.unity
+    guid: 5f64db279311b66498292e822072424a

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ResultSceneManager : MonoBehaviour {
 
-    private
+    
 	// Use this for initialization
 	void Start () {
        
@@ -19,13 +19,10 @@ public class ResultSceneManager : MonoBehaviour {
     public void SceneChenge()
     {
         int NewScore = Director.Score;
-        int RankInScore = PlayerPrefs.GetInt("RankingNumber5", 100);
-
-        if (NewScore < RankInScore)
-        {
+        int RankInScore = PlayerPrefs.GetInt("RankingNumber5", 0);
+        if (NewScore < RankInScore){
             SceneManager.LoadScene("TitleScene");
-        }else
-        {
+        }else{
             SceneManager.LoadScene("InputRanking");
         }
 
