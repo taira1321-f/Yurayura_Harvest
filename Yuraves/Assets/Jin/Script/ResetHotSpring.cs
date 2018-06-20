@@ -52,6 +52,7 @@ public class ResetHotSpring : MonoBehaviour {
         if (cnt == 4) return true;
         else return false;
     }
+
     public void HotSpringReset()
     {
         //すべてのフラグをfalseへ

@@ -115,7 +115,7 @@ public class MandState : MonoBehaviour {
                         if (!GetComponent<SpriteRenderer>().isVisible){
                             GameObject go = GameObject.FindGameObjectWithTag("Spawn");
                             go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
-                            Destroy(this.gameObject);
+                            Destroy(gameObject);
                         }
                         break;
                 }
@@ -154,8 +154,8 @@ public class MandState : MonoBehaviour {
         }
     }
     void Changer(GameObject sp, int i){
-        GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
+        GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
         sp.GetComponent<BoxCollider2D>().enabled = false;   //当たり判定消す
         AddScore();        
