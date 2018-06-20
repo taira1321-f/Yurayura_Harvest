@@ -35,7 +35,8 @@ public class RankingManager : MonoBehaviour
     void RankingInput()
     {
         for (int i = 0; i <= 4; i++)
-        {
+        { 
+
             switch (i)
             {
                 case 0:
