@@ -20,7 +20,6 @@ public class RankingManager : MonoBehaviour
     private int[] Ranking;
     //今回のscore
     private int NewScore;
-    private int RankingScore;
     //ランクインがあった場合の順位
     int Rankin;
     void Start()
@@ -30,12 +29,15 @@ public class RankingManager : MonoBehaviour
         RankingInput();
         RankingSort(NewScore);
         RankingSet();
+        Initialize();
     }
 
+    //Rankingの保存データを取得
     void RankingInput()
     {
         for (int i = 0; i <= 4; i++)
-        {
+        { 
+
             switch (i)
             {
                 case 0:
@@ -57,6 +59,7 @@ public class RankingManager : MonoBehaviour
         }
     }
 
+    //NewScoreをRankingへ入れてソート
     void RankingSort(int newscore)
     {
         int[] sort = new int[5];
@@ -85,6 +88,7 @@ public class RankingManager : MonoBehaviour
         }
     }
 
+    //新たなRankinaデータを保存
     void RankingSet()
     {
         for (int i = 0; i <= 4; i++)
@@ -93,25 +97,39 @@ public class RankingManager : MonoBehaviour
             {
                 case 0:
                     PlayerPrefs.SetInt(Ranking1, Ranking[i]);
+                    PlayerPrefs.Save();//セット直後にセーブしたいのでここ（swichからださないで！）
                     DrawRanking1.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
                 case 1:
                     PlayerPrefs.SetInt(Ranking2, Ranking[i]);
+                    PlayerPrefs.Save();
                     DrawRanking2.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
                 case 2:
                     PlayerPrefs.SetInt(Ranking3, Ranking[i]);
+                    PlayerPrefs.Save();
                     DrawRanking3.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
                 case 3:
                     PlayerPrefs.SetInt(Ranking4, Ranking[i]);
+                    PlayerPrefs.Save();
                     DrawRanking4.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
                 case 4:
                     PlayerPrefs.SetInt(Ranking5, Ranking[i]);
+                    PlayerPrefs.Save();
                     DrawRanking5.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
             }
+        }
+    }
+
+    void Initialize()
+    {
+        for (int i = 0; i <= 4; i++)
+        {
+            Ranking[i] = 0;
+            NewScore = 0;
         }
     }
 }
