@@ -22,9 +22,8 @@ public class RankingLoad : MonoBehaviour
         Score3 = PlayerPrefs.GetInt("RankingNumber3", 1234);
         Score4 = PlayerPrefs.GetInt("RankingNumber4", 1234);
         Score5 = PlayerPrefs.GetInt("RankingNumber5", 1234);
-
-        Debug.Log("Score1="+Score1);
-       
+        QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
+        Application.targetFrameRate = 60;   //ターゲットフレームレート       
     }
 
     void Update()

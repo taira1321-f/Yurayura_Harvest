@@ -8,6 +8,8 @@ public class ResultToScene : FadeScript {
 	// Use this for initialization
 	void Start () {
         FadeInFlg = true;
+        QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
+        Application.targetFrameRate = 60;   //ターゲットフレームレート
 	}
 	
 	// Update is called once per frame

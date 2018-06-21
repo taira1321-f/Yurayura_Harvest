@@ -10,7 +10,9 @@ public class ResetHotSpring : MonoBehaviour {
     bool[] checkFlg = new bool[4];
     int AnimeCnt;
     public Sprite[] Sprite_sp;
+    bool BonusFlg;
     void Start(){
+        BonusFlg = false;
         AnimeCnt = 0;
 	}
 	
@@ -22,10 +24,12 @@ public class ResetHotSpring : MonoBehaviour {
             if (checkFlg[i]) SpringAnime(i);
         }
         i = checkFlg.Length - 1;
-        for (; i >= 0; i--) checkFlg[i] = MandMane.GetComponent<MandGeneretor>().HotSpringFlag[i];
+        for (; i >= 0; i--) checkFlg[i] = GetComponent<MandGeneretor>().HotSpringFlag[i];
 
-        if (AllTrue()) Invoke("HotSpringReset", 2);
-
+        if (AllTrue()) {
+            BonusFlg = true;
+            Invoke("HotSpringReset", 2); 
+        }
 	}
     void SpringAnime(int i) {
         Spring[i].GetComponent<SpriteRenderer>().sprite = Sprite_sp[AnimeMandSpring()];
@@ -44,12 +48,14 @@ public class ResetHotSpring : MonoBehaviour {
         }
         else return 0;
     }
-    bool AllTrue() {
+    public bool AllTrue() {
         int cnt = 0;//trueカウンター
         for (int i = 0; i <= 3; i++) {
             if (checkFlg[i]) cnt++;
         }
-        if (cnt == 4) return true;
+        if (cnt == 4) {
+            return true; 
+        }
         else return false;
     }
 
@@ -62,10 +68,13 @@ public class ResetHotSpring : MonoBehaviour {
         }
         //すべての温泉の画像切り替えと当たり判定の復活
         int i = Spring.Length - 1;
-        for (; i >= 0; i--)
-        {
+        for (; i >= 0; i--){
             this.Spring[i].GetComponent<ChangeImage>().ChangeStateToStandby();
             this.Spring[i].GetComponent<BoxCollider2D>().enabled = true;
+        }
+        if (BonusFlg) {
+            BonusFlg = !BonusFlg;
+            Director.Score += 50; 
         }
     }
 

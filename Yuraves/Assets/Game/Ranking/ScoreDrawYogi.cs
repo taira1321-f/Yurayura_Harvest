@@ -29,7 +29,7 @@ public class ScoreDrawYogi : MonoBehaviour
     void Update()
     {
         Score = RankingLoadScript.ReturnScore(myNumber);
-        int S;
+        int S = 0;
         Scorenum = Score;
         SetImage(ThousandImage, ((Scorenum / 1000) % 10));
         S = Scorenum / 1000;

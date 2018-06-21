@@ -158,7 +158,7 @@ public class MandState : MonoBehaviour {
         GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
         sp.GetComponent<BoxCollider2D>().enabled = false;   //当たり判定消す
-        AddScore();        
+        AddScore();
     }
     void AddScore(){
         Director.MandCont++;
@@ -166,6 +166,7 @@ public class MandState : MonoBehaviour {
         if (om == 1) Director.Score += 30;
         else if (om == 2) Director.Score += 20;
         else if (om == 3) Director.Score += 10;
+        
     }
     void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
