@@ -20,7 +20,6 @@ public class RankingManager : MonoBehaviour
     private int[] Ranking;
     //今回のscore
     private int NewScore;
-    private int RankingScore;
     //ランクインがあった場合の順位
     int Rankin;
     void Start()
@@ -30,6 +29,7 @@ public class RankingManager : MonoBehaviour
         RankingInput();
         RankingSort(NewScore);
         RankingSet();
+        Initialize();
     }
 
     //Rankingの保存データを取得
@@ -121,6 +121,15 @@ public class RankingManager : MonoBehaviour
                     DrawRanking5.GetComponent<ScoreDraw>().Score = Ranking[i];
                     break;
             }
+        }
+    }
+
+    void Initialize()
+    {
+        for (int i = 0; i <= 4; i++)
+        {
+            Ranking[i] = 0;
+            NewScore = 0;
         }
     }
 }
