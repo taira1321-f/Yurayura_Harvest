@@ -48,6 +48,7 @@ abstract public class FadeScript : MonoBehaviour {
         else if (i == 2) sound.GetComponent<HelpSound>().Select();
         else if (i == 3) sound.GetComponent<RankingSound>().Select();
         else if (i == 4) sound.GetComponent<SoundResult>().Select();
+        else if (i == 5) sound.GetComponent<InputSound>().Select();
         else sound.GetComponent<TitleSound>().Select();
     }
 

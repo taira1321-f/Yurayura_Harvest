@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundResult : MonoBehaviour {
+public class InputSound : MonoBehaviour
+{
     AudioSource Audio_S;
     public AudioClip[] sounds;
     // Use this for initialization
