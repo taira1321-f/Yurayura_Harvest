@@ -11,6 +11,7 @@ public class MandState : MonoBehaviour {
     [SerializeField]
     GameObject Player;
     GameObject GM;
+    GameObject GD;
     public GameObject Sound;
     public Sprite[] Mand;
     bool KeepFlg;
@@ -32,6 +33,7 @@ public class MandState : MonoBehaviour {
 
     void Start(){
         GM = GameObject.FindGameObjectWithTag("Spawn");
+        GD = GameObject.Find("Director");
         Player = GameObject.Find("RotationManager");
         Sound = GameObject.Find("Sounds");
         ClickTime = 0.0f;
@@ -47,6 +49,7 @@ public class MandState : MonoBehaviour {
     }
 
     void Update(){
+        if (GD.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         switch (ctype){
             case CalotteType.FLEE:
                 if (Input.GetMouseButton(0)){
