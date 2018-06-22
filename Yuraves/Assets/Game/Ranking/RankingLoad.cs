@@ -17,11 +17,11 @@ public class RankingLoad : MonoBehaviour
 
     void Start()
     {
-        Score1 = PlayerPrefs.GetInt("RankingNumber1", 1234);
-        Score2 = PlayerPrefs.GetInt("RankingNumber2", 1234);
-        Score3 = PlayerPrefs.GetInt("RankingNumber3", 1234);
-        Score4 = PlayerPrefs.GetInt("RankingNumber4", 1234);
-        Score5 = PlayerPrefs.GetInt("RankingNumber5", 1234);
+        Score1 = PlayerPrefs.GetInt("RankingNumber1", 0);
+        Score2 = PlayerPrefs.GetInt("RankingNumber2", 0);
+        Score3 = PlayerPrefs.GetInt("RankingNumber3", 0);
+        Score4 = PlayerPrefs.GetInt("RankingNumber4", 0);
+        Score5 = PlayerPrefs.GetInt("RankingNumber5", 0);
         QualitySettings.vSyncCount = 0;     //VSyncをOFFにする
         Application.targetFrameRate = 60;   //ターゲットフレームレート       
     }

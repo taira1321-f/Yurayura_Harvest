@@ -10,22 +10,15 @@ public class RankingManager : MonoBehaviour
     private const string Ranking3 = "RankingNumber3";// |
     private const string Ranking4 = "RankingNumber4";// |
     private const string Ranking5 = "RankingNumber5";//５位
-    //表示するUIのオブジェクト変数
-    public GameObject DrawRanking1;
-    public GameObject DrawRanking2;
-    public GameObject DrawRanking3;
-    public GameObject DrawRanking4;
-    public GameObject DrawRanking5;
     //各順位のscoreを格納する配列
-    private int[] Ranking;
+    private int[] Ranking = new int[5];
     //今回のscore
-    private int NewScore;
+    private int NewScore = 0;
     //ランクインがあった場合の順位
     int Rankin;
     void Start()
     {
         NewScore = Director.Score;
-        Ranking = new int[5];
         RankingInput();
         RankingSort(NewScore);
         RankingSet();
@@ -36,24 +29,24 @@ public class RankingManager : MonoBehaviour
     void RankingInput()
     {
         for (int i = 0; i <= 4; i++)
-        { 
+        {
 
             switch (i)
             {
                 case 0:
-                    Ranking[i] = PlayerPrefs.GetInt(Ranking1, 0005);
+                    Ranking[i] = PlayerPrefs.GetInt(Ranking1, 0);
                     break;
                 case 1:
-                    Ranking[i] = PlayerPrefs.GetInt(Ranking2, 0004);
+                    Ranking[i] = PlayerPrefs.GetInt(Ranking2, 0);
                     break;
                 case 2:
-                    Ranking[i] = PlayerPrefs.GetInt(Ranking3, 0003);
+                    Ranking[i] = PlayerPrefs.GetInt(Ranking3, 0);
                     break;
                 case 3:
-                    Ranking[i] = PlayerPrefs.GetInt(Ranking4, 0002);
+                    Ranking[i] = PlayerPrefs.GetInt(Ranking4, 0);
                     break;
                 case 4:
-                    Ranking[i] = PlayerPrefs.GetInt(Ranking5, 0001);
+                    Ranking[i] = PlayerPrefs.GetInt(Ranking5, 0);
                     break;
             }
         }
@@ -86,6 +79,10 @@ public class RankingManager : MonoBehaviour
         {
             Ranking[n] = sort[n];
         }
+        for (int i = 0; i <= 4; i++)
+        {
+            
+        }
     }
 
     //新たなRankinaデータを保存
@@ -97,30 +94,26 @@ public class RankingManager : MonoBehaviour
             {
                 case 0:
                     PlayerPrefs.SetInt(Ranking1, Ranking[i]);
-                    PlayerPrefs.Save();//セット直後にセーブしたいのでここ（swichからださないで！）
-                    DrawRanking1.GetComponent<ScoreDraw>().Score = Ranking[i];
+                    Debug.Log(PlayerPrefs.GetInt(Ranking1, 0));
                     break;
                 case 1:
                     PlayerPrefs.SetInt(Ranking2, Ranking[i]);
-                    PlayerPrefs.Save();
-                    DrawRanking2.GetComponent<ScoreDraw>().Score = Ranking[i];
+                    Debug.Log(PlayerPrefs.GetInt(Ranking2, 0));
                     break;
                 case 2:
                     PlayerPrefs.SetInt(Ranking3, Ranking[i]);
-                    PlayerPrefs.Save();
-                    DrawRanking3.GetComponent<ScoreDraw>().Score = Ranking[i];
+                    Debug.Log(PlayerPrefs.GetInt(Ranking3, 0));
                     break;
                 case 3:
                     PlayerPrefs.SetInt(Ranking4, Ranking[i]);
-                    PlayerPrefs.Save();
-                    DrawRanking4.GetComponent<ScoreDraw>().Score = Ranking[i];
+                    Debug.Log(PlayerPrefs.GetInt(Ranking4, 0));
                     break;
                 case 4:
                     PlayerPrefs.SetInt(Ranking5, Ranking[i]);
-                    PlayerPrefs.Save();
-                    DrawRanking5.GetComponent<ScoreDraw>().Score = Ranking[i];
+                    Debug.Log(PlayerPrefs.GetInt(Ranking5, 0));
                     break;
             }
+            PlayerPrefs.Save(); 
         }
     }
 
@@ -129,7 +122,7 @@ public class RankingManager : MonoBehaviour
         for (int i = 0; i <= 4; i++)
         {
             Ranking[i] = 0;
-            NewScore = 0;
         }
+        NewScore = 0;
     }
 }
