@@ -24,6 +24,8 @@ public class MandGeneretor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        GameObject go = GameObject.FindGameObjectWithTag("Mandragora");
+        if (go == null) MandGene("");
 	}
 
     //Destroy時 or 温泉に浸かった時に生成
@@ -46,6 +48,8 @@ public class MandGeneretor : MonoBehaviour {
                 i = 3;
                 InstantiateInit(i, MandName[i]);
                 break;
+            default:
+                break;
         }
         GameObject[] go = GameObject.FindGameObjectsWithTag("Mandragora");
         if (go.Length < 4){
@@ -66,15 +70,13 @@ public class MandGeneretor : MonoBehaviour {
         }
     }
     //生成処理時の初期設定
-    void InstantiateInit(int i, string str)
-    {
+    void InstantiateInit(int i, string str){
         GameObject MP;
         MP = Instantiate(MandPrefab);
         MP.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         MP.transform.position = new Vector3(GPos[i].x, GPos[i].y, GPos[i].z);
         MP.transform.eulerAngles = new Vector3(0, 0, 0);
         MP.name = MandName[i];
-
     }
     
 }

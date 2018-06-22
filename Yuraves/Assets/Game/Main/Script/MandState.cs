@@ -112,7 +112,8 @@ public class MandState : MonoBehaviour {
                         }else{
                             this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }
-                        if (!GetComponent<SpriteRenderer>().isVisible){
+                        if (gameObject.transform.position.x >= 4.0f || gameObject.transform.position.x <= -4.0f
+                            || gameObject.transform.position.y >= 6.0f || gameObject.transform.position.y <= -5.5f){
                             GameObject go = GameObject.FindGameObjectWithTag("Spawn");
                             go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                             Destroy(gameObject);
