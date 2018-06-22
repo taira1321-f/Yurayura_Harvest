@@ -28,7 +28,7 @@ public class ResetHotSpring : MonoBehaviour {
 
         if (AllTrue()) {
             BonusFlg = true;
-            Invoke("HotSpringReset", 2); 
+            Invoke("HotSpringReset", 0.25f); 
         }
 	}
     void SpringAnime(int i) {
