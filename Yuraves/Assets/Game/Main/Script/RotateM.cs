@@ -10,7 +10,7 @@ public class RotateM : MonoBehaviour {
     private float GravityTimeCounter = 0.0f;//重力による揺れ戻りスパンをカウント
     private float MoveSpeed = 0.0f;  //傾きのスピード   可変式に変更
     
-    private const float MaxVector = 2.5f;   //移動スピード上限
+    private const float MaxVector = 2.0f;   //移動スピード上限
     private const float MaxRotation = 120.0f;   //傾きの上限
     private const float MinRotation = 240.0f;   //傾きの下限
     private const float StopperRotation = 180.0f;   //傾きの判定用の数値
@@ -71,6 +71,7 @@ public class RotateM : MonoBehaviour {
 
             //子供がいる
             case ChildCount.child:
+                MoveSpeed = Onaga.MousePosition.TolVector * RotationPower;
                 switch (Onaga.MousePosition.XDMode)
                 {
                     //右に移動中
@@ -109,6 +110,7 @@ public class RotateM : MonoBehaviour {
                         break;
                     //左に移動中
                     case Onaga.MousePosition.XDStatus.left:
+                        MoveSpeed = Onaga.MousePosition.TolVector * RotationPower;
                         if (GravityTimeCounter <= GravityTimeLimit)
                         {
                             if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)

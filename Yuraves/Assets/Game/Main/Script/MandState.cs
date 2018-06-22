@@ -177,7 +177,10 @@ public class MandState : MonoBehaviour {
     }
     void SetParent(){
         gameObject.transform.parent = Player.transform;
-        gameObject.transform.position += new Vector3(0.0f, MouseDistanceY, 0.0f);
+        gameObject.transform.position = new Vector3(Player.transform.position.x,
+            Player.transform.position.y, Player.transform.position.z);
+        gameObject.transform.position -= new Vector3(0.0f, MouseDistanceY, 0.0f);
+
     }
     void NoneParent(){
         gameObject.transform.parent = null;
