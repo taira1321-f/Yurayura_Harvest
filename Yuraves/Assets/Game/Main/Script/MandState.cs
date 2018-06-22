@@ -154,11 +154,12 @@ public class MandState : MonoBehaviour {
         }
     }
     void Changer(GameObject sp, int i){
-        GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
-        GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
         sp.GetComponent<BoxCollider2D>().enabled = false;   //当たり判定消す
         AddScore();
+        GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
+        GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+        
     }
     void AddScore(){
         Director.MandCont++;

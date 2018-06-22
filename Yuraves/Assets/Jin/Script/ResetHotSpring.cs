@@ -18,6 +18,10 @@ public class ResetHotSpring : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (AllTrue()){
+            BonusFlg = true;
+            Invoke("HotSpringReset", 2);
+        }
         if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
         int i = checkFlg.Length - 1;
         for (; i >= 0; i--) {
@@ -26,10 +30,7 @@ public class ResetHotSpring : MonoBehaviour {
         i = checkFlg.Length - 1;
         for (; i >= 0; i--) checkFlg[i] = GetComponent<MandGeneretor>().HotSpringFlag[i];
 
-        if (AllTrue()) {
-            BonusFlg = true;
-            Invoke("HotSpringReset", 2); 
-        }
+        
 	}
     void SpringAnime(int i) {
         Spring[i].GetComponent<SpriteRenderer>().sprite = Sprite_sp[AnimeMandSpring()];
