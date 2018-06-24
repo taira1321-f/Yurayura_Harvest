@@ -90,8 +90,7 @@ public class RotateM : MonoBehaviour {
                         }
                         else
                         {
-                            Debug.Log("重力");
-                            if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
+                            if (MinRotation < transform.eulerAngles.z /*|| MaxRotation >= (int)transform.eulerAngles.z*/)
                             {
                                 transform.eulerAngles += new Vector3(0, 0, GravityPower);
                                 if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
@@ -125,8 +124,7 @@ public class RotateM : MonoBehaviour {
                         }
                         else
                         {
-                            Debug.Log("重力");
-                            if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
+                            if (MaxRotation > transform.eulerAngles.z /*|| StopperRotation <= (int)transform.eulerAngles.z*/)
                             {
                                 transform.eulerAngles -= new Vector3(0, 0, GravityPower);
                                 if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)

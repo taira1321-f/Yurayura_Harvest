@@ -5,15 +5,11 @@ using Onaga;
 
 public class RotationManager : MonoBehaviour
 {
-    //新規変数----------------------------------------------------------------------------------------------------------------------------
     private const float GravityPower = 2.0f;//仮想重力の重さ
     private const float RotationPower = 3.0f;
     private const float GravityTimeLimit = 0.2f;//重力による揺れ戻りの間隔
     private float GravityTimeCounter = 0.0f;//重力による揺れ戻りスパンをカウント
-    //------------------------------------------------------------------------------------------------------------------------------------
-    //変更変数(名前は変えていない)--------------------------------------------------------------------------------------------------------
     private float MoveSpeed = 0.0f;  //傾きのスピード   可変式に変更
-    //------------------------------------------------------------------------------------------------------------------------------------
 
     private const float MaxVector = 2.5f;   //移動スピード上限
     private const float MaxRotation = 120.0f;   //傾きの上限
@@ -46,7 +42,7 @@ public class RotationManager : MonoBehaviour
         InitSpeed = 0.0f;
         SpeedAddition = 0.0f;
         transform.eulerAngles = new Vector3(0, 0, 0);
-        positionInit = PositionInit.zero; //------------------------------------------------------------------------------------------------------------------------------------
+        positionInit = PositionInit.zero;
     }
     void Update()
     {
@@ -70,7 +66,6 @@ public class RotationManager : MonoBehaviour
             //子供がいない
             case ChildCount.none:
                 transform.eulerAngles += new Vector3(0, 0, 0);
-                Initialize(); //------------------------------------------------------------------------------------------------------------------------------------
                 break;
 
             //子供がいる
@@ -80,7 +75,6 @@ public class RotationManager : MonoBehaviour
                 {
                     //右に移動中
                     case Onaga.MousePosition.XDStatus.right:
-                        //*ここから----------------------------------------------------------------------------------------------------------------------------------
                         if (GravityTimeCounter <= GravityTimeLimit)
                         {
                             if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
@@ -95,8 +89,7 @@ public class RotationManager : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("重力");
-                            if (MinRotation < transform.eulerAngles.z || MaxRotation >= (int)transform.eulerAngles.z)
+                            if (MinRotation < transform.eulerAngles.z)
                             {
                                 transform.eulerAngles += new Vector3(0, 0, GravityPower);
                                 if (MinRotation >= transform.eulerAngles.z && StopperRotation <= transform.eulerAngles.z)
@@ -110,16 +103,14 @@ public class RotationManager : MonoBehaviour
                                 GravityTimeCounter = 0.0f;
                             }
                         }
-                        //*ここまで-----------------------------------------------------------------------------------------------------------------------------------
                         SlopeVector(transform.eulerAngles.z);
                         ReleaseChild();
                         break;
                     //左に移動中
                     case Onaga.MousePosition.XDStatus.left:
-                        //*ここから----------------------------------------------------------------------------------------------------------------------------------
                         if (GravityTimeCounter <= GravityTimeLimit)
                         {
-                            if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
+                            if (MaxRotation > transform.eulerAngles.z)
                             {
                                 transform.eulerAngles += new Vector3(0, 0, MoveSpeed);
                                 if (MaxRotation <= transform.eulerAngles.z && StopperRotation >= transform.eulerAngles.z)
@@ -131,7 +122,6 @@ public class RotationManager : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("重力");
                             if (MaxRotation > transform.eulerAngles.z || StopperRotation <= (int)transform.eulerAngles.z)
                             {
                                 transform.eulerAngles -= new Vector3(0, 0, GravityPower);
@@ -146,14 +136,13 @@ public class RotationManager : MonoBehaviour
                                 GravityTimeCounter = 0.0f;
                             }
                         }
-                        //*ここまで-----------------------------------------------------------------------------------------------------------------------------------
                         SlopeVector(transform.eulerAngles.z);
                         ReleaseChild();
                         break;
 
                     //移動していない
                     case Onaga.MousePosition.XDStatus.initial:
-                        GravityTimeCounter = 0.0f;//------------------------------------------------------------------------------------------------------------------------------------
+                        GravityTimeCounter = 0.0f;
                         int roopcount = 1;
                         if (VectorCounter > 0.0f)
                         {

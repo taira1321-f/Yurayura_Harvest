@@ -34,6 +34,7 @@ public class InputRankingMain : FadeScript
 
     public void SceneChange()
     {
+        Sound(5);
         FadeOutFlg = true;
         ToStartFlg = 1;
     }
