@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundsManager : MonoBehaviour {
     AudioSource audio_source;
-    public AudioClip[] BGM; //メインBGM
     public AudioClip[] SE;  //メインSE配列 ==>> 中身は下のコメント文
     /********************************************
       0:レディー
@@ -28,7 +27,6 @@ public class SoundsManager : MonoBehaviour {
     
     void Start(){
         audio_source = gameObject.GetComponent<AudioSource>();
-        audio_source.PlayOneShot(BGM[0]);
     }
     public void StartSE(int i){
         audio_source.PlayOneShot(SE[i]);

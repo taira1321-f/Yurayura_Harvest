@@ -35,7 +35,7 @@ public class MandState : MonoBehaviour {
         GM = GameObject.FindGameObjectWithTag("Spawn");
         GD = GameObject.Find("Director");
         Player = GameObject.Find("RotationManager");
-        Sound = GameObject.Find("Sounds");
+        Sound = GameObject.Find("SoundsSE");
         ClickTime = 0.0f;
         KeepFlg = false;
         LatencyTime = 0.0f;
