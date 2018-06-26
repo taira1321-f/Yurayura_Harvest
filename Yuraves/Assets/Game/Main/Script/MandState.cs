@@ -12,6 +12,7 @@ public class MandState : MonoBehaviour {
     GameObject Player;
     GameObject GM;
     GameObject GD;
+    SizeManager SM;
     public GameObject Sound;
     public Sprite[] Mand;
     bool KeepFlg;
@@ -36,6 +37,7 @@ public class MandState : MonoBehaviour {
         GD = GameObject.Find("Director");
         Player = GameObject.Find("RotationManager");
         Sound = GameObject.Find("SoundsSE");
+        SM = GetComponent<SizeManager>();
         ClickTime = 0.0f;
         KeepFlg = false;
         LatencyTime = 0.0f;
@@ -168,9 +170,14 @@ public class MandState : MonoBehaviour {
     void AddScore(){
         Director.MandCont++;
         int om = gameObject.GetComponent<Yogi.ChangeObjectMode>().ObjectMode;
-        if (om == 1) Director.Score += 30;
-        else if (om == 2) Director.Score += 20;
-        else if (om == 3) Director.Score += 10;
+        int mg = SM.SizePoint;
+        int add = 0;
+        if (om == 1) add += 50;
+        else if (om == 2) add += 30;
+        else if (om == 3) add += 10;
+        if (mg == 0) add *= (mg + 1);
+        else add *= mg;
+        Director.Score += add;
         
     }
     void OnTriggerExit2D(Collider2D other){

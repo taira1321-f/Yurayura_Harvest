@@ -74,7 +74,7 @@ public class ResetHotSpring : MonoBehaviour {
         }
         if (BonusFlg) {
             BonusFlg = !BonusFlg;
-            Director.Score += 50; 
+            Director.Score += 200; 
         }
     }
 

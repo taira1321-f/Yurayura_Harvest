@@ -11,8 +11,8 @@ public class Homing_Enemy : MonoBehaviour {
     private float speed = 0; // 移動スピード
     const float maxRot = 1.0f; // 曲がる最大角度
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
+    private void OnTriggerStay2D(Collider2D collision){
+        if (collision.transform.tag == "Enemy") return;
         if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) {
             GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
             return;
@@ -24,8 +24,8 @@ public class Homing_Enemy : MonoBehaviour {
             target = tf;
         }
         speed = Random.Range(0.5f, 1.0f);
-        float rot = Sita();
-        Move(rot); // 移動処理
+        float rt = Sita();
+        Move(rt); // 移動処理
     }
     //-----------------------------------------------------------------------------------------------
     // なす角θを求める
@@ -43,12 +43,10 @@ public class Homing_Enemy : MonoBehaviour {
         float rot = Acosf(dot / (Length(AB) * Length(AC))); // アークコサインからθを求める
 
         // 外積から回転方向を求める
-        if (AB.x * AC.y - AB.y * AC.x < 0)
-        {
-            rot = -rot;
-        }
-
-        return rot * 180f / Mathf.PI; // ラジアンからデグリーに変換して角度を返す
+        if (AB.x * AC.y - AB.y * AC.x < 0) rot = -rot;
+        float a = ((rot * 180f) / Mathf.PI);
+        
+        return a; // ラジアンからデグリーに変換して角度を返す
     }
 
     //-----------------------------------------------------------------------------------------------
@@ -56,33 +54,23 @@ public class Homing_Enemy : MonoBehaviour {
     //-----------------------------------------------------------------------------------------------
     void Move(float rot)
     {
-        Vector3 rtt = gameObject.transform.eulerAngles;
+        if (float.IsNaN(rot)) rot = 0;
+        Vector3 rtt = transform.eulerAngles;
         // 求めた角度が曲がる最大角度より大きかった場合に戻す処理
-        if (rot > maxRot) rot = maxRot;
-        else if (rot < -maxRot) rot = -maxRot;
+        if (rot >= maxRot) rot = maxRot;
+        if (rot <= -maxRot) rot = -maxRot;
         
         rtt.z += rot;
-        gameObject.transform.eulerAngles = rtt;
+        //Debug.Log(rtt);
+        transform.eulerAngles = new Vector3(rtt.x, rtt.y, rtt.z);
         GetComponent<Rigidbody2D>().velocity = AB * speed; // 上に移動
     }
 
-    /// <summary>
-    /// ベクトルの長さを求める
-    /// </summary>
-    /// <param name="vec">2点間のベクトル</param>
-    /// <returns></returns>
-    float Length(Vector2 vec)
-    {
+    float Length(Vector2 vec){
         return Mathf.Sqrt(vec.x * vec.x + vec.y * vec.y);
     }
 
-    /// <summary>
-    /// Acosの引数の値が+-1を越えたとき1に戻すAcos関数
-    /// </summary>
-    /// <param name="a">内積 / （ベクトルの長さ * ベクトルの長さ）</param>
-    /// <returns></returns>
-    float Acosf(float a)
-    {
+    float Acosf(float a){
         if (a < -1) a = -1;
         if (a > 1) a = 1;
 

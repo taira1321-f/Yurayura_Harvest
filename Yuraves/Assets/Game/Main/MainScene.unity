@@ -2435,6 +2435,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114455459537510532, guid: 464b70964ff26934195ad0b21eb183c4,
+        type: 2}
+      propertyPath: snd
+      value: 
+      objectReference: {fileID: 900873618}
+    - target: {fileID: 114835538169669808, guid: 464b70964ff26934195ad0b21eb183c4,
+        type: 2}
+      propertyPath: director
+      value: 
+      objectReference: {fileID: 45700669}
     - target: {fileID: 114835538169669808, guid: 464b70964ff26934195ad0b21eb183c4,
         type: 2}
       propertyPath: MouseChild
@@ -2445,77 +2455,6 @@ Prefab:
       propertyPath: Center
       value: 
       objectReference: {fileID: 45700673}
-    - target: {fileID: 1871108117253274, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114835538169669808, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: director
-      value: 
-      objectReference: {fileID: 45700669}
-    - target: {fileID: 1871108117253274, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 114455459537510532, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: snd
-      value: 
-      objectReference: {fileID: 900873618}
-    - target: {fileID: 212127606700284762, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 104f10f76c062de4fbf6781619d3fe06,
-        type: 3}
-    - target: {fileID: 4197901985365158, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4197901985365158, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4197901985365158, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61058013664393038, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.6666666
-      objectReference: {fileID: 0}
-    - target: {fileID: 61058013664393038, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.6666666
-      objectReference: {fileID: 0}
-    - target: {fileID: 61058013664393038, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61058013664393038, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50575528462040484, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 61058013664393038, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212127606700284762, guid: 464b70964ff26934195ad0b21eb183c4,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 464b70964ff26934195ad0b21eb183c4, type: 2}
   m_IsPrefabParent: 0
