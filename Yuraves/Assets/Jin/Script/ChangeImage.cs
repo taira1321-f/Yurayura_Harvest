@@ -12,11 +12,13 @@ public class ChangeImage : MonoBehaviour {
         MainSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 	}
 	void Update () {
+
 	}
 
     public void ChangeStateToHold(){
         //SpriteRenderのspriteを設定済みの他のspriteに変更
         //例）HoldSpriteに変更
+        this.GetComponent<WaterEffect>().WaterEffectPlay();
         MainSpriteRenderer.sprite = HoldSprite[0];
     }
     

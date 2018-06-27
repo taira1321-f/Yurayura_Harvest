@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MandState : MonoBehaviour {
+public class MandState : MonoBehaviour
+{
     //定数
     const float ClickMaxTime = 0.5f;
     const float MouseDistanceY = 1.5f;
@@ -32,7 +33,8 @@ public class MandState : MonoBehaviour {
     bool AnimeFlg;
     //以下の関数はすべてprivateなので省略します。
 
-    void Start(){
+    void Start()
+    {
         GM = GameObject.FindGameObjectWithTag("Spawn");
         GD = GameObject.Find("Director");
         Player = GameObject.Find("RotationManager");
@@ -45,41 +47,54 @@ public class MandState : MonoBehaviour {
         AnimeCnt = 0;
     }
 
-    void Initialize(){
+    void Initialize()
+    {
         ClickTime = 0.0f;
         KeepFlg = false;
     }
 
-    void Update(){
+    void Update()
+    {
         if (GD.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
-        switch (ctype){
+        switch (ctype)
+        {
             case CalotteType.FLEE:
-                if (Input.GetMouseButton(0)){
-                    if (KeepFlg){
+                if (Input.GetMouseButton(0))
+                {
+                    if (KeepFlg)
+                    {
                         ClickTime += Time.deltaTime;
-                        if (sndCnt == 0){
+                        if (sndCnt == 0)
+                        {
                             Sound.GetComponent<SoundsManager>().Mandragora(0, 0);
                             sndCnt = 1;
                         }
-                        if (ClickTime >= ClickMaxTime){
+                        if (ClickTime >= ClickMaxTime)
+                        {
                             SetParent();
                             GetComponent<SpriteRenderer>().sprite = Mand[0];
-                            if (sndCnt == 1){
-                                Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
-                                sndCnt = 2;
-                            }else if (sndCnt == 2) {
+                            if (sndCnt == 1)
+                            {
                                 Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
                                 sndCnt = 2;
                             }
+                            else if (sndCnt == 2)
+                            {
+                                Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
+                                sndCnt = 2;
+                            }
+
+                            this.GetComponent<HarvestEffect>().EffectPlay();
                             ctype = CalotteType.KEEP;
                         }
                     }
                 }
                 break;
             case CalotteType.KEEP:  //揺れる
-                if (Input.GetMouseButtonUp(0)){
+                if (Input.GetMouseButtonUp(0))
+                {
                     ctype = CalotteType.RESET;
-                } 
+                }
                 break;
             case CalotteType.RESET:  //揺れる
                 NoneParent();
@@ -88,37 +103,48 @@ public class MandState : MonoBehaviour {
                 break;
 
             case CalotteType.FALL:
-                switch (fallStatus){
+                switch (fallStatus)
+                {
                     case FallStatus.FALL:
                         GetComponent<SpriteRenderer>().sprite = Mand[0];
                         if (this.gameObject.transform.position.x >= 0) AnimeFlg = true;
                         else AnimeFlg = false;
-                        if (LatencyTime <= LatencyMaxTime){
+                        if (LatencyTime <= LatencyMaxTime)
+                        {
                             LatencyTime += Time.deltaTime;
                             this.gameObject.transform.position -= new Vector3(0, MoveSpeed, 0);
-                        }else{
+                        }
+                        else
+                        {
                             fallStatus = FallStatus.OROORO;
                             LatencyTime = 0.0f;
                         }
                         break;
                     case FallStatus.OROORO:
                         Flight_Anime();
-                        if (LatencyTime <= OroOroTime){
+                        if (LatencyTime <= OroOroTime)
+                        {
                             LatencyTime += Time.deltaTime;
-                        }else{
+                        }
+                        else
+                        {
                             fallStatus = FallStatus.FLIGHT;
                             LatencyTime = 0.0f;
                         }
                         break;
                     case FallStatus.FLIGHT:
                         Flight_Anime();
-                        if (this.gameObject.transform.position.x >= 0){
+                        if (this.gameObject.transform.position.x >= 0)
+                        {
                             this.gameObject.transform.position += new Vector3(FlightSpeed, 0.0f, 0.0f);
-                        }else{
+                        }
+                        else
+                        {
                             this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }
                         if (gameObject.transform.position.x >= 4.0f || gameObject.transform.position.x <= -4.0f
-                            || gameObject.transform.position.y >= 6.0f || gameObject.transform.position.y <= -5.5f){
+                            || gameObject.transform.position.y >= 6.0f || gameObject.transform.position.y <= -5.5f)
+                        {
                             GameObject go = GameObject.FindGameObjectWithTag("Spawn");
                             go.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
                             Destroy(gameObject);
@@ -128,46 +154,65 @@ public class MandState : MonoBehaviour {
                 break;
         }
     }
-    void Flight_Anime() {
+    void Flight_Anime()
+    {
         AnimeCnt++;
-        if (AnimeFlg){
-            if (AnimeCnt > 24) {
+        if (AnimeFlg)
+        {
+            if (AnimeCnt > 24)
+            {
                 AnimeCnt = 0;
-                GetComponent<SpriteRenderer>().sprite = Mand[3]; 
-            }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[4];                
-        }else {
-            if (AnimeCnt > 24){
+                GetComponent<SpriteRenderer>().sprite = Mand[3];
+            }
+            else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[4];
+        }
+        else
+        {
+            if (AnimeCnt > 24)
+            {
                 AnimeCnt = 0;
                 GetComponent<SpriteRenderer>().sprite = Mand[5];
-            }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[6];
+            }
+            else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[6];
         }
     }
-    void OnTriggerStay2D(Collider2D other){ 
+    void OnTriggerStay2D(Collider2D other)
+    {
         if (other.tag == "Player") KeepFlg = true;
         //どの温泉に浸かっているかチェック
         GameObject Spring = other.gameObject;
-        if (ctype == CalotteType.FALL){
+        if (ctype == CalotteType.FALL)
+        {
             GM = GameObject.FindGameObjectWithTag("Spawn");
-            if (other.gameObject.name == "HotSpring_1"){
+            if (other.gameObject.name == "HotSpring_1")
+            {
                 Changer(Spring, 0);
-            }else if (other.gameObject.name == "HotSpring_2"){
+            }
+            else if (other.gameObject.name == "HotSpring_2")
+            {
                 Changer(Spring, 1);
-            }else if (other.gameObject.name == "HotSpring_3"){
+            }
+            else if (other.gameObject.name == "HotSpring_3")
+            {
                 Changer(Spring, 2);
-            }else if (other.gameObject.name == "HotSpring_4"){
+            }
+            else if (other.gameObject.name == "HotSpring_4")
+            {
                 Changer(Spring, 3);
             }
         }
     }
-    void Changer(GameObject sp, int i){
+    void Changer(GameObject sp, int i)
+    {
         sp.GetComponent<ChangeImage>().ChangeStateToHold(); //温泉の画像差し替え
         sp.GetComponent<BoxCollider2D>().enabled = false;   //当たり判定消す
         AddScore();
         GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
         GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
-        
+
     }
-    void AddScore(){
+    void AddScore()
+    {
         Director.MandCont++;
         int om = gameObject.GetComponent<Yogi.ChangeObjectMode>().ObjectMode;
         int mg = SM.SizePoint;
@@ -178,22 +223,26 @@ public class MandState : MonoBehaviour {
         if (mg == 0) add *= (mg + 1);
         else add *= mg;
         Director.Score += add;
-        
+
     }
-    void OnTriggerExit2D(Collider2D other){
-        if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL)
+        {
             Destroy(gameObject);
         }
         if (other.tag == "Player") Initialize();
     }
-    void SetParent(){
+    void SetParent()
+    {
         gameObject.transform.parent = Player.transform;
         gameObject.transform.position = new Vector3(Player.transform.position.x,
             Player.transform.position.y, Player.transform.position.z);
         gameObject.transform.position -= new Vector3(0.0f, MouseDistanceY, 0.0f);
 
     }
-    void NoneParent(){
+    void NoneParent()
+    {
         gameObject.transform.parent = null;
         //gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
