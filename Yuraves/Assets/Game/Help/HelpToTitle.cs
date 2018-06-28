@@ -17,11 +17,11 @@ public class HelpToTitle : FadeScript {
     {
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
-        if (ToTitleFlg == 1&&A >= 1.0f )
+        if (ToTitleFlg == 1&&Alfa >= 1.0f )
         {
             SceneManager.LoadScene("TitleScene");//シーン移動
         }
-        if (A <= 0.0f)
+        if (Alfa <= 0.0f)
         {
             FadeInFlg = false;
         }

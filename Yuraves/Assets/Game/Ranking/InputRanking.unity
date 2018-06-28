@@ -1853,6 +1853,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 212679606679578038, guid: e07e8e7ef35fe9f4d9b0fa7ec2374d0e,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e07e8e7ef35fe9f4d9b0fa7ec2374d0e, type: 2}
   m_IsPrefabParent: 0
@@ -1962,11 +1967,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aefd9bf12707044b73b23b69701d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1947821048}
-  A: 1
-  R: 0
-  G: 0
-  B: 0
+  FadePanel: {fileID: 1947821048}
+  Alfa: 0
+  Red: 0
+  Green: 0
+  Blue: 0
   FadeOutFlg: 0
   FadeInFlg: 0
   sound: {fileID: 613100710}
@@ -1981,11 +1986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aa55cc9eb9bde4691c8c5f89892ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1947821048}
-  A: 1
-  R: 0
-  G: 0
-  B: 0
+  FadePanel: {fileID: 1947821048}
+  Alfa: 0
+  Red: 0
+  Green: 0
+  Blue: 0
   FadeOutFlg: 0
   FadeInFlg: 0
   sound: {fileID: 613100710}

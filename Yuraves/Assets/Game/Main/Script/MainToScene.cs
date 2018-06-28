@@ -14,8 +14,8 @@ public class MainToScene : FadeScript {
 	void Update () {
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
-        if (FadeFlg == 1 && A >= 1.0f) SelectSound();
-        if (A <= 0.0f) FadeInFlg = false;
+        if (FadeFlg == 1 && Alfa >= 1.0f) SelectSound();
+        if (Alfa <= 0.0f) FadeInFlg = false;
 	}
 
     void SelectSound() {

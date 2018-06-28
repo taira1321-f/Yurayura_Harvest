@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TitleToHelp : FadeScript{
-    int ToHelpFlg = 0;
+    bool ToHelpFlg;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start(){
+        ToHelpFlg = false;
         FadeInFlg = true;
     }
 
@@ -17,13 +17,10 @@ public class TitleToHelp : FadeScript{
     {
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
-        if (ToHelpFlg == 1 && A >=1.0f)
-        {
-            SceneManager.LoadScene("HelpScene");
-        }
-        if (A <= 0.0f)
-        {
+        if (ToHelpFlg && ((int)Alfa >= 1)) SceneManager.LoadScene("HelpScene");
+        if (Alfa <= 0.0f){
             FadeInFlg = false;
+            Alfa = 0;
         }
 
     }
@@ -31,6 +28,6 @@ public class TitleToHelp : FadeScript{
     public void SceneChange(){
         Sound(0);
         FadeOutFlg = true;
-        ToHelpFlg = 1;
+        ToHelpFlg = true;
     }
 }

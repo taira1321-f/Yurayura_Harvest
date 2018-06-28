@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fbf36b4d17dac2489f0cf093c86435a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1440291883}
+  FadePanel: {fileID: 1440291883}
   A: 1
   R: 0
   G: 0
@@ -3288,6 +3288,11 @@ Prefab:
     - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
         type: 2}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

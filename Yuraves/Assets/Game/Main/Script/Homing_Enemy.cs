@@ -61,7 +61,6 @@ public class Homing_Enemy : MonoBehaviour {
         if (rot <= -maxRot) rot = -maxRot;
         
         rtt.z += rot;
-        //Debug.Log(rtt);
         transform.eulerAngles = new Vector3(rtt.x, rtt.y, rtt.z);
         GetComponent<Rigidbody2D>().velocity = AB * speed; // 上に移動
     }

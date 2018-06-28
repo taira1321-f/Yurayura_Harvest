@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615a1fc63033d00498d3abe15d133c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 787601405}
+  FadePanel: {fileID: 787601405}
   A: 0
   R: 0
   G: 0

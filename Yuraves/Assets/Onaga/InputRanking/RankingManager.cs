@@ -94,23 +94,18 @@ public class RankingManager : MonoBehaviour
             {
                 case 0:
                     PlayerPrefs.SetInt(Ranking1, Ranking[i]);
-                    Debug.Log(PlayerPrefs.GetInt(Ranking1, 0));
                     break;
                 case 1:
                     PlayerPrefs.SetInt(Ranking2, Ranking[i]);
-                    Debug.Log(PlayerPrefs.GetInt(Ranking2, 0));
                     break;
                 case 2:
                     PlayerPrefs.SetInt(Ranking3, Ranking[i]);
-                    Debug.Log(PlayerPrefs.GetInt(Ranking3, 0));
                     break;
                 case 3:
                     PlayerPrefs.SetInt(Ranking4, Ranking[i]);
-                    Debug.Log(PlayerPrefs.GetInt(Ranking4, 0));
                     break;
                 case 4:
                     PlayerPrefs.SetInt(Ranking5, Ranking[i]);
-                    Debug.Log(PlayerPrefs.GetInt(Ranking5, 0));
                     break;
             }
             PlayerPrefs.Save(); 

@@ -7,8 +7,8 @@ public class MandoragoraDraw : MonoBehaviour
     public int CatchMandoragoraCreate;
     public int MaxMandoragoraCreate;
     public GameObject Mandragora;
-    private int[,] DrawCounter;
-    private int CounterX, CounterY;
+    int CounterX;
+    int CounterY;
     private bool CreateFlg = true;
     private int CreateCouter;
     void Start(){
@@ -16,7 +16,6 @@ public class MandoragoraDraw : MonoBehaviour
         MaxMandoragoraCreate = 30;
         CounterY = MaxMandoragoraCreate / 5;
         CounterX = MaxMandoragoraCreate / CounterY;
-        DrawCounter = new int[CounterX, CounterY];
     }
 
     void Update(){

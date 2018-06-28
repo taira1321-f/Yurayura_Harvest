@@ -490,7 +490,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 659b3cb094d8101478c43bf47794eb24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a48fc53fd47a7440b330110c38b84b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -600,6 +600,11 @@ Prefab:
     - target: {fileID: 1690730591126108, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
@@ -993,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f26e24b8afe5a94eacfe4ef1b4a3df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1000366160}
+  FadePanel: {fileID: 1000366160}
   A: 0
   R: 0
   G: 0

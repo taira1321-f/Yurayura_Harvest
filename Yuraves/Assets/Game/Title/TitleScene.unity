@@ -648,43 +648,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.014705896
-      objectReference: {fileID: 0}
-    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212917930518859802, guid: 1975dac1b64ca7f449b274b9d2428781,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1690730591126108, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526955108243496, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
   m_IsPrefabParent: 0
@@ -790,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4366eee38bf0784c84a764d90b51df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1798108678}
+  FadePanel: {fileID: 1798108678}
   A: 1
   R: 0
   G: 0
@@ -1241,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10da73fe008d81342afe617bfcde5a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1798108678}
+  FadePanel: {fileID: 1798108678}
   A: 1
   R: 0
   G: 0
@@ -1410,7 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab893e5c6b56ae44aa6034f681e48ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadePanelSpriteRenderer: {fileID: 1798108678}
+  FadePanel: {fileID: 1798108678}
   A: 1
   R: 0
   G: 0

@@ -3,46 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class FadeScript : MonoBehaviour {
-    public SpriteRenderer FadePanelSpriteRenderer;
-    public float A;
-    public float R;
-    public float G;
-    public float B;
+    public SpriteRenderer FadePanel;
+    public float Alfa;
+    public float Red;
+    public float Green;
+    public float Blue;
     public bool FadeOutFlg = false;
     public bool FadeInFlg;
     public GameObject sound;
-    float Add=0.05f;
+    const float Add = 0.05f;
+    float time;
     // Use this for initialization
     void Start () {
-        FadePanelSpriteRenderer = GetComponent<SpriteRenderer>();
-        A = GetComponent<SpriteRenderer>().color.a;
-        R = GetComponent<SpriteRenderer>().color.r;
-        G = GetComponent<SpriteRenderer>().color.g;
-        B = GetComponent<SpriteRenderer>().color.b;
+        FadePanel = GetComponent<SpriteRenderer>();
+        Alfa = FadePanel.color.a;
+        Red = FadePanel.color.r;
+        Green = FadePanel.color.g;
+        Blue = FadePanel.color.b;
     }
-	
-	// Update is called once per frame
-    void Update() { }
-
-    public void FadeOut(){
-        A += Add;
-        FadePanelSpriteRenderer.color = new Color(R, G, B, A);
+    void Update() {
+        if (time >= 5.0f){
+            Alfa = 0;
+        } 
+        else time += Time.deltaTime;
+    }
+    void FadeOut(){
+        Alfa += Add;
+        FadePanel.color = new Color(Red, Green, Blue, Alfa);
     }
     //FadeInFlgを入れる関数
     public void FadeOutSet(bool a){
         if (a) FadeOut();
     }
-
-
-    public void FadeIn(){
-        A -= Add;
-        FadePanelSpriteRenderer.color = new Color(R, G, B, A);
+    
+    void FadeIn(){
+        Alfa -= Add;
+        FadePanel.color = new Color(Red, Green, Blue, Alfa);
     }
 
-    public void FadeInSet(bool b)
-    {
+    public void FadeInSet(bool b){
         if (b) FadeIn();
     }
+
     public void Sound(int i) {
         if (i == 1) sound.GetComponent<SoundsManager>().Select();
         else if (i == 2) sound.GetComponent<HelpSound>().Select();
