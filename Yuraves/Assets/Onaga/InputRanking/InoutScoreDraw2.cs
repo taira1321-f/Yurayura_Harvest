@@ -57,7 +57,6 @@ public class InoutScoreDraw2 : MonoBehaviour
 
     void AdjustLoopCount(int z)
     {
-        Debug.Log(z);
 
         LoopCount -= z;
 

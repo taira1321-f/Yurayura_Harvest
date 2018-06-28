@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InoutScoreDraw1 : MonoBehaviour
-{
-
+public class InoutScoreDraw1 : MonoBehaviour{
     public int Score = 0;
     private int Scorenum;
 
@@ -17,19 +15,12 @@ public class InoutScoreDraw1 : MonoBehaviour
     private int LoopCount = 0;
     private bool CountEndFlg = false;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        if (!CountEndFlg)
-        {
+    void Update(){
+        if (!CountEndFlg){
             Score = PlayerPrefs.GetInt("RankingNumber1", 0);
             LoopCount += 30;
 
-            if (LoopCount <= Score)
-            {
+            if (LoopCount <= Score){
                 int S;
                 Scorenum = LoopCount;
                 SetImage(ThousandImage, Scorenum / 1000 % 10);
@@ -48,18 +39,14 @@ public class InoutScoreDraw1 : MonoBehaviour
                 S = Scorenum / 1;
                 Scorenum -= S * 1;
 
-            }
-            else if (LoopCount >= Score)
-            {
+            }else if (LoopCount >= Score){
                 AdjustLoopCount(LoopCount - Score);
             }
         }
     }
 
-    void AdjustLoopCount(int z)
-    {
-        Debug.Log(z);
-
+    void AdjustLoopCount(int z){
+        
         LoopCount -= z;
 
         int S;
@@ -83,8 +70,7 @@ public class InoutScoreDraw1 : MonoBehaviour
         CountEndFlg = true;
 
     }
-    void SetImage(GameObject TargetObject, int SubScore)
-    {
+    void SetImage(GameObject TargetObject, int SubScore){
         TargetObject.GetComponent<Image>().sprite = S_Image[SubScore];
     }
 }

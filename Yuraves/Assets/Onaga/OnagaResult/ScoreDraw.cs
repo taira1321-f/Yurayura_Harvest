@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreDraw : MonoBehaviour
-{
+public class ScoreDraw : MonoBehaviour{
     public int Score;
     private int Scorenum;
 
@@ -15,19 +14,15 @@ public class ScoreDraw : MonoBehaviour
     public Sprite[] S_Image;
     private int LoopCount = 0;
     private bool CountEndFlg = false;
-    void Start()
-    {
+    void Start(){
         Score = Director.Score;
     }
 
-    void Update()
-    {
-        if (!CountEndFlg)
-        {
+    void Update(){
+        if (!CountEndFlg){
             LoopCount += 30;
 
-            if (LoopCount <= Score)
-            {
+            if (LoopCount <= Score){
                 int S;
                 Scorenum = LoopCount;
                 SetImage(ThousandImage, Scorenum / 1000 % 10);
@@ -45,17 +40,13 @@ public class ScoreDraw : MonoBehaviour
                 SetImage(OneImage, Scorenum % 10);
                 S = Scorenum / 1;
                 Scorenum -= S * 1; 
-            }
-            else if (LoopCount >= Score)
-            {
+            }else if (LoopCount >= Score){
                 AdjustLoopCount(LoopCount - Score);
             }
         }
     }
 
-    void AdjustLoopCount(int z)
-    {
-        Debug.Log(z);
+    void AdjustLoopCount(int z){
 
         LoopCount -= z;
 
@@ -81,8 +72,7 @@ public class ScoreDraw : MonoBehaviour
 
     }
 
-    void SetImage(GameObject Image, int SubScore)
-    {
+    void SetImage(GameObject Image, int SubScore){
         Image.GetComponent<Image>().sprite = S_Image[SubScore];
     }
 }
