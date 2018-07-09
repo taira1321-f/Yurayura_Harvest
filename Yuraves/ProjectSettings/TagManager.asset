@@ -10,6 +10,11 @@ TagManager:
   - Player_sub
   - target
   - Enemy
+<<<<<<< HEAD
+=======
+  - FxTemporaire
+  - Effect
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   layers:
   - Default
   - TransparentFX
@@ -44,11 +49,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: New Layer
     uniqueID: 3808325615
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: New Layer
     uniqueID: 3810921941

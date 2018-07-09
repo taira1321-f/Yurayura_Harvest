@@ -10,8 +10,13 @@ public class RankingToResult : FadeScript{
     void Update(){
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
+<<<<<<< HEAD
         if (ToStartFlg == 1 && A >= 1.0f) SceneManager.LoadScene("TitleScene");//シーン移動
         if (A <= 0.0f) FadeInFlg = false;
+=======
+        if (ToStartFlg == 1 && Alfa >= 1.0f) SceneManager.LoadScene("TitleScene");//シーン移動
+        if (Alfa <= 0.0f) FadeInFlg = false;
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     }
 
     public void SceneChange(){

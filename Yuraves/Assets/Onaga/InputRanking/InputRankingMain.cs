@@ -19,12 +19,12 @@ public class InputRankingMain : FadeScript
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
 
-        if (ToStartFlg == 1 && A >= 1.0f)
+        if (ToStartFlg == 1 && Alfa >= 1.0f)
         {
             SceneManager.LoadScene("MainScene");//シーン移動
         }
 
-        if (A <= 0.0f)
+        if (Alfa <= 0.0f)
         {
             FadeInFlg = false;
         }

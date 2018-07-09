@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Yuraves/Assets/Yamazato/prefab.meta
 guid: df2d9109cdc545a4e89dc07bdd73ad07
 folderAsset: yes
 timeCreated: 1530008217
+=======
+guid: 0173702cbe367d842870a536e7cd6aa4
+folderAsset: yes
+timeCreated: 1530005515
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Yamazato/prefab.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 public class MandState : MonoBehaviour {
+=======
+public class MandState : MonoBehaviour{
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     //定数
     const float ClickMaxTime = 0.5f;
     const float MouseDistanceY = 1.5f;
@@ -67,19 +71,31 @@ public class MandState : MonoBehaviour {
                             if (sndCnt == 1){
                                 Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
                                 sndCnt = 2;
+<<<<<<< HEAD
                             }else if (sndCnt == 2) {
                                 Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
                                 sndCnt = 2;
                             }
+=======
+                            }else if (sndCnt == 2){
+                                Sound.GetComponent<SoundsManager>().Mandragora(2, sndCnt);
+                                sndCnt = 2;
+                            }
+                            this.GetComponent<HarvestEffect>().EffectPlay();
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                             ctype = CalotteType.KEEP;
                         }
                     }
                 }
                 break;
             case CalotteType.KEEP:  //揺れる
+<<<<<<< HEAD
                 if (Input.GetMouseButtonUp(0)){
                     ctype = CalotteType.RESET;
                 } 
+=======
+                if (Input.GetMouseButtonUp(0)) ctype = CalotteType.RESET;
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                 break;
             case CalotteType.RESET:  //揺れる
                 NoneParent();
@@ -103,20 +119,30 @@ public class MandState : MonoBehaviour {
                         break;
                     case FallStatus.OROORO:
                         Flight_Anime();
+<<<<<<< HEAD
                         if (LatencyTime <= OroOroTime){
                             LatencyTime += Time.deltaTime;
                         }else{
+=======
+                        if (LatencyTime <= OroOroTime) LatencyTime += Time.deltaTime;
+                        else{
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                             fallStatus = FallStatus.FLIGHT;
                             LatencyTime = 0.0f;
                         }
                         break;
                     case FallStatus.FLIGHT:
                         Flight_Anime();
+<<<<<<< HEAD
                         if (this.gameObject.transform.position.x >= 0){
                             this.gameObject.transform.position += new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }else{
                             this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
                         }
+=======
+                        if (this.gameObject.transform.position.x >= 0) this.gameObject.transform.position += new Vector3(FlightSpeed, 0.0f, 0.0f);
+                        else this.gameObject.transform.position -= new Vector3(FlightSpeed, 0.0f, 0.0f);
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                         if (gameObject.transform.position.x >= 4.0f || gameObject.transform.position.x <= -4.0f
                             || gameObject.transform.position.y >= 6.0f || gameObject.transform.position.y <= -5.5f){
                             GameObject go = GameObject.FindGameObjectWithTag("Spawn");
@@ -128,6 +154,7 @@ public class MandState : MonoBehaviour {
                 break;
         }
     }
+<<<<<<< HEAD
     void Flight_Anime() {
         AnimeCnt++;
         if (AnimeFlg){
@@ -136,18 +163,34 @@ public class MandState : MonoBehaviour {
                 GetComponent<SpriteRenderer>().sprite = Mand[3]; 
             }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[4];                
         }else {
+=======
+    void Flight_Anime(){
+        AnimeCnt++;
+        if (AnimeFlg){
+            if (AnimeCnt > 24){
+                AnimeCnt = 0;
+                GetComponent<SpriteRenderer>().sprite = Mand[3];
+            }
+            else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[4];
+        }else{
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
             if (AnimeCnt > 24){
                 AnimeCnt = 0;
                 GetComponent<SpriteRenderer>().sprite = Mand[5];
             }else if (AnimeCnt > 12) GetComponent<SpriteRenderer>().sprite = Mand[6];
         }
     }
+<<<<<<< HEAD
     void OnTriggerStay2D(Collider2D other){ 
+=======
+    void OnTriggerStay2D(Collider2D other){
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
         if (other.tag == "Player") KeepFlg = true;
         //どの温泉に浸かっているかチェック
         GameObject Spring = other.gameObject;
         if (ctype == CalotteType.FALL){
             GM = GameObject.FindGameObjectWithTag("Spawn");
+<<<<<<< HEAD
             if (other.gameObject.name == "HotSpring_1"){
                 Changer(Spring, 0);
             }else if (other.gameObject.name == "HotSpring_2"){
@@ -157,6 +200,12 @@ public class MandState : MonoBehaviour {
             }else if (other.gameObject.name == "HotSpring_4"){
                 Changer(Spring, 3);
             }
+=======
+            if (other.gameObject.name == "HotSpring_1") Changer(Spring, 0);
+            else if (other.gameObject.name == "HotSpring_2") Changer(Spring, 1);
+            else if (other.gameObject.name == "HotSpring_3") Changer(Spring, 2);
+            else if (other.gameObject.name == "HotSpring_4") Changer(Spring, 3);
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
         }
     }
     void Changer(GameObject sp, int i){
@@ -165,7 +214,10 @@ public class MandState : MonoBehaviour {
         AddScore();
         GM.GetComponent<MandGeneretor>().HotSpringFlag[i] = true;
         GM.GetComponent<MandGeneretor>().MandGene(gameObject.transform.name);
+<<<<<<< HEAD
         
+=======
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     }
     void AddScore(){
         Director.MandCont++;
@@ -178,12 +230,19 @@ public class MandState : MonoBehaviour {
         if (mg == 0) add *= (mg + 1);
         else add *= mg;
         Director.Score += add;
+<<<<<<< HEAD
         
     }
     void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL){
             Destroy(gameObject);
         }
+=======
+
+    }
+    void OnTriggerExit2D(Collider2D other){
+        if (other.gameObject.CompareTag("Spring") && ctype == CalotteType.FALL) Destroy(gameObject);
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
         if (other.tag == "Player") Initialize();
     }
     void SetParent(){
@@ -195,6 +254,9 @@ public class MandState : MonoBehaviour {
     }
     void NoneParent(){
         gameObject.transform.parent = null;
+<<<<<<< HEAD
         //gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+=======
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     }
 }

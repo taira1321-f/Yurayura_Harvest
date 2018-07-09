@@ -16,8 +16,13 @@ public class ResultToScene : FadeScript {
 	void Update () {
         FadeOutSet(FadeOutFlg);
         FadeInSet(FadeInFlg);
+<<<<<<< HEAD
         if (FadeFlg == 1 && A >= 1.0f) Select();
         else if (A <= 0.0f) FadeInFlg = false;
+=======
+        if (FadeFlg == 1 && Alfa >= 1.0f) Select();
+        else if (Alfa <= 0.0f) FadeInFlg = false;
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
 	}
     void Select() {
         Sound(4);

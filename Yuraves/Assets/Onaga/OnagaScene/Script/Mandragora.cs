@@ -23,11 +23,16 @@ public class Mandragora : MonoBehaviour
     public float LatencyMaxTime = 0.5f;
     public float OroOroTime = 1.0f;
     private float LatencyTime;
+<<<<<<< HEAD
     private float PositionX, PositionY, PositionZ;
     //以下の関数はすべてprivateなので省略します。
 
     void Start()
     {
+=======
+
+    void Start(){
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
         Player = GameObject.Find("RotationManager");
         ClickTime = 0.0f;
         KeepFlg = false;
@@ -67,9 +72,12 @@ public class Mandragora : MonoBehaviour
                 break;
             case CalotteType.RESET:  //揺れる
                 NoneParent();
+<<<<<<< HEAD
                 PositionX = this.gameObject.transform.position.x;
                 PositionY = this.gameObject.transform.position.y;
                 PositionZ = this.gameObject.transform.position.z;
+=======
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                 ctype = CalotteType.FALL;
                 break;
 

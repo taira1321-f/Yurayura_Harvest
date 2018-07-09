@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+<<<<<<< HEAD
 public class ScoreDraw : MonoBehaviour
 {
+=======
+public class ScoreDraw : MonoBehaviour{
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     public int Score;
     private int Scorenum;
 
@@ -19,6 +23,7 @@ public class ScoreDraw : MonoBehaviour
         Score = Director.Score;
     }
 
+<<<<<<< HEAD
     void Update()
     {
         if (!CountEndFlg)
@@ -27,6 +32,13 @@ public class ScoreDraw : MonoBehaviour
 
             if (LoopCount <= Score)
             {
+=======
+    void Update(){
+        if (!CountEndFlg){
+            LoopCount += 30;
+
+            if (LoopCount <= Score){
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
                 int S;
                 Scorenum = LoopCount;
                 SetImage(ThousandImage, Scorenum / 1000 % 10);
@@ -43,6 +55,7 @@ public class ScoreDraw : MonoBehaviour
 
                 SetImage(OneImage, Scorenum % 10);
                 S = Scorenum / 1;
+<<<<<<< HEAD
                 Scorenum -= S * 1;
 
                 if (LoopCount == Score)
@@ -52,6 +65,41 @@ public class ScoreDraw : MonoBehaviour
             }
         }
     }
+=======
+                Scorenum -= S * 1; 
+            }else if (LoopCount >= Score){
+                AdjustLoopCount(LoopCount - Score);
+            }
+        }
+    }
+
+    void AdjustLoopCount(int z){
+
+        LoopCount -= z;
+
+        int S;
+        Scorenum = LoopCount;
+        SetImage(ThousandImage, Scorenum / 1000 % 10);
+        S = Scorenum / 1000;
+        Scorenum -= S * 1000;
+
+        SetImage(HundredImage, Scorenum / 100 % 10);
+        S = Scorenum / 100;
+        Scorenum -= S * 100;
+
+        SetImage(TenImage, Scorenum / 10 % 10);
+        S = Scorenum / 10;
+        Scorenum -= S * 10;
+
+        SetImage(OneImage, Scorenum % 10);
+        S = Scorenum / 1;
+        Scorenum -= S * 1;
+
+        CountEndFlg = true;
+
+    }
+
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     void SetImage(GameObject Image, int SubScore){
         Image.GetComponent<Image>().sprite = S_Image[SubScore];
     }

@@ -936,7 +936,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615a1fc63033d00498d3abe15d133c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   FadePanelSpriteRenderer: {fileID: 787601405}
+=======
+  FadePanel: {fileID: 787601405}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   A: 0
   R: 0
   G: 0
@@ -1007,8 +1011,13 @@ Canvas:
   m_GameObject: {fileID: 1407915047}
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< HEAD
   m_RenderMode: 0
   m_Camera: {fileID: 0}
+=======
+  m_RenderMode: 1
+  m_Camera: {fileID: 1845436419}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1017,7 +1026,11 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
+<<<<<<< HEAD
   m_SortingOrder: 0
+=======
+  m_SortingOrder: 3
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   m_TargetDisplay: 0
 --- !u!224 &1407915051
 RectTransform:
@@ -1026,8 +1039,13 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407915047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 540, y: 960, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.0052083335, y: 0.0052083335, z: 0.0052083335}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   m_Children:
   - {fileID: 760754351}
   - {fileID: 888984967}
@@ -1065,7 +1083,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1469248866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: -638, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: -400, z: 0}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 2007665448}
@@ -1074,8 +1096,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 0, y: -638}
   m_SizeDelta: {x: 300, y: 90}
+=======
+  m_AnchoredPosition: {x: 0, y: -400}
+  m_SizeDelta: {x: 250, y: 90}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469248868
 MonoBehaviour:
@@ -1201,6 +1228,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 1690730591126108, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1975dac1b64ca7f449b274b9d2428781, type: 2}
   m_IsPrefabParent: 0

@@ -20,7 +20,10 @@ public class Seach_Player : MonoBehaviour {
     {
         if (col.gameObject.tag == "target"){
             SeachFlg = true;
+<<<<<<< HEAD
             Debug.Log("ロックオン");
+=======
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233
         }
     }
 }

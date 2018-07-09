@@ -25,6 +25,10 @@ GameObject:
   - component: {fileID: 114265996373687414}
   - component: {fileID: 114040589499898054}
   - component: {fileID: 114233478143678684}
+<<<<<<< HEAD:Yuraves/Assets/Game/Main/Mandoragora.prefab
+=======
+  - component: {fileID: 114010849481236680}
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Game/Main/Mandoragora.prefab
   m_Layer: 0
   m_Name: Mandoragora
   m_TagString: Mandragora
@@ -90,7 +94,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+<<<<<<< HEAD:Yuraves/Assets/Game/Main/Mandoragora.prefab
 --- !u!114 &114040589499898054
+=======
+--- !u!114 &114010849481236680
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Game/Main/Mandoragora.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,6 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1774581563574946}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Yuraves/Assets/Game/Main/Mandoragora.prefab
   m_Script: {fileID: 11500000, guid: 0efcc2ae835180544b223166c816173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -109,6 +118,14 @@ MonoBehaviour:
   Parent: {fileID: 0}
   Relation: {fileID: 0}
 --- !u!114 &114233478143678684
+=======
+  m_Script: {fileID: 11500000, guid: 55576c1af1bf0d848bd24e3523a096bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  particleObject: {fileID: 0}
+--- !u!114 &114040589499898054
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Game/Main/Mandoragora.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -116,6 +133,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1774581563574946}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Yuraves/Assets/Game/Main/Mandoragora.prefab
+  m_Script: {fileID: 11500000, guid: 239b7f2e5cd5768458f4ff38d5a2d41e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SizePoint: 0
+--- !u!114 &114265996373687414
+=======
+  m_Script: {fileID: 11500000, guid: 0efcc2ae835180544b223166c816173a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectMode: 0
+  Mand_Sp:
+  - {fileID: 21300000, guid: 09617d4b12d42a047963a7308c7fe641, type: 3}
+  - {fileID: 21300000, guid: 05d35c306a648be4a81130b1639fff62, type: 3}
+  - {fileID: 21300000, guid: bda1a08a43ca7764288b6b0b7aaa2f97, type: 3}
+  Parent: {fileID: 0}
+  Relation: {fileID: 0}
+--- !u!114 &114233478143678684
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Game/Main/Mandoragora.prefab
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774581563574946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+<<<<<<< HEAD:Yuraves/Assets/Game/Main/Mandoragora.prefab
+  m_Script: {fileID: 11500000, guid: e6dba4401b204274ba6af3bd512cd1b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+=======
   m_Script: {fileID: 11500000, guid: 239b7f2e5cd5768458f4ff38d5a2d41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -131,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dba4401b204274ba6af3bd512cd1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+>>>>>>> 3f050ed7a6488efa38676b220683cf09fc7f5233:Yuraves/Assets/Game/Main/Mandoragora.prefab
   Player: {fileID: 0}
   Sound: {fileID: 0}
   Mand:
