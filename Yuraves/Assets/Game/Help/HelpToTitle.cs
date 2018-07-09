@@ -20,12 +20,9 @@ public class HelpToTitle : FadeScript {
         if (ToTitleFlg == 1&&A >= 1.0f )
         {
             SceneManager.LoadScene("TitleScene");//シーン移動
-            Debug.Log("つうかしたー");
         }
-        Debug.Log("比較してるよー");
         if (A <= 0.0f)
         {
-            Debug.Log("フラグおります");
             FadeInFlg = false;
         }
 
@@ -33,6 +30,7 @@ public class HelpToTitle : FadeScript {
 
     public void SceneChange()
     {
+        Sound(0);
         FadeOutFlg = true;
         ToTitleFlg = 1;
         //SceneManager.LoadScene("DummyScene");

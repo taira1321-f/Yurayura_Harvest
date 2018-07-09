@@ -37,6 +37,7 @@ public class RankingToStart : FadeScript
 
     public void SceneChange()
     {
+        Sound(3);
         FadeOutFlg = true;
         ToStartFlg = 1;
 

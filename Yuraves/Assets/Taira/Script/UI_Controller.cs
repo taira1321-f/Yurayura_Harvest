@@ -8,7 +8,6 @@ public class UI_Controller : MonoBehaviour {
     public GameObject TimeGage;
     Slider slider;
     const float LimitTime = 60.0f;
-
     public GameObject ScoreText;
     int GetScore;
     
@@ -20,9 +19,8 @@ public class UI_Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Director.CountTime >= LimitTime) Director.CountTime = 0;
         slider.value = TimeSlider();
-        ScoreText.GetComponent<Text>().text = "Score:" + DebugScore();
+        ScoreText.GetComponent<Text>().text = "" + Score();
 	}
 
     float TimeSlider() {
@@ -33,7 +31,7 @@ public class UI_Controller : MonoBehaviour {
         return value;
     }
 
-    int DebugScore() {
+    int Score() {
         int score;
         score = Director.Score;
         return score;

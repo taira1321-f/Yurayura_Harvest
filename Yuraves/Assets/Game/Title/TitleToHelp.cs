@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleToHelp : FadeScript
-{
+public class TitleToHelp : FadeScript{
     int ToHelpFlg = 0;
 
     // Use this for initialization
@@ -20,22 +19,18 @@ public class TitleToHelp : FadeScript
         FadeInSet(FadeInFlg);
         if (ToHelpFlg == 1 && A >=1.0f)
         {
-            SceneManager.LoadScene("HelpScene");//シーン移動
-            Debug.Log("つうかしたー");
+            SceneManager.LoadScene("HelpScene");
         }
         if (A <= 0.0f)
         {
-            Debug.Log("フラグおります");
             FadeInFlg = false;
         }
 
     }
 
-    public void SceneChange()
-    {
+    public void SceneChange(){
+        Sound(0);
         FadeOutFlg = true;
-       
         ToHelpFlg = 1;
-        //SceneManager.LoadScene("DummyScene");
     }
 }

@@ -2,31 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace COy
+namespace Yogi
 {
     public class ChangeObjectMode : MonoBehaviour
     {
-
-        int ObjectMode = 0;
+        GameObject director;
+        public int ObjectMode = 0;
         int ObjectLifeSpan = 0;
-        GameObject go;
         int ObjectReBornSpan = 0;
-        Rigidbody2D ObjectRigit;
-        public GameObject MandragoraPrefub;
         static public int DamyFlg = 0;
         int OneceFlg = 0;
+        bool Holdflg;
+        MandState _Mand;
         int ObjectStepUpSpan = 0;
-        PolygonCollider2D ColiderObject;
         SpriteRenderer MandoragoraMainSprite;
- //       DamyChangeObject DamyStartScript;
-        Calotte CalotteScript;
         Object MousePointor;
-        public Sprite MandoragoraSprite01;
-        public Sprite MandoragoraSprite02;
-        public Sprite MandoragoraSprite03;
+        public Sprite[] Mand_Sp;
         public GameObject Parent;
         public GameObject Relation;
-        GameObject Damy;
         float ChangeAlpha = 0.0f;
         float Red;
         float Blue;
@@ -40,132 +33,77 @@ namespace COy
             ObjectReBornSpan = 0;
             ObjectStepUpSpan = 0;
             ChangeAlpha = 0.0f;
-            ObjectRigit = GetComponent<Rigidbody2D>();
             Red = GetComponent<SpriteRenderer>().color.r;
             Blue = GetComponent<SpriteRenderer>().color.b;
             Green = GetComponent<SpriteRenderer>().color.g;
             Alpha = GetComponent<SpriteRenderer>().color.a;
             MandoragoraMainSprite = gameObject.GetComponent<SpriteRenderer>();
-            //マンドラゴラを消す
             GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
-            GetComponent<PolygonCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            _Mand = GetComponent<MandState>();
             Relation = transform.root.gameObject;
-            Parent = GameObject.Find("Mousepointer");
-            Damy = GameObject.Find("MandragoraDamy");
-            //DamyStartScript = Damy.GetComponent<DamyChangeObject>();
-            CalotteScript = GetComponent<Calotte>();
+            director = GameObject.Find("Director");
         }
 
         // Update is called once per frame
-        void Update()
-        {
-            //if (Calotte.ctype != Calotte.CalotteType.KEEP)
-            //{
-            if (Parent != Relation)
-            {
-
-                if (this.transform.position.y < -6.0f)
-                {
-                    //ObjectMode = DamyChangeObject.ObjectMode;
-                    //ObjectLifeSpan = DamyChangeObject.ObjectLifeSpan;
-                    //ObjectReBornSpan = DamyChangeObject.ObjectReBornSpan;
-                    //ObjectStepUpSpan = DamyChangeObject.ObjectStepUpSpan;
-                    //ObjectRigit.bodyType = RigidbodyType2D.Kinematic;
-                    //transform.position = new Vector3(DamyChangeObject.transform.position.x, DamyChangeObject.transform.position.y, DamyChangeObject.transform.position.z);
-                    //this.transform.position = DamyChangeObject.DamyPos;
-
-
-                    //CalotteScript.KeepFlg = false;
-                    //go = Instantiate(MandragoraPrefub) as GameObject;
-                    //go.transform.position = Damy.transform.position;
-                    //go = Damy;
-                    //DamyChangeObject.ObjectMode = 0;
-                    //DamyChangeObject.ObjectStepUpSpan = 0;
-                    //DamyChangeObject.ObjectLifeSpan = 0;
-                    //DamyChangeObject.ObjectReBornSpan = 0;
-                    //DamyChangeObject.ChangeAlpha = 0.0f;
-
-                    //DamyStartScript.Start();
+        void Update(){
+            if (director.GetComponent<Director>().gameMode != Director.MODE.PLAY) return;
+            KeyGet();
+            if (Parent != Relation){
+                if (this.transform.position.y < -6.0f) {
                     DamyFlg = 0;
-                    Destroy(this.gameObject);
-
-
-
+                    Destroy(gameObject);
                 }
-                if (OneceFlg == 0)
-                {
-                    switch (ObjectMode)
-                    {
+                if (OneceFlg == 0){
+                    switch (ObjectMode){
                         case 0:
                             ObjectReBornSpan++;
-                            if (ObjectReBornSpan == 60)
-                            {
+                            if (ObjectReBornSpan == 60){
                                 ObjectReBornSpan = 0;
-                                if (Random.Range(0, 2) == 1)
-                                {
-                                    MandoragoraMainSprite.sprite = MandoragoraSprite01;
-                                    GetComponent<PolygonCollider2D>().enabled = true;
+                                if (Random.Range(0, 2) == 1){
+                                    MandoragoraMainSprite.sprite = Mand_Sp[0];
+                                    GetComponent<BoxCollider2D>().enabled = true;
                                     GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
                                     ObjectMode = 1;
-                                    Debug.Log("でたー");
                                 }
-                            };
+                            }
                             break;
                         case 1:
-                            ObjectStepUpSpan++;
-                            if (ObjectStepUpSpan == 300)
-                            {
-                                //GetComponent<PolygonCollider2D>().enabled = false;
-                                //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
+                            if (!Holdflg) ObjectStepUpSpan++;
+                            if (ObjectStepUpSpan >= 300){
                                 ObjectMode = 2;
                                 ObjectStepUpSpan = 0;
-                                MandoragoraMainSprite.sprite = MandoragoraSprite02;
-                                Debug.Log("かわったー");
+                                MandoragoraMainSprite.sprite = Mand_Sp[1];
                             }
                             break;
-
                         case 2:
-                            ObjectStepUpSpan++;
-                            if (ObjectStepUpSpan == 300)
-                            {
-                                //GetComponent<PolygonCollider2D>().enabled = false;
-                                //GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
+                            if (!Holdflg) ObjectStepUpSpan++;
+                            if (ObjectStepUpSpan >= 300) {
                                 ObjectMode = 3;
-                                MandoragoraMainSprite.sprite = MandoragoraSprite03;
+                                MandoragoraMainSprite.sprite = Mand_Sp[2];
                                 ObjectStepUpSpan = 0;
-                                Debug.Log("かわったー");
                             }
                             break;
-
                         case 3:
-                            ObjectLifeSpan++;
-                            if (ObjectLifeSpan == 300)
-                            {
-                                GetComponent<PolygonCollider2D>().enabled = false;
+                            if (!Holdflg) ObjectLifeSpan++;
+                            if (ObjectLifeSpan == 300) {
+                                GetComponent<BoxCollider2D>().enabled = false;
                                 GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, ChangeAlpha);
                                 ObjectLifeSpan = 0;
                                 ObjectMode = 0;
-                                Debug.Log("きえたー");
                             }
                             break;
                     }
                 }
 
             }
-            else if (Parent == Relation && OneceFlg == 0)
-            {
-                //DamyFlg = 1;
-                OneceFlg = 1;
-                go = Instantiate(MandragoraPrefub) as GameObject;
-                go.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-                //Damy.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-            }
-
-
             Relation = transform.root.gameObject;
-            //  }
+        }
 
-
+        //Holdflgの切り替え
+        void KeyGet(){
+            if (Input.GetMouseButton(0) && (_Mand.ctype != MandState.CalotteType.FLEE)) Holdflg = true;
+            else Holdflg = false;
         }
     }
 }
