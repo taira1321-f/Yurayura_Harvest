@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: f95ff734540a0d749be6571b6cb5b37f
+guid: 3312a09ae6251bb4f8a3a7e29497ffcb
 labels:
 - cartoonfx
 - hit
 - particles
 - text
 - toon
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77ec3c4e07a36814fb3169ecef41b50a
+guid: 50ce0ee82b08c1748a19385c73a6dddf
 labels:
 - ball
 - bubble
@@ -7,3 +7,9 @@ labels:
 - electric
 - particles
 - toon
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

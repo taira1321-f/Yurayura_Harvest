@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 352304b7fbe11f445970df6ae36e6227
+guid: 9e47082d46b067644a1b0d54da351e11
 labels:
 - cartoonfx
 - particles
 - tornado
 - toon
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 2a474af3f4c27be4e9bdce39cfe4315d
+guid: d92ae4850a346de40a1124f89c7299be
 labels:
 - cartoonfx
 - particles
 - virus
 - toon
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

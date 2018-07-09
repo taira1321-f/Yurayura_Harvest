@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60bc526f4be1e044ab9e46340b82ffb3
+guid: 21a25aac12a25ae46b38ad51aa498ac7
 labels:
 - CartoonFX
 - Toon
@@ -7,4 +7,8 @@ labels:
 - Magic
 - Aura
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 3156817f64ec68948ad6bb26569b9ef5
+guid: 5f8774ff62c39c144a4e0e3af3968335
 labels:
 - cartoonfx
 - particles
 - poof
 - toon
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

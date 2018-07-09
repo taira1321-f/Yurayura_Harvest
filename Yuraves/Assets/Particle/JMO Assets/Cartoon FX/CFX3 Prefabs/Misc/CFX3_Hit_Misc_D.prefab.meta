@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: 979632a27455af442bd2d8f36eb0ffce
+guid: 016d8a183b12bca4e95565eefaad16e5
 labels:
 - CartoonFX
 - Toon
 - Particles
 - Hit
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
